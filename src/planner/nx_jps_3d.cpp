@@ -91,7 +91,8 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal) {
   }
 
   Vec3i dim = _map_util->getDim();
-  char cmap[dim(0)*dim(1)*dim(2)];
+
+  std::vector<char> cmap(dim(0)*dim(1)*dim(2));
   for( int z = 0; z < dim(2); ++z)
     for( int y = 0; y < dim(1); ++y)
       for( int x = 0; x < dim(0); ++x)
@@ -104,7 +105,7 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal) {
 
   std::list<std::array<int,3>> xyzPath;
   nx::JPS_NEIB jn;
-  nx::JPS_3D JA(cmap, 0, dim(0), dim(1), dim(2), jn);
+  nx::JPS_3D JA(cmap.data(), 0, dim(0), dim(1), dim(2), jn);
 
   if(_planner_verbose){
     std::cout <<"StartI: " << _start_int.transpose() << std::endl;
