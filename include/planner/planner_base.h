@@ -4,7 +4,7 @@
 #include <stack>
 #include <boost/bind.hpp>
 #include <basic_type/data_utils.h>
-#include <collision_checking/voxel_map_util.h>
+#include <collision_checking/jps_voxel_map_util.h>
 
 class PlannerBase
 {

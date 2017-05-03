@@ -3,10 +3,10 @@
  * @brief VoxelMapUtil classes
  */
 
-#ifndef VOXEL_MAP_UTIL_H
-#define VOXEL_MAP_UTIL_H
+#ifndef JPS_VOXEL_MAP_UTIL_H
+#define JPS_VOXEL_MAP_UTIL_H
 
-#include <collision_checking/map_util_base.h>
+#include <collision_checking/jps_map_util_base.h>
 
 namespace JPS {
 class VoxelMapUtil
