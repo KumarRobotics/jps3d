@@ -19,7 +19,7 @@ PlannerBase::PlannerBase() {
   //*** -1 -- no path when s & g are available
 }
 
-void PlannerBase::setMapUtil(VoxelMapUtil *map_util) { _map_util = map_util; }
+void PlannerBase::setMapUtil(JPS::VoxelMapUtil *map_util) { _map_util = map_util; }
 
 int PlannerBase::status() { return _status; }
 

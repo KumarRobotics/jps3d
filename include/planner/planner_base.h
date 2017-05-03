@@ -11,7 +11,7 @@ class PlannerBase
  public:
   PlannerBase();
 
-  void setMapUtil(VoxelMapUtil* map_util);
+  void setMapUtil(JPS::VoxelMapUtil* map_util);
   int status();
   bool goal_outside();
   vec_Vec3f getPath();
@@ -23,7 +23,7 @@ class PlannerBase
 
   virtual bool plan(const Vec3f &start, const Vec3f &goal) = 0;
 
-  VoxelMapUtil* _map_util;
+  JPS::VoxelMapUtil* _map_util;
 
   vec_Vec3i _ns;
   vec_Vec3f _raw_path;

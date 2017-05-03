@@ -36,7 +36,7 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal) {
       _status = 1;
       return false;
     }
-    _map_util->clearAround(_start_int);
+    //_map_util->clearAround(_start_int);
     _status = 1;
     return false;
   }

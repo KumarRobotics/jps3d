@@ -8,6 +8,7 @@
 
 #include <collision_checking/map_util_base.h>
 
+namespace JPS {
 class VoxelMapUtil
     : public MapUtilBase<Vec3i, Vec3f, std::vector<signed char>> {
 public:
@@ -220,13 +221,7 @@ public:
     std::fill(map_.begin(), map_.end(), val_unknown);
   }
 
-  void clearAround(const Vec3i& n)
-  {
-    if(!isOutSide(n))
-      map_[getIndex(n)] = val_free;
-  }
-
-  void clearArround(const Vec3i& pn, decimal_t r)
+  void clearAround(const Vec3i& pn, decimal_t r)
   {
     if(!isOutSide(pn))
       map_[getIndex(pn)] = val_free;
@@ -244,8 +239,7 @@ public:
     }
   }
 
-
-
 };
+}
 
 #endif

@@ -2,8 +2,8 @@
  * @file map_util_base.h
  * @brief MapUtilBase classes
  */
-#ifndef MAP_UTIL_BASE_H
-#define MAP_UTIL_BASE_H
+#ifndef JPS_MAP_UTIL_BASE_H
+#define JPS_MAP_UTIL_BASE_H
 
 #include <stack>
 #include <basic_type/data_type.h>
@@ -14,6 +14,8 @@
  * @param Tf is float position of cell/voxel
  * @param Tmap is defined as a 1D array 
  */
+
+namespace JPS {
 template <class Ti, class Tf, class Tmap> class MapUtilBase {
 public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
@@ -122,5 +124,6 @@ protected:
   ///Assume unknown cell has value -1
   char val_unknown = -1;
 };
+}
 
 #endif
