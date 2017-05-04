@@ -21,7 +21,7 @@ class PlannerBase
   vec_Vec3f optimize(const vec_Vec3f &path);
   vec_Vec3f crop(const vec_Vec3f& path);
 
-  virtual bool plan(const Vec3f &start, const Vec3f &goal) = 0;
+  virtual bool plan(const Vec3f &start, const Vec3f &goal, decimal_t eps = 1) = 0;
 
   JPS::VoxelMapUtil* _map_util;
 
@@ -33,6 +33,5 @@ class PlannerBase
   bool _planner_verbose;
   bool _goal_outside;
 
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 #endif

@@ -12,10 +12,11 @@ NXJPS3DUtil::NXJPS3DUtil(bool verbose) {
   // 1, too close, dont plan
 }
 
-bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal) {
+bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   if(_planner_verbose){
     std::cout <<"Start: " << start.transpose() << std::endl;
     std::cout <<"Goal:  " << goal.transpose() << std::endl;
+    std::cout <<"Epsilon:  " << eps << std::endl;
   }
 
   _path.clear();
@@ -107,14 +108,15 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal) {
   nx::JPS_NEIB jn;
   nx::JPS_3D JA(cmap.data(), 0, dim(0), dim(1), dim(2), jn);
 
+  /*
   if(_planner_verbose){
     std::cout <<"StartI: " << _start_int.transpose() << std::endl;
     std::cout <<"GoalI:  " << _goal_int.transpose() << std::endl;
   }
+*/
 
-
-  double dist = JA.plan(_start_int(0), _start_int(1), _start_int(2),
-      _goal_int(0),  _goal_int(1), _goal_int(2), xyzPath, 1);
+  JA.plan(_start_int(0), _start_int(1), _start_int(2),
+      _goal_int(0),  _goal_int(1), _goal_int(2), xyzPath, eps);
 
   if (xyzPath.empty() || xyzPath.size() < 1) {
     if(_planner_verbose)

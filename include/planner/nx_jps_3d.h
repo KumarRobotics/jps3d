@@ -5,7 +5,7 @@
 class NXJPS3DUtil : public PlannerBase {
 public:
   NXJPS3DUtil(bool verbose = false);
-  bool plan(const Vec3f &start, const Vec3f &goal);
+  bool plan(const Vec3f &start, const Vec3f &goal, decimal_t eps = 1.0);
 private:
   bool linkToGoal(const Vec3i &pn);
 
