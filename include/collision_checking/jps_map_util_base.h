@@ -1,15 +1,14 @@
 /**
- * @file map_util_base.h
- * @brief MapUtilBase classes
+ * @file jps_map_util_base.h
+ * @brief JPS::MapUtilBase classes
  */
 #ifndef JPS_MAP_UTIL_BASE_H
 #define JPS_MAP_UTIL_BASE_H
 
-#include <stack>
 #include <basic_type/data_type.h>
 
 /**
- * @biref The base class is provided by considering both 2D and 3D maps
+ * @biref The abstract base class is provided by considering both 2D and 3D maps
  * @param Ti is integer index of cell/voxel
  * @param Tf is float position of cell/voxel
  * @param Tmap is defined as a 1D array 
@@ -22,12 +21,7 @@ public:
   /**
    * @biref Simple constructor
    */
-  MapUtilBase() {
-    val_occ = 100;
-    val_free = 0;
-    val_unknown = -1;
-  }
-
+  MapUtilBase() {}
   ///Retrieve map as array
   Tmap getMap() { return map_; }
   ///Retrieve resolution 
@@ -109,10 +103,14 @@ public:
   virtual void dilate(decimal_t r, decimal_t h) = 0;
 
 protected:
+  ///Map resolution
   decimal_t res_;
+  ///Origin of map (float type)
   Tf origin_d_;
+  ///Dimension of map (int type)
   Ti dim_;
 
+  ///Map entity
   Tmap map_;
 
   ///Pre-computed vector of neighboring cells for dilating

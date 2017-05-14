@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['setmap',['setMap',['../classJPS_1_1MapUtilBase.html#a2eb8df49cc3daaf0e9e6133e6ce93cfb',1,'JPS::MapUtilBase::setMap()'],['../classMapUtilBase.html#ae569744ce2bdc9f48d38ef071a4a419f',1,'MapUtilBase::setMap()']]]
+  ['total_5fdistance',['total_distance',['../data__utils_8h.html#a3f82ae87bcf143405fd986be6ca44a68',1,'data_utils.h']]],
+  ['transform_5fvec',['transform_vec',['../data__utils_8h.html#ac3745ddcc3002193bbcd5caab64cd1df',1,'data_utils.h']]]
 ];

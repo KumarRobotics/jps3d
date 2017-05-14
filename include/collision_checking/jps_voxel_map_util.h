@@ -1,6 +1,6 @@
 /**
- * @file voxel_map_util.h
- * @brief VoxelMapUtil classes
+ * @file jps_voxel_map_util.h
+ * @brief JPS::VoxelMapUtil classes
  */
 
 #ifndef JPS_VOXEL_MAP_UTIL_H
@@ -8,40 +8,49 @@
 
 #include <collision_checking/jps_map_util_base.h>
 
+/**
+ * @brief The map util for 3D
+ */
 namespace JPS {
 class VoxelMapUtil
     : public MapUtilBase<Vec3i, Vec3f, std::vector<signed char>> {
 public:
+  ///Simple constructor
   VoxelMapUtil() : MapUtilBase() {}
 
+  ///Printing params
   void info() {
-    printf("Map Info ============\n");
-
+    printf("JPS Map Info ============\n");
     printf("   res: [%f]\n", res_);
     printf("   origin: [%f, %f, %f]\n", origin_d_(0), origin_d_(1), origin_d_(2));
     Vec3f dim_d = dim_.cast<decimal_t>() * res_;
     printf("   dim: [%f, %f, %f]\n", dim_d(0), dim_d(1), dim_d(2));
     printf("   size: [%d]\n", dim_(0) * dim_(1) *dim_(2));
   }
-
+  ///Float position to discrete cell
   Vec3f intToFloat(const Vec3i &pp) {
     return (pp.cast<decimal_t>() + Vec3f::Constant(0.5)) * res_ + origin_d_;
   }
-
+  ///Discrete cell to float position
   Vec3i floatToInt(const Vec3f &pt) {
     return ((pt - origin_d_) / res_).cast<int>();
   }
-
+  ///Check if the cell is outside
   bool isOutSide(const Vec3i &pn) {
     return pn(0) < 0 || pn(0) >= dim_(0) ||
       pn(1) < 0 || pn(1) >= dim_(1) ||
       pn(2) < 0 || pn(2) >= dim_(2);
   }
-
+  ///Retrieve subindex of a cell
   int getIndex(const Vec3i &pp) {
     return pp(0) + dim_(0) * pp(1) + dim_(0) * dim_(1) * pp(2);
   }
 
+  /**
+   * @brief Raytrace from pt1 to pt2
+   *
+   * Using simple step method
+   */
   vec_Vec3i rayTrace(const Vec3f &pt1, const Vec3f &pt2) {
     Vec3f diff = pt2 - pt1;
     decimal_t k = 0.8;

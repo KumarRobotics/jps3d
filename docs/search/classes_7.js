@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['subvoxelmaputil',['SubVoxelMapUtil',['../classJPS_1_1SubVoxelMapUtil.html',1,'JPS']]]
+  ['visionqueueutil',['VisionQueueUtil',['../classVisionQueueUtil.html',1,'']]],
+  ['visionutil',['VisionUtil',['../classVisionUtil.html',1,'']]],
+  ['voxelmaputil',['VoxelMapUtil',['../classJPS_1_1VoxelMapUtil.html',1,'JPS::VoxelMapUtil'],['../classVoxelMapUtil.html',1,'VoxelMapUtil']]]
 ];
