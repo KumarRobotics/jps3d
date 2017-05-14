@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dilate_5fneighbor_5f',['dilate_neighbor_',['../classMapUtilBase.html#aedda79e5e7aa2616216c4f80d3652e3e',1,'MapUtilBase']]]
+  ['dilate_5fneighbor_5f',['dilate_neighbor_',['../classJPS_1_1MapUtilBase.html#a9f0722b63cb06897d5988cf5cc2eba05',1,'JPS::MapUtilBase::dilate_neighbor_()'],['../classMapUtilBase.html#a01c63d0c37d452c61932ef7ef7b92b7e',1,'MapUtilBase::dilate_neighbor_()']]]
 ];

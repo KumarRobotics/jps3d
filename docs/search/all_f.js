@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['val_5ffree',['val_free',['../classMapUtilBase.html#a11b131e3ce244a71350c338ef64f23be',1,'MapUtilBase']]],
-  ['val_5focc',['val_occ',['../classMapUtilBase.html#a1fa2fc3a85918bd96092f0712b8ec087',1,'MapUtilBase']]],
-  ['val_5funknown',['val_unknown',['../classMapUtilBase.html#a62cbaae64c90c7b8c29d0829de921d8d',1,'MapUtilBase']]],
+  ['val_5ffree',['val_free',['../classJPS_1_1MapUtilBase.html#a90e1c1ea88a37bb4c68b83cee0553986',1,'JPS::MapUtilBase::val_free()'],['../classMapUtilBase.html#a11b131e3ce244a71350c338ef64f23be',1,'MapUtilBase::val_free()']]],
+  ['val_5focc',['val_occ',['../classJPS_1_1MapUtilBase.html#ac40fa7153c15882f64658c4348342986',1,'JPS::MapUtilBase::val_occ()'],['../classMapUtilBase.html#a1fa2fc3a85918bd96092f0712b8ec087',1,'MapUtilBase::val_occ()']]],
+  ['val_5funknown',['val_unknown',['../classJPS_1_1MapUtilBase.html#af1ab24c8a5a0c0627c7cbe07aa2afb0e',1,'JPS::MapUtilBase::val_unknown()'],['../classMapUtilBase.html#a62cbaae64c90c7b8c29d0829de921d8d',1,'MapUtilBase::val_unknown()']]],
   ['vec2f',['Vec2f',['../data__type_8h.html#a98f010ba61dca079e380911395e47127',1,'data_type.h']]],
   ['vec2i',['Vec2i',['../data__type_8h.html#a23b8ecbae233e16feeb5e4867cf75ce7',1,'data_type.h']]],
   ['vec3f',['Vec3f',['../data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a',1,'data_type.h']]],
@@ -17,5 +17,6 @@ var searchData=
   ['vecdf',['VecDf',['../data__type_8h.html#afee968dcbed41b4e1628fbb4b0a9bc64',1,'data_type.h']]],
   ['visionqueueutil',['VisionQueueUtil',['../classVisionQueueUtil.html',1,'']]],
   ['visionutil',['VisionUtil',['../classVisionUtil.html',1,'']]],
-  ['voxelmaputil',['VoxelMapUtil',['../classVoxelMapUtil.html',1,'']]]
+  ['voxel_5fmap_5futil_2eh',['voxel_map_util.h',['../voxel__map__util_8h.html',1,'']]],
+  ['voxelmaputil',['VoxelMapUtil',['../classJPS_1_1VoxelMapUtil.html',1,'JPS::VoxelMapUtil'],['../classVoxelMapUtil.html',1,'VoxelMapUtil']]]
 ];
