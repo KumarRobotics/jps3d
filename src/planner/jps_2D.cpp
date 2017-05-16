@@ -1,28 +1,28 @@
-#include <planner/jps_3D.h>
+#include <planner/jps_2D.h>
 #include <algorithm>    // std::min
 #include <iostream>
 
-double JPS::JPS_3D::plan( int xStart, int yStart, int zStart,
-                         int xGoal,  int yGoal,  int zGoal,
-                         std::list<std::array<int,3>>& xyzPath,
+double JPS::JPS_2D::plan( int xStart, int yStart, 
+                         int xGoal,  int yGoal, 
+                         std::list<std::array<int,2>>& xyPath,
                          double eps )
 {
   // Start is not included in the final path
-  goal_outside_ = isOutside(xGoal, yGoal, zGoal);
+  goal_outside_ = isOutside(xGoal, yGoal);
   eps_ = eps;
-  xGoal_ = xGoal; yGoal_ = yGoal; zGoal_ = zGoal;
-  int indStart = xStart + xDim_*yStart + xyDim_*zStart; // colmajor
-  int indGoal  = (goal_outside_) ? cMapLength_ : xGoal  + xDim_*yGoal  + xyDim_*zGoal;
+  xGoal_ = xGoal; yGoal_ = yGoal; 
+  int indStart = xStart + xDim_*yStart; // colmajor
+  int indGoal  = (goal_outside_) ? cMapLength_ : xGoal  + xDim_*yGoal;
 
   //if( goal_outside_ ) std::cout << "GOAL IS OUTSIDE" << std::endl;
   //else std::cout << "GOAL IS INSIDE" << std::endl;  
-  //std::cout << "xGoal=" << xGoal << " yGoal=" << yGoal << " zGoal=" << zGoal << std::endl;
-  //std::cout << "xDim_=" << xDim_ << " yDim_=" << yDim_ << " zDim_=" << zDim_ << std::endl;
+  //std::cout << "xGoal=" << xGoal << " yGoal=" << yGoal << std::endl;
+  //std::cout << "xDim_=" << xDim_ << " yDim_=" << yDim_ << std::endl;
   //std::cout << "indGoal=" << indGoal << std::endl;
   
   // Quit if start or goal state is in collision
-  if( cMap_[indStart]!=val_free_ ||
-      (!goal_outside_ && cMap_[indGoal]!=val_free_ ))
+  if( cMap_[indStart] != val_free_ ||
+      (!goal_outside_ && cMap_[indGoal] != val_free_ ))
     return std::numeric_limits<double>::infinity();
   hm_[indStart] = new Astate(indStart,0,0,0);
   hm_[indStart]->h = eps*std::sqrt( (xGoal-xStart)*(xGoal-xStart) +

@@ -11,7 +11,7 @@
 
 //#include <iostream>
 
-namespace nx
+namespace JPS
 {
   template <class T>
   struct compare_astar

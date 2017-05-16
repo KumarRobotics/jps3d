@@ -105,8 +105,8 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
       }
 
   std::list<std::array<int,3>> xyzPath;
-  nx::JPS_NEIB jn;
-  nx::JPS_3D JA(cmap.data(), 0, dim(0), dim(1), dim(2), jn);
+  JPS::JPS_NEIB jn;
+  JPS::JPS_3D JA(cmap.data(), 0, dim(0), dim(1), dim(2), jn);
 
   /*
   if(_planner_verbose){
