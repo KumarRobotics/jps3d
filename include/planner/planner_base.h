@@ -6,6 +6,7 @@
 #include <basic_type/data_utils.h>
 #include <collision_checking/jps_voxel_map_util.h>
 
+namespace JPS {
 class PlannerBase
 {
  public:
@@ -34,4 +35,5 @@ class PlannerBase
   bool _goal_outside;
 
 };
+}
 #endif

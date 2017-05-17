@@ -1,5 +1,7 @@
 #include <planner/planner_base.h>
 
+using namespace JPS;
+
 PlannerBase::PlannerBase() {
   Vec3i add;
   for (add(0) = -1; add(0) <= 1; add(0)++) {
