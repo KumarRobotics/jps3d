@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['maputilbase',['MapUtilBase',['../classMapUtilBase.html',1,'MapUtilBase&lt; Ti, Tf, Tmap &gt;'],['../classJPS_1_1MapUtilBase.html',1,'JPS::MapUtilBase&lt; Ti, Tf, Tmap &gt;']]],
-  ['maputilbase_3c_20vec3i_2c_20vec3f_2c_20std_3a_3avector_3c_20signed_20char_20_3e_20_3e',['MapUtilBase&lt; Vec3i, Vec3f, std::vector&lt; signed char &gt; &gt;',['../classJPS_1_1MapUtilBase.html',1,'JPS::MapUtilBase&lt; Vec3i, Vec3f, std::vector&lt; signed char &gt; &gt;'],['../classMapUtilBase.html',1,'MapUtilBase&lt; Vec3i, Vec3f, std::vector&lt; signed char &gt; &gt;']]]
+  ['jps2dutil',['JPS2DUtil',['../classJPS_1_1JPS2DUtil.html',1,'JPS']]],
+  ['jps3dutil',['JPS3DUtil',['../classJPS_1_1JPS3DUtil.html',1,'JPS']]],
+  ['jps_5f3d',['JPS_3D',['../classJPS_1_1JPS__3D.html',1,'JPS']]],
+  ['jps_5fneib',['JPS_NEIB',['../structJPS_1_1JPS__NEIB.html',1,'JPS']]]
 ];

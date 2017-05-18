@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plannerbase',['PlannerBase',['../classPlannerBase.html',1,'']]]
+  ['plannerbase',['PlannerBase',['../classJPS_1_1PlannerBase.html',1,'JPS']]]
 ];

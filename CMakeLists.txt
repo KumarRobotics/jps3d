@@ -72,7 +72,7 @@ add_library(jps_lib src/planner/a_star_util.cpp
   src/planner/jps_3d_util.cpp
   src/planner/planner_base.cpp)
 
-add_executable(test_planner test/test_planner.cpp)
-target_link_libraries(test_planner jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
+add_executable(test_planner_2d test/test_planner_2d.cpp)
+target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
 
 

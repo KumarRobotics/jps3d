@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['timer',['Timer',['../classJPS_1_1Timer.html',1,'JPS']]],
   ['total_5fdistance',['total_distance',['../data__utils_8h.html#a3f82ae87bcf143405fd986be6ca44a68',1,'data_utils.h']]],
   ['total_5fdistance3f',['total_distance3f',['../data__utils_8h.html#a188bab5f6177f4853e7bff0d5c61cfe6',1,'data_utils.h']]],
   ['total_5fdistance3i',['total_distance3i',['../data__utils_8h.html#aca4035bd3287a21e2e0a8e7a5a0357f5',1,'data_utils.h']]],
