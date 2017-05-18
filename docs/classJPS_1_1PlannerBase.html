@@ -66,67 +66,88 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classJPS_1_1PlannerBase-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">JPS::PlannerBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract base for planning.  
+ <a href="classJPS_1_1PlannerBase.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="planner__base_8h_source.html">planner_base.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for JPS::PlannerBase:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classJPS_1_1PlannerBase.png" usemap="#JPS::PlannerBase_map" alt=""/>
   <map id="JPS::PlannerBase_map" name="JPS::PlannerBase_map">
-<area href="classJPS_1_1AStarUtil.html" alt="JPS::AStarUtil" shape="rect" coords="0,56,113,80"/>
-<area href="classJPS_1_1JPS2DUtil.html" alt="JPS::JPS2DUtil" shape="rect" coords="123,56,236,80"/>
-<area href="classJPS_1_1JPS3DUtil.html" alt="JPS::JPS3DUtil" shape="rect" coords="246,56,359,80"/>
+<area href="classJPS_1_1AStarUtil.html" title="3D AStar planner " alt="JPS::AStarUtil" shape="rect" coords="0,56,113,80"/>
+<area href="classJPS_1_1JPS2DUtil.html" title="2D JPS Planner " alt="JPS::JPS2DUtil" shape="rect" coords="123,56,236,80"/>
+<area href="classJPS_1_1JPS3DUtil.html" title="3D JPS Planner " alt="JPS::JPS3DUtil" shape="rect" coords="246,56,359,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a692fbe2665210509424cf74b2686c1e5"><td class="memItemLeft" align="right" valign="top"><a id="a692fbe2665210509424cf74b2686c1e5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a692fbe2665210509424cf74b2686c1e5">PlannerBase</a> ()</td></tr>
+<tr class="memdesc:a692fbe2665210509424cf74b2686c1e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple constructor. <br /></td></tr>
+<tr class="separator:a692fbe2665210509424cf74b2686c1e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa78c0d312d1faf276bd6cfe20e4dd4"><td class="memItemLeft" align="right" valign="top"><a id="a1aa78c0d312d1faf276bd6cfe20e4dd4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMapUtil</b> (<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *map_util)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4">setMapUtil</a> (<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *map_util)</td></tr>
+<tr class="memdesc:a1aa78c0d312d1faf276bd6cfe20e4dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set map util for collistion checking. <br /></td></tr>
 <tr class="separator:a1aa78c0d312d1faf276bd6cfe20e4dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d6e7c0ce366f9b796f217436b8b283f"><td class="memItemLeft" align="right" valign="top"><a id="a2d6e7c0ce366f9b796f217436b8b283f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>status</b> ()</td></tr>
+<tr class="memitem:a2d6e7c0ce366f9b796f217436b8b283f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f">status</a> ()</td></tr>
+<tr class="memdesc:a2d6e7c0ce366f9b796f217436b8b283f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the planner.  <a href="#a2d6e7c0ce366f9b796f217436b8b283f">More...</a><br /></td></tr>
 <tr class="separator:a2d6e7c0ce366f9b796f217436b8b283f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb223e421c1018cad6ad9dfb9423c53"><td class="memItemLeft" align="right" valign="top"><a id="a4fb223e421c1018cad6ad9dfb9423c53"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>goal_outside</b> ()</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a4fb223e421c1018cad6ad9dfb9423c53">goal_outside</a> ()</td></tr>
+<tr class="memdesc:a4fb223e421c1018cad6ad9dfb9423c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if goal is outside of map. <br /></td></tr>
 <tr class="separator:a4fb223e421c1018cad6ad9dfb9423c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09780f526dfa56a08b84f44861a039b2"><td class="memItemLeft" align="right" valign="top"><a id="a09780f526dfa56a08b84f44861a039b2"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPath</b> ()</td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a09780f526dfa56a08b84f44861a039b2">getPath</a> ()</td></tr>
+<tr class="memdesc:a09780f526dfa56a08b84f44861a039b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the modified path. <br /></td></tr>
 <tr class="separator:a09780f526dfa56a08b84f44861a039b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3680d746c63d2145977c018b33d21992"><td class="memItemLeft" align="right" valign="top"><a id="a3680d746c63d2145977c018b33d21992"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getRawPath</b> ()</td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a3680d746c63d2145977c018b33d21992">getRawPath</a> ()</td></tr>
+<tr class="memdesc:a3680d746c63d2145977c018b33d21992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the raw path. <br /></td></tr>
 <tr class="separator:a3680d746c63d2145977c018b33d21992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed4ecc8b788b90dd9c164cae007ecd0"><td class="memItemLeft" align="right" valign="top"><a id="a6ed4ecc8b788b90dd9c164cae007ecd0"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>removePts</b> (const <a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a> &amp;path)</td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a6ed4ecc8b788b90dd9c164cae007ecd0">removePts</a> (const <a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a> &amp;path)</td></tr>
+<tr class="memdesc:a6ed4ecc8b788b90dd9c164cae007ecd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove redundant waypoints in a line. <br /></td></tr>
 <tr class="separator:a6ed4ecc8b788b90dd9c164cae007ecd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01b1f0d6134d6d73fa2aad742ea42380"><td class="memItemLeft" align="right" valign="top"><a id="a01b1f0d6134d6d73fa2aad742ea42380"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>optimize</b> (const <a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a> &amp;path)</td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a01b1f0d6134d6d73fa2aad742ea42380">optimize</a> (const <a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a> &amp;path)</td></tr>
+<tr class="memdesc:a01b1f0d6134d6d73fa2aad742ea42380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove some corner waypoints. <br /></td></tr>
 <tr class="separator:a01b1f0d6134d6d73fa2aad742ea42380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71c3fc94f6927587a06752c0f600edb7"><td class="memItemLeft" align="right" valign="top"><a id="a71c3fc94f6927587a06752c0f600edb7"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>crop</b> (const <a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a> &amp;path)</td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a71c3fc94f6927587a06752c0f600edb7">crop</a> (const <a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a> &amp;path)</td></tr>
+<tr class="memdesc:a71c3fc94f6927587a06752c0f600edb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crop the raw path such that the new path will be inside the map. <br /></td></tr>
 <tr class="separator:a71c3fc94f6927587a06752c0f600edb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f86708ce7c1e389651ab65ae71db4ae"><td class="memItemLeft" align="right" valign="top"><a id="a4f86708ce7c1e389651ab65ae71db4ae"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>plan</b> (const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;start, const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;goal, <a class="el" href="data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266">decimal_t</a> eps=1)=0</td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a4f86708ce7c1e389651ab65ae71db4ae">plan</a> (const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;start, const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;goal, <a class="el" href="data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266">decimal_t</a> eps=1)=0</td></tr>
+<tr class="memdesc:a4f86708ce7c1e389651ab65ae71db4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Need to be specified in Child class, main planning function. <br /></td></tr>
 <tr class="separator:a4f86708ce7c1e389651ab65ae71db4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:ad8935b598fa76bfd345a4f1e32224bed"><td class="memItemLeft" align="right" valign="top"><a id="ad8935b598fa76bfd345a4f1e32224bed"></a>
-<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_map_util</b></td></tr>
+<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#ad8935b598fa76bfd345a4f1e32224bed">_map_util</a></td></tr>
+<tr class="memdesc:ad8935b598fa76bfd345a4f1e32224bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assume using 3D voxel map for all 2d and 3d planning. <br /></td></tr>
 <tr class="separator:ad8935b598fa76bfd345a4f1e32224bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b458a786c25e9802d412bc72e24ff85"><td class="memItemLeft" align="right" valign="top"><a id="a7b458a786c25e9802d412bc72e24ff85"></a>
-<a class="el" href="data__type_8h.html#aab99928bb9e8a58f0aeaf5d31c4866e4">vec_Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_ns</b></td></tr>
+<a class="el" href="data__type_8h.html#aab99928bb9e8a58f0aeaf5d31c4866e4">vec_Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a7b458a786c25e9802d412bc72e24ff85">_ns</a></td></tr>
+<tr class="memdesc:a7b458a786c25e9802d412bc72e24ff85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighbor primitives. <br /></td></tr>
 <tr class="separator:a7b458a786c25e9802d412bc72e24ff85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df6e9ea960c7a78a9e13e6ea9684ded"><td class="memItemLeft" align="right" valign="top"><a id="a4df6e9ea960c7a78a9e13e6ea9684ded"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_raw_path</b></td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a4df6e9ea960c7a78a9e13e6ea9684ded">_raw_path</a></td></tr>
+<tr class="memdesc:a4df6e9ea960c7a78a9e13e6ea9684ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw path from planner. <br /></td></tr>
 <tr class="separator:a4df6e9ea960c7a78a9e13e6ea9684ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad11ba558b06de99dce96d42a57864c63"><td class="memItemLeft" align="right" valign="top"><a id="ad11ba558b06de99dce96d42a57864c63"></a>
-<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_path</b></td></tr>
+<a class="el" href="data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b">vec_Vec3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#ad11ba558b06de99dce96d42a57864c63">_path</a></td></tr>
+<tr class="memdesc:ad11ba558b06de99dce96d42a57864c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modified path for future usage. <br /></td></tr>
 <tr class="separator:ad11ba558b06de99dce96d42a57864c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdfbcf5c9e35996ecb636a29c7ed103a"><td class="memItemLeft" align="right" valign="top"><a id="afdfbcf5c9e35996ecb636a29c7ed103a"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_status</b></td></tr>
@@ -138,6 +159,29 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_planner_verbose</b><
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_goal_outside</b></td></tr>
 <tr class="separator:ab9b5aad0fbf5d056f6efb6512a4467d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base for planning. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2d6e7c0ce366f9b796f217436b8b283f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6e7c0ce366f9b796f217436b8b283f">&#9670;&nbsp;</a></span>status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PlannerBase::status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Status of the planner. </p>
+<p>0 &mdash; exit normally; -1 &mdash; no path found; 1, 2 &mdash; start or goal is not free. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/planner/<a class="el" href="planner__base_8h_source.html">planner_base.h</a></li>
 <li>src/planner/planner_base.cpp</li>

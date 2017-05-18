@@ -1,16 +1,29 @@
+/**
+ * @file jps_2d_util.h
+ * @brief JPS::JPS2DUtil Class
+ */
+#ifndef JPS_JPS2D_UTIL_H
+#define JPS_JPS2D_UTIL_H
+
 #include <planner/planner_base.h>
 #include <yagsbpl/yagsbpl_base.h>
 #include <yagsbpl/A_star.h>
 #include <unordered_map>
 
 namespace JPS {
+  /**
+   * @brief 2D JPS Planner
+   *
+   * Uses 3D map but only 2D primitives and rules
+   */
 class JPS2DUtil : public PlannerBase
 {
   public:
+    ///Node class
     class Node {
       public:
-        Vec3i pn;
-        Vec3i dir;
+        Vec3i pn; /**< Indices of this node */
+        Vec3i dir; /**< Direction from its paretn toward the node*/
 
         Node() {}
         Node(const Vec3i &n, const Vec3i &d) : pn(n), dir(d) {}
@@ -25,10 +38,11 @@ class JPS2DUtil : public PlannerBase
     };
 
     JPS2DUtil(bool verbose = false);
+
     bool plan(const Vec3f &start, const Vec3f &goal, decimal_t eps = 1);
 
+    vec_Vec3f ps_; /**< Debug var that stores expanded nodes*/
 
-    vec_Vec3f ps_;
   protected:
     int getHashBin(Node &n);
 
@@ -42,19 +56,20 @@ class JPS2DUtil : public PlannerBase
 
     bool stopSearch(Node &n);
 
+    ///Pruning function
     vec_Vec3i prune(const Vec3i &pn, const Vec3i &dir);
+    ///Checking if current node is forced
     bool hasForced(const Vec3i &pn, const Vec3i &dir);
+    ///Jump function
     Vec3i jump(Vec3i pn, Vec3i dir);
-    bool linkToGoal(const Vec3i &pn);
 
     GenericSearchGraphDescriptor<Node, float> myGraph;
 
-    bool _goal_outside;
+    Vec3i Vec3i_null; /**< Null node*/
     Node _goal_node;
-    Vec3i Vec3i_null;
-    Vec3i _start_int;
 
     std::unordered_map<Vec3i, vec_Vec3i, container_hash<Vec3i>> _obs_map;
     std::unordered_map<Vec3i, vec_Vec3i, container_hash<Vec3i>> _adds_map;
 };
 }
+#endif

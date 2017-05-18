@@ -17,7 +17,6 @@
 namespace JPS {
 template <class Ti, class Tf, class Tmap> class MapUtilBase {
 public:
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
   /**
    * @biref Simple constructor
    */

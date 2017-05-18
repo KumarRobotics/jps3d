@@ -64,13 +64,19 @@ $(function() {
 <div class="title">MRSL Jump Point Search Planning Library </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>Compilation</h2>
-<p>A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p>B) Using CATKIN </p><div class="fragment"><div class="line">$ cd mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><h2>Example Usage</h2>
-<div class="image">
-<img src="https://github.com/sikang/jps3d/blob/master/data/corridor.jpg" alt="Visualization"/>
+<div class="textblock"><p>Implementation of Jump Point Search with <a href="https://www.math.upenn.edu/~subhrabh/html_cache/7f068a4d19ed85a15c9e25ecae8b40c1.html">YagSBPL</a>.</p>
+<h2>Compilation</h2>
+<p>Required:</p><ul>
+<li>Boost</li>
+<li>Eigen</li>
+<li>yaml-cpp (Reading data files)</li>
+<li>VTK (For visualizing output)</li>
+</ul>
+<p>A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p>B) Using CATKIN </p><div class="fragment"><div class="line">$ cd mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><p>## Example Usage </p><div class="fragment"><div class="line">$ ./build/test_planner_2d ../data/corridor.yaml</div><div class="line">JPS Planner takes: 73.000000 ms</div><div class="line">JPS Path Distance: 35.192388</div><div class="line">AStar Planner takes: 317.000000 ms</div><div class="line">AStar Path Distance: 35.192388</div></div><!-- fragment --><p> The results are plotted in <a href="https://github.com/sikang/jps3d/blob/master/data/corridor.jpg">corridor.jpg</a>. </p><div class="image">
+<img src="./data/corridor.jpg" alt="Visualization"/>
 </div>
- <div class="fragment"><div class="line">$ ./build/test_planner_2d ../data/corridor.yaml</div></div><!-- fragment --><h2>Doxygen</h2>
-<p>See <a href="https://sikang.github.io/jps3d/index.html">https://sikang.github.io/jps3d/index.html</a> </p>
+<h2>Doxygen</h2>
+<p>For more details, please refer to <a href="https://sikang.github.io/jps3d/index.html">https://sikang.github.io/jps3d/index.html</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

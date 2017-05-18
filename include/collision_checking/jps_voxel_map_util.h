@@ -8,10 +8,8 @@
 
 #include <collision_checking/jps_map_util_base.h>
 
-/**
- * @brief The map util for 3D
- */
 namespace JPS {
+///The map util for 3D voxel map
 class VoxelMapUtil
     : public MapUtilBase<Vec3i, Vec3f, std::vector<signed char>> {
 public:

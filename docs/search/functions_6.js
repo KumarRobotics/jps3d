@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setmap',['setMap',['../classJPS_1_1MapUtilBase.html#a2eb8df49cc3daaf0e9e6133e6ce93cfb',1,'JPS::MapUtilBase::setMap()'],['../classMapUtilBase.html#ae569744ce2bdc9f48d38ef071a4a419f',1,'MapUtilBase::setMap()']]]
+  ['jump',['jump',['../classJPS_1_1JPS2DUtil.html#a498ebb1f4256743df07a5d06ed27195a',1,'JPS::JPS2DUtil::jump()'],['../classJPS_1_1JPS3DUtil.html#a0b414a655cd22c4e5bbf40e5ba925101',1,'JPS::JPS3DUtil::jump()']]]
 ];

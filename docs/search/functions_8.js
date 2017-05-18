@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['voxelmaputil',['VoxelMapUtil',['../classJPS_1_1VoxelMapUtil.html#a4ef3130cbb90f7b1f92ba21e45368f36',1,'JPS::VoxelMapUtil']]]
+  ['optimize',['optimize',['../classJPS_1_1PlannerBase.html#a01b1f0d6134d6d73fa2aad742ea42380',1,'JPS::PlannerBase']]]
 ];

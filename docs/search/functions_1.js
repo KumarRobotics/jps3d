@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['floattoint',['floatToInt',['../classJPS_1_1MapUtilBase.html#aa731df61d52228c9fc523b4a37132a47',1,'JPS::MapUtilBase::floatToInt()'],['../classJPS_1_1VoxelMapUtil.html#a151b8d42742090fa7a38565e777c72e0',1,'JPS::VoxelMapUtil::floatToInt()'],['../classMapUtilBase.html#a33cece17088259b6885ee10e6669a7c2',1,'MapUtilBase::floatToInt()'],['../classVoxelMapUtil.html#a9458f6603f42b57d46257a957079fcf7',1,'VoxelMapUtil::floatToInt()']]]
+  ['dilate',['dilate',['../classJPS_1_1MapUtilBase.html#a5b96a0b9e446c81801092a7a88dc8148',1,'JPS::MapUtilBase::dilate()'],['../classJPS_1_1VoxelMapUtil.html#a71585800850674c289bc055307623344',1,'JPS::VoxelMapUtil::dilate()']]],
+  ['dilating',['dilating',['../classJPS_1_1MapUtilBase.html#a6db255b0c77fe5d02da5bd3469aeb4b5',1,'JPS::MapUtilBase::dilating()'],['../classJPS_1_1VoxelMapUtil.html#a088901ba2768e7c1761889dbbd119d98',1,'JPS::VoxelMapUtil::dilating()']]]
 ];

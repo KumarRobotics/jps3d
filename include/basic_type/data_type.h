@@ -1,5 +1,5 @@
 /**
- *@file data_type.h
+ * @file data_type.h
  * @brief Defines all data types used in jps3d lib
 
  * Mostly alias from Eigen Library.

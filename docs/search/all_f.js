@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['val_5ffree',['val_free',['../classJPS_1_1MapUtilBase.html#a90e1c1ea88a37bb4c68b83cee0553986',1,'JPS::MapUtilBase::val_free()'],['../classMapUtilBase.html#a11b131e3ce244a71350c338ef64f23be',1,'MapUtilBase::val_free()']]],
-  ['val_5focc',['val_occ',['../classJPS_1_1MapUtilBase.html#ac40fa7153c15882f64658c4348342986',1,'JPS::MapUtilBase::val_occ()'],['../classMapUtilBase.html#a1fa2fc3a85918bd96092f0712b8ec087',1,'MapUtilBase::val_occ()']]],
-  ['val_5funknown',['val_unknown',['../classJPS_1_1MapUtilBase.html#af1ab24c8a5a0c0627c7cbe07aa2afb0e',1,'JPS::MapUtilBase::val_unknown()'],['../classMapUtilBase.html#a62cbaae64c90c7b8c29d0829de921d8d',1,'MapUtilBase::val_unknown()']]],
-  ['vec2f',['Vec2f',['../data__type_8h.html#a98f010ba61dca079e380911395e47127',1,'data_type.h']]],
-  ['vec2i',['Vec2i',['../data__type_8h.html#a23b8ecbae233e16feeb5e4867cf75ce7',1,'data_type.h']]],
-  ['vec3f',['Vec3f',['../data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a',1,'data_type.h']]],
-  ['vec3i',['Vec3i',['../data__type_8h.html#ae912524491a09326ef25e4e4781c965f',1,'data_type.h']]],
-  ['vec_5fe',['vec_E',['../data__type_8h.html#a6b9210d48a0a541940af71827aad1b41',1,'data_type.h']]],
-  ['vec_5fvec2f',['vec_Vec2f',['../data__type_8h.html#af640446aaa0ada84a270bd5639b36a7d',1,'data_type.h']]],
-  ['vec_5fvec2i',['vec_Vec2i',['../data__type_8h.html#a79168c9f029798876a1093e0e53bc36b',1,'data_type.h']]],
-  ['vec_5fvec3f',['vec_Vec3f',['../data__type_8h.html#a62c46ed3e3ab6773b30439f9be38290b',1,'data_type.h']]],
-  ['vec_5fvec3i',['vec_Vec3i',['../data__type_8h.html#aab99928bb9e8a58f0aeaf5d31c4866e4',1,'data_type.h']]],
-  ['visionqueueutil',['VisionQueueUtil',['../classVisionQueueUtil.html',1,'']]],
-  ['visionutil',['VisionUtil',['../classVisionUtil.html',1,'']]],
-  ['voxel_5fmap_5futil_2eh',['voxel_map_util.h',['../voxel__map__util_8h.html',1,'']]],
-  ['voxelmaputil',['VoxelMapUtil',['../classJPS_1_1VoxelMapUtil.html',1,'JPS::VoxelMapUtil'],['../classVoxelMapUtil.html',1,'VoxelMapUtil'],['../classJPS_1_1VoxelMapUtil.html#a4ef3130cbb90f7b1f92ba21e45368f36',1,'JPS::VoxelMapUtil::VoxelMapUtil()']]]
+  ['timer',['Timer',['../classJPS_1_1Timer.html',1,'JPS']]],
+  ['total_5fdistance',['total_distance',['../data__utils_8h.html#a3f82ae87bcf143405fd986be6ca44a68',1,'data_utils.h']]],
+  ['total_5fdistance3f',['total_distance3f',['../data__utils_8h.html#a188bab5f6177f4853e7bff0d5c61cfe6',1,'data_utils.h']]],
+  ['total_5fdistance3i',['total_distance3i',['../data__utils_8h.html#aca4035bd3287a21e2e0a8e7a5a0357f5',1,'data_utils.h']]],
+  ['transform_5fvec',['transform_vec',['../data__utils_8h.html#ac3745ddcc3002193bbcd5caab64cd1df',1,'data_utils.h']]],
+  ['transform_5fvec3',['transform_vec3',['../data__utils_8h.html#a79960a9e7c7bad6ec5641ed1729ad8d0',1,'data_utils.h']]]
 ];

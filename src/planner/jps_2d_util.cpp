@@ -155,33 +155,14 @@ bool JPS2DUtil::isAccessible(Node &n) {
   return _map_util->isFree(n.pn) || n == _goal_node;
 }
 
-bool JPS2DUtil::linkToGoal(const Vec3i &pn) {
-  if(_map_util->isEdge(pn)){
-    return true;
-    Vec3f pt = _map_util->intToFloat(pn);
-    decimal_t t = atan2(pt(2), sqrt(pt(0) * pt(0) + pt(1) * pt(1)));
-    if(fabs(t) < M_PI / 12){
-      if(!_map_util->isBlocked(Vec3f(0, 0, 0), pt))
-        return true;
-    }
-  }
-  else{
-    Vec3f pt = _map_util->intToFloat(pn);
-    Vec3f goal_pt = _map_util->intToFloat(_goal_node.pn);
-    return !_map_util->isBlocked(pt, goal_pt);
-  }
-	return false;
-}
-
 void JPS2DUtil::getSuccessors(Node &n, std::vector<Node> *s,
                               std::vector<float> *c) {
   s->clear();
   c->clear();
 
-  if (_goal_outside && _map_util->isFree(n.pn) && linkToGoal(n.pn)) {
+  if (_goal_outside && _map_util->isFree(n.pn) && _map_util->isEdge(n.pn)) {
     s->push_back(_goal_node);
     c->push_back((n.pn - _goal_node.pn).cast<float>().norm());
-    //c->push_back((n.pn - _goal_node.pn).lpNorm<Eigen::Infinity>());
   }
 
   vec_Vec3i ns;
@@ -213,8 +194,8 @@ bool JPS2DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   _status = 0;
   ps_.clear();
 
-  _start_int = _map_util->floatToInt(start);
-  Node start_node(_start_int, Vec3i::Zero());
+  const Vec3i start_int = _map_util->floatToInt(start);
+  Node start_node(start_int, Vec3i::Zero());
 
   if(_planner_verbose){
     std::cout <<"Start: " << start.transpose() << std::endl;
@@ -238,7 +219,7 @@ bool JPS2DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   else
   {
     if(_map_util->isOutSideXYZ(goal_int, 2)) {
-      goal_int(2) = _start_int(2);
+      goal_int(2) = start_int(2);
       if(_planner_verbose)
 	printf(ANSI_COLOR_RED "change goal z! " ANSI_COLOR_RESET "\n");
     }

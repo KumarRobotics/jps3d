@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['dilate_5fneighbor_5f',['dilate_neighbor_',['../classJPS_1_1MapUtilBase.html#a9f0722b63cb06897d5988cf5cc2eba05',1,'JPS::MapUtilBase::dilate_neighbor_()'],['../classMapUtilBase.html#a01c63d0c37d452c61932ef7ef7b92b7e',1,'MapUtilBase::dilate_neighbor_()']]],
-  ['dim_5f',['dim_',['../classJPS_1_1MapUtilBase.html#a96799b00d6dbfbd55be5697116841dd8',1,'JPS::MapUtilBase']]]
+  ['_5fmap_5futil',['_map_util',['../classJPS_1_1PlannerBase.html#ad8935b598fa76bfd345a4f1e32224bed',1,'JPS::PlannerBase']]],
+  ['_5fns',['_ns',['../classJPS_1_1PlannerBase.html#a7b458a786c25e9802d412bc72e24ff85',1,'JPS::PlannerBase']]],
+  ['_5fpath',['_path',['../classJPS_1_1PlannerBase.html#ad11ba558b06de99dce96d42a57864c63',1,'JPS::PlannerBase']]],
+  ['_5fraw_5fpath',['_raw_path',['../classJPS_1_1PlannerBase.html#a4df6e9ea960c7a78a9e13e6ea9684ded',1,'JPS::PlannerBase']]]
 ];
