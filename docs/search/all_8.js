@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['mrsl_20jump_20point_20search_20planning_20library',['MRSL Jump Point Search Planning Library',['../index.html',1,'']]],
   ['map_5f',['map_',['../classJPS_1_1MapUtilBase.html#a6e569fee04e36e774e5978eeee9e906b',1,'JPS::MapUtilBase']]],
   ['map_5futil_5fbase_2eh',['map_util_base.h',['../map__util__base_8h.html',1,'']]],
   ['mapreader',['MapReader',['../classMapReader.html',1,'']]],
