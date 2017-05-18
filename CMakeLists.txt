@@ -4,6 +4,10 @@ project(jps3d)
 OPTION(USE_ROS "Set OFF if you want to build this package without Catkin" OFF)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-deprecated-declarations")
+#IF(NOT CMAKE_BUILD_TYPE)
+SET(CMAKE_BUILD_TYPE RelWithDebInfo)
+#ENDIF()
+
 
 IF(USE_ROS)
   message(STATUS "Compile with ROS.")
@@ -22,10 +26,23 @@ ELSE()
   #SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 ENDIF()
 
+find_package(VTK REQUIRED)
+
+if(NOT VTK_FOUND)
+  set(DEFAULT FALSE)
+  set(REASON "VTK was not found.")
+  message("VTK was not found")
+else()
+  include(${VTK_USE_FILE})
+  message("VTK was found")
+endif()
+
+
 FIND_PACKAGE(PkgConfig REQUIRED)
 PKG_CHECK_MODULES(EIGEN3 REQUIRED eigen3)
 PKG_CHECK_MODULES(YAMLCPP REQUIRED yaml-cpp)
 FIND_PACKAGE( Boost COMPONENTS filesystem system REQUIRED )
+
 
 IF(YAMLCPP_FOUND)
   MESSAGE(STATUS "Found yaml-cpp.")
@@ -56,6 +73,6 @@ add_library(jps_lib src/planner/a_star_util.cpp
   src/planner/planner_base.cpp)
 
 add_executable(test_planner test/test_planner.cpp)
-target_link_libraries(test_planner jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(test_planner jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
 
 

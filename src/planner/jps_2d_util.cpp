@@ -283,7 +283,7 @@ bool JPS2DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   _path = crop(_path);
   _path = optimize(_path);
   _path.front() = start;
-  _raw_path.front() = start;
+  //_raw_path.front() = start;
 
   return true;
 }

@@ -19,11 +19,11 @@ vec_E<T> transform_vec(const vec_E<T> &t, const TF &tf) {
 ///Template for calculating distance
 template <class T>
 decimal_t total_distance(const vec_E<T>& vs){
-	decimal_t dist = 0;
-	for(unsigned int i = 1; i < vs.size(); i++)
-		dist += (vs[i] - vs[i-1]).norm();
+  decimal_t dist = 0;
+  for(unsigned int i = 1; i < vs.size(); i++)
+    dist += (vs[i] - vs[i-1]).norm();
 
-	return dist;
+  return dist;
 }
 
 ///Transform all entries in a vector using given TF

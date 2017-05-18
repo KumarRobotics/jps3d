@@ -46,7 +46,7 @@ void AStarUtil::getSuccessors(Node &n, std::vector<Node> *s,
 
   for (const auto &add : _ns) {
     Vec3i new_pn = n + add;
-    if (_map_util->isOccupied(new_pn) || _map_util->isOutSide(new_pn))
+    if (!_map_util->isFree(new_pn))
       continue;
     Node tn = new_pn;
     s->push_back(tn);
@@ -105,7 +105,7 @@ bool AStarUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   vec_Vec3f path;
   for (const auto &it_node : paths[0])
     path.push_back(_map_util->intToFloat(it_node));
-  //_raw_path = path;
+  _raw_path = path;
 
   std::reverse(std::begin(path), std::end(path));
   path.back() = goal;
@@ -114,7 +114,7 @@ bool AStarUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   vec_Vec3f poses = path;
 
   poses = removePts(poses);
-  _raw_path = poses;
+  //_raw_path = poses;
   poses = optimize(poses);
 
   _path = poses;

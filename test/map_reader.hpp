@@ -1,22 +1,40 @@
 #include <yaml-cpp/yaml.h>
+#include <iostream>
+#include <fstream>
 
 template <class Ti, class Tf>
 class MapReader {
   public:
-    MapReader(const std::string& file) {
+    MapReader(const std::string& file, bool verbose = false) {
       try {
-      YAML::Node config = YAML::LoadFile(file);
-        const std::vector<double>& origin_vec = config["origin"].as<std::vector<double>>();
+        YAML::Node config = YAML::LoadFile(file);
+
+        if(!config[0]["origin"] || !config[1]["dim"] || !config[2]["resolution"] || !config[3]["data"]) {
+          printf("Check input format!\n" );
+          return;
+        }
+  
+        const std::vector<double>& origin_vec = config[0]["origin"].as<std::vector<double>>();
         for(int i = 0; i < origin_vec.size(); i++)
           origin_(i) = origin_vec[i];
+        if(verbose)
+          std::cout << "origin: " << origin_.transpose() << std::endl;
 
-        const std::vector<int>& dim_vec = config["dim"].as<std::vector<int>>();
+        const std::vector<int>& dim_vec = config[1]["dim"].as<std::vector<int>>();
         for(int i = 0; i < dim_vec.size(); i++)
           dim_(i) = dim_vec[i];
+        if(verbose)
+          std::cout << "dim: " << dim_.transpose() << std::endl;
 
-        data_ = config["dim"].as<std::vector<signed char>>();
+        resolution_ = config[2]["resolution"].as<double>();
+        if(verbose)
+          std::cout << "resolution: " << resolution_ << std::endl;
 
-        resolution_ = config["resolution"].as<double>();
+        const std::vector<int>& data = config[3]["data"].as<std::vector<int>>();
+        data_.resize(data.size());
+        for(int i = 0; i < data.size(); i++)
+          data_[i] = data[i] > 0 ? 1 : 0;
+        
         exist_ = true;
       } catch (YAML::ParserException& e) {
         //std::cout << e.what() << "\n";
