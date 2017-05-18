@@ -20,6 +20,8 @@ $ cd ~/catkin_ws & catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 
 ## Example Usage
+The results are plotted in [corridor.jpg](https://github.com/sikang/jps3d/blob/master/data/corridor.jpg).
+![Visualization](./data/corridor.jpg)
 ```sh
 $ ./build/test_planner_2d ../data/corridor.yaml
 JPS Planner takes: 73.000000 ms
@@ -27,9 +29,6 @@ JPS Path Distance: 35.192388
 AStar Planner takes: 317.000000 ms
 AStar Path Distance: 35.192388
 ```
-The results are plotted in [corridor.jpg](https://github.com/sikang/jps3d/blob/master/data/corridor.jpg).
-![Visualization](./data/corridor.jpg)
-
 ## Doxygen
 For more details, please refer to https://sikang.github.io/jps3d/index.html
 
