@@ -66,10 +66,9 @@ add_library(jps_lib src/planner/a_star_util.cpp
   src/planner/jps_2d_util.cpp
   src/planner/jps_3d_util.cpp
   src/planner/planner_base.cpp)
-target_link_libraries(jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
 
 add_executable(test_planner_2d test/test_planner_2d.cpp)
-target_link_libraries(test_planner_2d jps_lib)
+target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
 
 IF(USE_ROS)
 	install(TARGETS jps_lib test_planner_2d
