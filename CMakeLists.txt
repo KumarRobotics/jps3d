@@ -17,7 +17,7 @@ IF(USE_ROS)
     DEPENDS Eigen3 
     CATKIN_DEPENDS 
     INCLUDE_DIRS include
-    LIBRARIES jps_3d
+    LIBRARIES jps_lib
     )
   INCLUDE_DIRECTORIES(${catkin_INCLUDE_DIRS})
   LIST(APPEND LINK_LIBS ${catkin_LIBRARIES})
@@ -66,8 +66,28 @@ add_library(jps_lib src/planner/a_star_util.cpp
   src/planner/jps_2d_util.cpp
   src/planner/jps_3d_util.cpp
   src/planner/planner_base.cpp)
+target_link_libraries(jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
 
 add_executable(test_planner_2d test/test_planner_2d.cpp)
-target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
+target_link_libraries(test_planner_2d jps_lib)
 
+IF(USE_ROS)
+	install(TARGETS jps_lib test_planner_2d
+	  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+	install(
+      DIRECTORY include/
+	    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+	)
+ELSE()
+	install(TARGETS jps_lib test_planner_2d
+	  ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+	  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+	  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+	install(
+      DIRECTORY include/
+	    DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+	)
+ENDIF()
 
