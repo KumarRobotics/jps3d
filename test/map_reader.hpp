@@ -15,13 +15,13 @@ class MapReader {
         }
   
         const std::vector<double>& origin_vec = config[0]["origin"].as<std::vector<double>>();
-        for(int i = 0; i < origin_vec.size(); i++)
+        for(unsigned int i = 0; i < origin_vec.size(); i++)
           origin_(i) = origin_vec[i];
         if(verbose)
           std::cout << "origin: " << origin_.transpose() << std::endl;
 
         const std::vector<int>& dim_vec = config[1]["dim"].as<std::vector<int>>();
-        for(int i = 0; i < dim_vec.size(); i++)
+        for(unsigned int i = 0; i < dim_vec.size(); i++)
           dim_(i) = dim_vec[i];
         if(verbose)
           std::cout << "dim: " << dim_.transpose() << std::endl;
@@ -32,7 +32,7 @@ class MapReader {
 
         const std::vector<int>& data = config[3]["data"].as<std::vector<int>>();
         data_.resize(data.size());
-        for(int i = 0; i < data.size(); i++)
+        for(unsigned int i = 0; i < data.size(); i++)
           data_[i] = data[i] > 0 ? 1 : 0;
         
         exist_ = true;

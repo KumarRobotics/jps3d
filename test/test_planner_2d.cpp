@@ -13,14 +13,13 @@
 
 using namespace JPS;
 
-
 int main(int argc, char ** argv){
   if(argc != 2) {
     printf(ANSI_COLOR_RED "Input yaml required!\n" ANSI_COLOR_RESET);
     return -1;
   }
 
-  MapReader<Vec3i, Vec3f> reader(argv[1]);
+  MapReader<Vec3i, Vec3f> reader(argv[1]); // Map read from a given file
   if(!reader.exist()) {
     printf(ANSI_COLOR_RED "Cannot find input file [%s]!\n" ANSI_COLOR_RESET, argv[1]);
     return -1;
@@ -35,21 +34,19 @@ int main(int argc, char ** argv){
   const Vec3f start(2.5, -2, 0.0);
   const Vec3f goal(35, 2.5, 0.0);
 
-  std::unique_ptr<JPS2DUtil> planner_jps;
-  planner_jps.reset(new JPS2DUtil(false));
-  planner_jps->setMapUtil(map_util.get());
+  std::unique_ptr<PlannerBase> planner_jps(new JPS2DUtil(false)); // Declare a jps planner
+  planner_jps->setMapUtil(map_util.get()); // Set collision checking function
 
-  std::unique_ptr<AStarUtil> planner_astar;
-  planner_astar.reset(new AStarUtil(false));
-  planner_astar->setMapUtil(map_util.get());
+  std::unique_ptr<PlannerBase> planner_astar(new AStarUtil(false)); // Declare a A* planner
+  planner_astar->setMapUtil(map_util.get()); // Set collision checking function
 
   Timer time_jps(true);
-  bool valid_jps = planner_jps->plan(start, goal);
+  bool valid_jps = planner_jps->plan(start, goal); // Plan from start to goal
   double dt_jps = time_jps.Elapsed().count();
   printf("JPS Planner takes: %f ms\n", dt_jps);
   printf("JPS Path Distance: %f\n", total_distance3f(planner_jps->getRawPath()));
   Timer time_astar(true);
-  bool valid_astar = planner_astar->plan(start, goal);
+  bool valid_astar = planner_astar->plan(start, goal); // Plan from start to goal
   double dt_astar = time_astar.Elapsed().count();
   printf("AStar Planner takes: %f ms\n", dt_astar);
   printf("AStar Path Distance: %f\n", total_distance3f(planner_astar->getRawPath()));
@@ -89,7 +86,7 @@ int main(int argc, char ** argv){
   if(valid_jps) {
     vec_Vec3f path = planner_jps->getRawPath();
     imageSource->SetDrawColor(0.0, 0.0, 0.0);
-    for(int i = 0; i < path.size() - 1; i ++) {
+    for(int i = 0; i < (int) path.size() - 1; i ++) {
       const Vec3i p1 = map_util->floatToInt(path[i]);
       const Vec3i p2 = map_util->floatToInt(path[i+1]);
       imageSource->FillTube(p1[0], p1[1], p2[0], p2[1], 2);
@@ -100,7 +97,7 @@ int main(int argc, char ** argv){
   if(valid_astar) {
     vec_Vec3f path = planner_astar->getRawPath();
     imageSource->SetDrawColor(0.0, 200.0, 0.0);
-    for(int i = 0; i < path.size() - 1; i ++) {
+    for(int i = 0; i < (int) path.size() - 1; i ++) {
       const Vec3i p1 = map_util->floatToInt(path[i]);
       const Vec3i p2 = map_util->floatToInt(path[i+1]);
       imageSource->FillTube(p1[0], p1[1], p2[0], p2[1], 2);
