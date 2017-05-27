@@ -7,14 +7,14 @@
 
 #include <basic_type/data_type.h>
 
+namespace JPS {
 /**
  * @biref The abstract base class is provided by considering both 2D and 3D maps
+ *
  * @param Ti is integer index of cell/voxel
  * @param Tf is float position of cell/voxel
  * @param Tmap is defined as a 1D array 
  */
-
-namespace JPS {
 template <class Ti, class Tf, class Tmap> class MapUtilBase {
 public:
   /**

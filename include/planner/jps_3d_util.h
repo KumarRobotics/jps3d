@@ -14,11 +14,10 @@ namespace JPS {
  /**
    * @brief 3D JPS Planner
    */
-  
 class JPS3DUtil : public PlannerBase
 {
   public:
-    ///Node class
+    ///Node class for JPS3D
     class Node {
       public:
         Vec3i pn; /**< Indices of this node */

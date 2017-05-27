@@ -19,7 +19,7 @@ namespace JPS {
 class JPS2DUtil : public PlannerBase
 {
   public:
-    ///Node class
+    ///Node class for JPS2D
     class Node {
       public:
         Vec3i pn; /**< Indices of this node */

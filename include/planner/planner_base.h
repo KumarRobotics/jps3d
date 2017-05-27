@@ -58,8 +58,11 @@ namespace JPS {
       ///Modified path for future usage
       vec_Vec3f _path;
 
+      ///Flag indicating the success of planning
       int _status;
+      ///Enabled for printing info
       bool _planner_verbose;
+      ///If goal is outside map, set to True, vice verse.
       bool _goal_outside;
 
   };

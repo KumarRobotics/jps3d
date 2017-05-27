@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['raytrace',['rayTrace',['../classJPS_1_1MapUtilBase.html#a3c0e41327eab1753516f8ddea2c7ca7f',1,'JPS::MapUtilBase::rayTrace()'],['../classJPS_1_1VoxelMapUtil.html#a5a322f1fd9d12bd250c52b48d8e07da0',1,'JPS::VoxelMapUtil::rayTrace()']]],
-  ['removepts',['removePts',['../classJPS_1_1PlannerBase.html#a6ed4ecc8b788b90dd9c164cae007ecd0',1,'JPS::PlannerBase']]]
+  ['plan',['plan',['../classJPS_1_1AStarUtil.html#afdbe9ce272b05c1823964a2083e722a9',1,'JPS::AStarUtil::plan()'],['../classJPS_1_1JPS2DUtil.html#aa6d6813fbfacd741f98ea6e478bb3c94',1,'JPS::JPS2DUtil::plan()'],['../classJPS_1_1JPS3DUtil.html#a86ef97201a45bab02052442e4c942924',1,'JPS::JPS3DUtil::plan()'],['../classJPS_1_1PlannerBase.html#a4f86708ce7c1e389651ab65ae71db4ae',1,'JPS::PlannerBase::plan()']]],
+  ['plannerbase',['PlannerBase',['../classJPS_1_1PlannerBase.html#a692fbe2665210509424cf74b2686c1e5',1,'JPS::PlannerBase']]],
+  ['prune',['prune',['../classJPS_1_1JPS2DUtil.html#a250eff95333a711504669d456a8f3a97',1,'JPS::JPS2DUtil::prune()'],['../classJPS_1_1JPS3DUtil.html#a7f926052559e7b127981398702c281d7',1,'JPS::JPS3DUtil::prune()']]]
 ];

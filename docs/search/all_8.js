@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['jps',['JPS',['../namespaceJPS.html',1,'']]],
   ['jps2dutil',['JPS2DUtil',['../classJPS_1_1JPS2DUtil.html',1,'JPS']]],
   ['jps3dutil',['JPS3DUtil',['../classJPS_1_1JPS3DUtil.html',1,'JPS']]],
   ['jps_5f2d_5futil_2eh',['jps_2d_util.h',['../jps__2d__util_8h.html',1,'']]],

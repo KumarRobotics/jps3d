@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['total_5fdistance',['total_distance',['../data__utils_8h.html#a3f82ae87bcf143405fd986be6ca44a68',1,'data_utils.h']]],
-  ['transform_5fvec',['transform_vec',['../data__utils_8h.html#ac3745ddcc3002193bbcd5caab64cd1df',1,'data_utils.h']]]
+  ['setmap',['setMap',['../classJPS_1_1MapUtilBase.html#a2eb8df49cc3daaf0e9e6133e6ce93cfb',1,'JPS::MapUtilBase']]],
+  ['setmaputil',['setMapUtil',['../classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4',1,'JPS::PlannerBase']]],
+  ['status',['status',['../classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f',1,'JPS::PlannerBase']]]
 ];

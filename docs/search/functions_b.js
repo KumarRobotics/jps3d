@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['setmap',['setMap',['../classJPS_1_1MapUtilBase.html#a2eb8df49cc3daaf0e9e6133e6ce93cfb',1,'JPS::MapUtilBase']]],
-  ['setmaputil',['setMapUtil',['../classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4',1,'JPS::PlannerBase']]],
-  ['status',['status',['../classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f',1,'JPS::PlannerBase']]]
+  ['raytrace',['rayTrace',['../classJPS_1_1MapUtilBase.html#a3c0e41327eab1753516f8ddea2c7ca7f',1,'JPS::MapUtilBase::rayTrace()'],['../classJPS_1_1VoxelMapUtil.html#a5a322f1fd9d12bd250c52b48d8e07da0',1,'JPS::VoxelMapUtil::rayTrace()']]],
+  ['removepts',['removePts',['../classJPS_1_1PlannerBase.html#a6ed4ecc8b788b90dd9c164cae007ecd0',1,'JPS::PlannerBase']]]
 ];
