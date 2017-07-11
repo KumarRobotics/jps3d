@@ -243,6 +243,7 @@ bool JPS3DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   if(_planner_verbose){
     std::cout <<"Start: " << start.transpose() << std::endl;
     std::cout <<"Goal:  " << goal.transpose() << std::endl;
+    std::cout <<"Start Int: " << start_int.transpose() << std::endl;
   }
 
   if (!_map_util->isFree(start_node.pn)) {
