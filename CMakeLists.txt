@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 project(jps3d)
 
-OPTION(USE_ROS "Set OFF if you want to build this package without Catkin" OFF)
+OPTION(USE_ROS "Set OFF if you want to build this package without Catkin" ON)
+set(USE_ROS True)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-deprecated-declarations")
 #IF(NOT CMAKE_BUILD_TYPE)
@@ -10,7 +11,7 @@ SET(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 
 IF(USE_ROS)
-  message(STATUS "Compile with ROS.")
+  message("Compile with ROS.")
   # roslib cmake_modules
   FIND_PACKAGE(catkin REQUIRED COMPONENTS roscpp)
   catkin_package(
@@ -39,7 +40,8 @@ endif()
 
 
 FIND_PACKAGE(PkgConfig REQUIRED)
-PKG_CHECK_MODULES(EIGEN3 REQUIRED eigen3)
+FIND_PACKAGE(Eigen3 REQUIRED)
+#PKG_CHECK_MODULES(EIGEN3 REQUIRED eigen3)
 PKG_CHECK_MODULES(YAMLCPP REQUIRED yaml-cpp)
 FIND_PACKAGE( Boost COMPONENTS filesystem system REQUIRED )
 
@@ -72,22 +74,22 @@ add_executable(test_planner_2d test/test_planner_2d.cpp)
 target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
 
 IF(USE_ROS)
-	install(TARGETS jps_lib test_planner_2d
-	  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-	  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-	  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-	install(
-      DIRECTORY include/
-	    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-	)
+  install(TARGETS jps_lib test_planner_2d
+    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+  install(
+    DIRECTORY include/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    )
 ELSE()
-	install(TARGETS jps_lib test_planner_2d
-	  ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-	  LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-	  RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-	install(
-      DIRECTORY include/
-	    DESTINATION ${CMAKE_INSTALL_PREFIX}/include
-	)
+  install(TARGETS jps_lib test_planner_2d
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+    LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+    RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+  install(
+    DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+    )
 ENDIF()
 

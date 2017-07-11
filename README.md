@@ -15,9 +15,13 @@ $ mkdir build && cd build && cmake .. && make
 
 B) Using CATKIN
 ```sh
-$ cd mv jps3d ~/catkin_ws/src
+$ mv jps3d ~/catkin_ws/src
 $ cd ~/catkin_ws & catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
+Note that in other repository, add following command in `CMakeLists.txt` in order to correctly find `jps3d`:
+```sh
+include_directories(${JPS3D_INCLUDE_DIRS})
+``` 
 
 ## Example Usage
 The simple API are provided in the base planner class, here are three important functions to set up a planning thread:
