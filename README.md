@@ -13,14 +13,14 @@ A) Simple cmake
 $ mkdir build && cd build && cmake .. && make
 ```
 
-B) Using CATKIN
+B) Using CATKIN with ROS
 ```sh
-$ cd mv jps3d ~/catkin_ws/src
+$ mv jps3d ~/catkin_ws/src
 $ cd ~/catkin_ws & catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 
 ## Example Usage
-The simple API are provided in the base planner class, here are three important functions to set up a planning thread:
+The simple API are provided in the base planner class, here are some important functions to set up a planning thread:
 ```c++
 std::unique_ptr<PlannerBase> planner(new XXXUtil(false)); // Declare a XXX planner
 planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
@@ -40,6 +40,7 @@ JPS Path Distance: 35.192388
 AStar Planner takes: 317.000000 ms
 AStar Path Distance: 35.192388
 ```
+
 ## Doxygen
 For more details, please refer to https://sikang.github.io/jps3d/index.html
 

@@ -70,7 +70,7 @@ int main(int argc, char ** argv){
 
   imageSource->SetDrawColor(127.0, 127.0, 127.0);
   for(int x = 0; x < dim(0); x ++) {
-    for(int y = 0; y < dim(0); y ++) {
+    for(int y = 0; y < dim(1); y ++) {
       if(!map_util->isFree(Vec3i(x, y, 0))) {
         imageSource->DrawPoint(x, y);
       }
