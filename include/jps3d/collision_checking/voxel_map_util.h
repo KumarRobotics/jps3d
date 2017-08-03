@@ -6,7 +6,7 @@
 #ifndef JPS_VOXEL_MAP_UTIL_H
 #define JPS_VOXEL_MAP_UTIL_H
 
-#include <collision_checking/jps_map_util_base.h>
+#include <jps3d/collision_checking/map_util_base.h>
 
 namespace JPS {
 ///The map util for 3D voxel map

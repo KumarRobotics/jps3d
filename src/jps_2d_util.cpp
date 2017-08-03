@@ -1,4 +1,4 @@
-#include <planner/jps_2d_util.h>
+#include <jps3d/planner/jps_2d_util.h>
 
 using namespace JPS;
 

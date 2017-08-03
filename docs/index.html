@@ -72,8 +72,8 @@ $(function() {
 <li>yaml-cpp (Reading data files)</li>
 <li>VTK (For visualizing output)</li>
 </ul>
-<p>A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p>B) Using CATKIN </p><div class="fragment"><div class="line">$ cd mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><h2>Example Usage</h2>
-<p>The simple API are provided in the base planner class, here are three important functions to set up a planning thread: </p><div class="fragment"><div class="line">{c++}</div><div class="line">std::unique_ptr&lt;PlannerBase&gt; planner(new XXXUtil(false)); // Declare a XXX planner</div><div class="line">planner-&gt;setMapUtil(MAP_UTIL_PTR); // Set collision checking function</div><div class="line">bool valid = planner-&gt;plan(start, goal); // Plan from start to goal</div></div><!-- fragment --><p> In this library, we consider 3D voxel grid but user can write their own 2D map util plugin using the <code>MapBaseUtil</code> class. Three planners are provided as follows:</p><ul>
+<p>A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p>B) Using CATKIN with ROS </p><div class="fragment"><div class="line">$ mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><p> Note that in other repository, add following command in <code>CMakeLists.txt</code> in order to correctly find <code>jps3d</code>: </p><div class="fragment"><div class="line">include_directories(${JPS3D_INCLUDE_DIRS})</div></div><!-- fragment --><h2>Example Usage</h2>
+<p>The simple API are provided in the base planner class, here are some important functions to set up a planning thread: </p><div class="fragment"><div class="line">{c++}</div><div class="line">std::unique_ptr&lt;PlannerBase&gt; planner(new XXXUtil(false)); // Declare a XXX planner</div><div class="line">planner-&gt;setMapUtil(MAP_UTIL_PTR); // Set collision checking function</div><div class="line">bool valid = planner-&gt;plan(start, goal); // Plan from start to goal</div></div><!-- fragment --><p> In this library, we consider 3D voxel grid but user can write their own 2D map util plugin using the <code>MapBaseUtil</code> class. Three planners are provided as follows:</p><ul>
 <li><code>AStarUtil</code></li>
 <li><code>JPS2DUtil</code></li>
 <li><code>JPS3DUtil</code></li>
@@ -82,7 +82,7 @@ $(function() {
 <img src="corridor.jpg" alt="corridor.jpg"/>
 <div class="caption">
 Visualization</div></div>
-<div class="fragment"><div class="line">$ ./build/test_planner_2d ../data/corridor.yaml</div><div class="line">JPS Planner takes: 73.000000 ms</div><div class="line">JPS Path Distance: 35.192388</div><div class="line">AStar Planner takes: 317.000000 ms</div><div class="line">AStar Path Distance: 35.192388</div></div><!-- fragment --> <h2>Doxygen</h2>
+<div class="fragment"><div class="line">$ ./build/test_planner_2d ../data/corridor.yaml</div><div class="line">JPS Planner takes: 73.000000 ms</div><div class="line">JPS Path Distance: 35.192388</div><div class="line">AStar Planner takes: 317.000000 ms</div><div class="line">AStar Path Distance: 35.192388</div></div><!-- fragment --><h2>Doxygen</h2>
 <p>For more details, please refer to <a href="https://sikang.github.io/jps3d/index.html">https://sikang.github.io/jps3d/index.html</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 #ifndef JPS_JPS2D_UTIL_H
 #define JPS_JPS2D_UTIL_H
 
-#include <planner/planner_base.h>
+#include <jps3d/planner/planner_base.h>
 #include <yagsbpl/yagsbpl_base.h>
 #include <yagsbpl/A_star.h>
 #include <unordered_map>

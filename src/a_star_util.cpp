@@ -1,4 +1,4 @@
-#include <planner/a_star_util.h>
+#include <jps3d/planner/a_star_util.h>
 
 using namespace JPS;
 

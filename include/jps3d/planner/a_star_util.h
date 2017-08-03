@@ -5,7 +5,7 @@
 #ifndef JPS_ASTAR_UTIL_H
 #define JPS_ASTAR_UTIL_H
 
-#include <planner/planner_base.h>
+#include <jps3d/planner/planner_base.h>
 #include <yagsbpl/yagsbpl_base.h>
 #include <yagsbpl/A_star.h>
 

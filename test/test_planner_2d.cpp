@@ -1,8 +1,7 @@
 #include "timer.hpp"
 #include "map_reader.hpp"
-#include <collision_checking/jps_voxel_map_util.h>
-#include <planner/a_star_util.h>
-#include <planner/jps_2d_util.h>
+#include <jps3d/planner/a_star_util.h>
+#include <jps3d/planner/jps_2d_util.h>
 
 #define VISUALIZE 1
 #if VISUALIZE

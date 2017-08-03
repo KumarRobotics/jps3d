@@ -63,10 +63,10 @@ INCLUDE_DIRECTORIES(
 #add_library(jps_3d src/planner/nx_jps_3d.cpp
 #  src/planner/jps_3D.cpp
 #  src/planner/planner_base.cpp)
-add_library(jps_lib src/planner/a_star_util.cpp
-  src/planner/jps_2d_util.cpp
-  src/planner/jps_3d_util.cpp
-  src/planner/planner_base.cpp)
+add_library(jps_lib src/a_star_util.cpp
+  src/jps_2d_util.cpp
+  src/jps_3d_util.cpp
+  src/planner_base.cpp)
 target_link_libraries(jps_lib ${Boost_LIBRARIES})
 
 add_executable(test_planner_2d test/test_planner_2d.cpp)

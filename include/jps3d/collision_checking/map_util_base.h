@@ -5,7 +5,7 @@
 #ifndef JPS_MAP_UTIL_BASE_H
 #define JPS_MAP_UTIL_BASE_H
 
-#include <basic_type/data_type.h>
+#include <jps3d/basic_type/data_type.h>
 
 namespace JPS {
 /**
