@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(jps3d)
 
-set(USE_ROS True)
+OPTION(USE_ROS "Set OFF if you want to build this package without Catkin" ON)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-deprecated-declarations")
 #IF(NOT CMAKE_BUILD_TYPE)
