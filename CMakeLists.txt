@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(jps3d)
 
-OPTION(USE_ROS "Set OFF if you want to build this package without Catkin" ON)
+set(USE_ROS True)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-deprecated-declarations")
 #IF(NOT CMAKE_BUILD_TYPE)
@@ -10,7 +10,7 @@ SET(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 
 IF(USE_ROS)
-  MESSAGE(STATUS "Compile with ROS.")
+  message("Compile with ROS.")
   # roslib cmake_modules
   FIND_PACKAGE(catkin REQUIRED COMPONENTS roscpp)
   catkin_package(
@@ -39,7 +39,8 @@ endif()
 
 
 FIND_PACKAGE(PkgConfig REQUIRED)
-PKG_CHECK_MODULES(EIGEN3 REQUIRED eigen3)
+FIND_PACKAGE(Eigen3 REQUIRED)
+#PKG_CHECK_MODULES(EIGEN3 REQUIRED eigen3)
 PKG_CHECK_MODULES(YAMLCPP REQUIRED yaml-cpp)
 FIND_PACKAGE( Boost COMPONENTS filesystem system REQUIRED )
 
@@ -66,6 +67,7 @@ add_library(jps_lib src/planner/a_star_util.cpp
   src/planner/jps_2d_util.cpp
   src/planner/jps_3d_util.cpp
   src/planner/planner_base.cpp)
+target_link_libraries(jps_lib ${Boost_LIBRARIES})
 
 add_executable(test_planner_2d test/test_planner_2d.cpp)
 target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES} ${VTK_LIBRARIES})
