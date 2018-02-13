@@ -11,6 +11,7 @@
 #include <jps3d/collision_checking/voxel_map_util.h>
 
 namespace JPS {
+  class GraphSearch;
   /**
    * @brief Abstract base for planning
    */
@@ -50,9 +51,9 @@ namespace JPS {
 
     protected:
       ///Assume using 3D voxel map for all 2d and 3d planning
-      std::shared_ptr<JPS::VoxelMapUtil> map_util_;
+      std::shared_ptr<VoxelMapUtil> map_util_;
       ///The planner
-      std::shared_ptr<JPS::GraphSearch> graph_search_;
+      std::shared_ptr<GraphSearch> graph_search_;
       ///Raw path from planner
       vec_Vec3f raw_path_;
       ///Modified path for future usage

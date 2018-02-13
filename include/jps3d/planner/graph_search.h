@@ -10,6 +10,7 @@
 #include <memory>                         // std::shared_ptr
 #include <limits>                         // std::numeric_limits
 #include <vector>                         // std::vector
+#include <unordered_map>                  // std::unordered_map
 
 namespace JPS
 {

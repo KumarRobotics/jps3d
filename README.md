@@ -5,19 +5,19 @@ Implementation of Jump Point Search in both 2D and 3D environments. Original jum
 Required: 
  - Boost
  - Eigen
- - yaml-cpp (Reading data files)
- - VTK (For visualizing output)
+ - yaml-cpp
 
 A) Simple cmake
 ```sh
 $ mkdir build && cd build && cmake .. && make
 ```
 
-B) Using CATKIN with ROS
+B) Using CATKIN 
 ```sh
 $ mv jps3d ~/catkin_ws/src
-$ cd ~/catkin_ws & catkin_make -DCMAKE_BUILD_TYPE=Release
+$ cd ~/catkin_ws & catkin_make_isolated -DCMAKE_BUILD_TYPE=Release
 ```
+
 Note that in other repository, add following command in `CMakeLists.txt` in order to correctly find `jps3d`:
 ```sh
 include_directories(${JPS3D_INCLUDE_DIRS})

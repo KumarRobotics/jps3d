@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MRSL JPS3D Library
-   &#160;<span id="projectnumber">0.0</span>
+   &#160;<span id="projectnumber">0.1</span>
    </div>
    <div id="projectbrief">An implementaion of Jump Point Search on 3D voxel map</div>
   </td>
@@ -69,10 +69,9 @@ $(function() {
 <p>Required:</p><ul>
 <li>Boost</li>
 <li>Eigen</li>
-<li>yaml-cpp (Reading data files)</li>
-<li>VTK (For visualizing output)</li>
+<li>yaml-cpp</li>
 </ul>
-<p>A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p>B) Using CATKIN with ROS </p><div class="fragment"><div class="line">$ mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><p> Note that in other repository, add following command in <code>CMakeLists.txt</code> in order to correctly find <code>jps3d</code>: </p><div class="fragment"><div class="line">include_directories(${JPS3D_INCLUDE_DIRS})</div></div><!-- fragment --><p>Two libs will be installed in the system: the standard <code>jps_lib</code> and a fast implementation <code>nx_jps_lib</code>. The latter one only supports 3D and a bit faster than the former standard one.</p>
+<p>A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p>B) Using CATKIN </p><div class="fragment"><div class="line">$ mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make_isolated -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><p>Note that in other repository, add following command in <code>CMakeLists.txt</code> in order to correctly find <code>jps3d</code>: </p><div class="fragment"><div class="line">include_directories(${JPS3D_INCLUDE_DIRS})</div></div><!-- fragment --><p>Two libs will be installed in the system: the standard <code>jps_lib</code> and a fast implementation <code>nx_jps_lib</code>. The latter one only supports 3D and a bit faster than the former standard one.</p>
 <h2>Example Usage</h2>
 <p>The simple API are provided in the base planner class, here are some important functions to set up a planning thread: </p><div class="fragment"><div class="line">{c++}</div><div class="line">std::unique_ptr&lt;PlannerBase&gt; planner(new XXXUtil(false)); // Declare a XXX planner</div><div class="line">planner-&gt;setMapUtil(MAP_UTIL_PTR); // Set collision checking function</div><div class="line">bool valid = planner-&gt;plan(start, goal); // Plan from start to goal</div></div><!-- fragment --><p> In this library, we consider 3D voxel grid but user can write their own 2D map util plugin using the <code>MapBaseUtil</code> class. Two planners are provided as follows:</p><ul>
 <li><code>GraphSearch2DUtil</code></li>
