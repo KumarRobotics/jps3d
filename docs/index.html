@@ -64,7 +64,7 @@ $(function() {
 <div class="title">MRSL Jump Point Search Planning Library </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><hr/>
+<div class="textblock"><p><a href="https://app.wercker.com/project/byKey/880ab5feaff25f0483e5f2c4f834b8c0"></a> </p><hr/>
 <p> Jump Point Search for path planning in both 2D and 3D environments. Original jump point seach algorithm is proposed in <a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/download/3761/4007">"D. Harabor and A. Grastien. Online Graph Pruning for Pathfinding on Grid Maps. In National Conference on Artificial Intelligence (AAAI), 2011"</a>. The 3D version is proposed in <a href="http://ieeexplore.ieee.org/abstract/document/7839930/">"S. Liu, M. Watterson, K. Mohta, K. Sun, S. Bhattacharya, C.J. Taylor and V. Kumar. Planning Dynamically Feasible Trajectories for Quadrotors using Safe Flight Corridors in 3-D Complex Environments. ICRA 2017"</a>.</p>
 <h2>Installation</h2>
 <h4>Required:</h4>
@@ -72,10 +72,10 @@ $(function() {
 <li>Eigen3</li>
 <li>yaml-cpp</li>
 </ul>
-<p>Simply run following commands to install dependancy: </p><div class="fragment"><div class="line">$ sudo apt update</div><div class="line">$ sudo apt install -y libeigen3-dev libyaml-cpp-dev cmake</div></div><!-- fragment --><p>#### A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make -j4</div></div><!-- fragment --><p>#### B) Using CATKIN </p><div class="fragment"><div class="line">$ mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make_isolated -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><h4>Include in other projects</h4>
+<p>Simply run following commands to install dependancy: </p><div class="fragment"><div class="line">$ sudo apt update</div><div class="line">$ sudo apt install -y libeigen3-dev libyaml-cpp-dev libboost-dev cmake</div></div><!-- fragment --><p>#### A) Simple cmake </p><div class="fragment"><div class="line">$ mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make -j4</div></div><!-- fragment --><p>#### B) Using CATKIN </p><div class="fragment"><div class="line">$ mv jps3d ~/catkin_ws/src</div><div class="line">$ cd ~/catkin_ws &amp; catkin_make_isolated -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><h4>Include in other projects</h4>
 <p>Note that in other repository, add following commands in <code>CMakeLists.txt</code> in order to correctly link <code>jps3d</code>: </p><div class="fragment"><div class="line">find_package(jps3d REQUIRED)</div><div class="line">include_directories(${JPS3D_INCLUDE_DIRS})</div><div class="line">...</div><div class="line">add_executable(test_xxx src/test_xxx.cpp)</div><div class="line">target_link_libraries(test_xxx ${JPS3D_LIBRARIES})</div></div><!-- fragment --><p>Two libs will be installed in the system: the standard <code>jps_lib</code> and a faster implementation <code>nx_jps_lib</code> written by Nikolay Anatasov. The latter one only supports 3D.</p>
 <h2>Usage</h2>
-<p>The simple API are provided in the base planner class, here are some important functions to set up a planning thread: </p><div class="fragment"><div class="line">{c++}</div><div class="line">std::unique_ptr&lt;PlannerBase&gt; planner(new XXXUtil(false)); // Declare a XXX planner</div><div class="line">planner-&gt;setMapUtil(MAP_UTIL_PTR); // Set collision checking function</div><div class="line">bool valid_jps = planner-&gt;plan(start, goal, 1, true); // Plan from start to goal with heuristic weight 1, using JPS</div><div class="line">bool valid_astar = planner-&gt;plan(start, goal, 1, false); // Plan from start to goal with heuristic weight 1, using A*</div></div><!-- fragment --><p> Two XXX planners are provided:</p><ul>
+<p>To start a planning thread: </p><div class="fragment"><div class="line">{c++}</div><div class="line">std::unique_ptr&lt;PlannerBase&gt; planner(new XXXUtil(false)); // Declare a XXX planner</div><div class="line">planner-&gt;setMapUtil(MAP_UTIL_PTR); // Set collision checking function</div><div class="line">bool valid_jps = planner-&gt;plan(start, goal, 1, true); // Plan from start to goal with heuristic weight 1, using JPS</div><div class="line">bool valid_astar = planner-&gt;plan(start, goal, 1, false); // Plan from start to goal with heuristic weight 1, using A*</div></div><!-- fragment --><p> Two XXX planners are provided:</p><ul>
 <li><code>GraphSearch2DUtil</code></li>
 <li><code>GraphSearch3DUtil</code></li>
 </ul>
@@ -87,7 +87,7 @@ $(function() {
 Visualization</div></div>
 <div class="fragment"><div class="line">$ ./build/test_planner_2d ../data/corridor.yaml</div><div class="line">start: 2.5  -2   0</div><div class="line">goal:  35 2.5   0</div><div class="line">origin:  0 -5  0</div><div class="line">dim: 799 199   1</div><div class="line">resolution: 0.05</div><div class="line">JPS Planner takes: 5.000000 ms</div><div class="line">JPS Path Distance: 35.109545</div><div class="line">AStar Planner takes: 66.000000 ms</div><div class="line">AStar Path Distance: 35.109545</div></div><!-- fragment --><p>To generate map in <code>yaml</code> format which can be loaded directly in the test node, a simple executable file <code>test/create_map.cpp</code> is used. User can easily change the location of blocks in the source code.</p>
 <h2>Doxygen</h2>
-<p>For more details, please refer to <a href="https://sikang.github.io/jps3d/index.html">https://sikang.github.io/jps3d/index.html</a> </p>
+<p>For more details, please refer to <a href="https://sikang.github.io/jps3d">Doxygen</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

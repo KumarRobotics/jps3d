@@ -11,7 +11,7 @@ Jump Point Search for path planning in both 2D and 3D environments. Original jum
 Simply run following commands to install dependancy:
 ```sh
 $ sudo apt update
-$ sudo apt install -y libeigen3-dev libyaml-cpp-dev cmake
+$ sudo apt install -y libeigen3-dev libyaml-cpp-dev libboost-dev cmake
 ```
 
 #### A) Simple cmake
@@ -38,7 +38,7 @@ target_link_libraries(test_xxx ${JPS3D_LIBRARIES})
 Two libs will be installed in the system: the standard `jps_lib` and a faster implementation `nx_jps_lib` written by Nikolay Anatasov. The latter one only supports 3D.
 
 ## Usage
-The simple API are provided in the base planner class, here are some important functions to set up a planning thread:
+To start a planning thread:
 ```c++
 std::unique_ptr<PlannerBase> planner(new XXXUtil(false)); // Declare a XXX planner
 planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
