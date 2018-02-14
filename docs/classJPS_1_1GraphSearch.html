@@ -97,10 +97,18 @@ Public Member Functions</h2></td></tr>
 std::vector&lt; StatePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#abc943331e019c3c718cd80f4c4064753">getPath</a> () const</td></tr>
 <tr class="memdesc:abc943331e019c3c718cd80f4c4064753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the optimal path. <br /></td></tr>
 <tr class="separator:abc943331e019c3c718cd80f4c4064753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae03e7e274e75e4468a1205ebc17f0a58"><td class="memItemLeft" align="right" valign="top"><a id="ae03e7e274e75e4468a1205ebc17f0a58"></a>
-std::vector&lt; StatePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#ae03e7e274e75e4468a1205ebc17f0a58">getOpenedState</a> () const</td></tr>
-<tr class="memdesc:ae03e7e274e75e4468a1205ebc17f0a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the states that have been opened. <br /></td></tr>
-<tr class="separator:ae03e7e274e75e4468a1205ebc17f0a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e40596f80a9ceaba5f2c1a6f033ea7"><td class="memItemLeft" align="right" valign="top"><a id="ab4e40596f80a9ceaba5f2c1a6f033ea7"></a>
+std::vector&lt; StatePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#ab4e40596f80a9ceaba5f2c1a6f033ea7">getOpenSet</a> () const</td></tr>
+<tr class="memdesc:ab4e40596f80a9ceaba5f2c1a6f033ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the states in open set. <br /></td></tr>
+<tr class="separator:ab4e40596f80a9ceaba5f2c1a6f033ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae172f4fd2aff4d2fdca7b9abfb1006bf"><td class="memItemLeft" align="right" valign="top"><a id="ae172f4fd2aff4d2fdca7b9abfb1006bf"></a>
+std::vector&lt; StatePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#ae172f4fd2aff4d2fdca7b9abfb1006bf">getCloseSet</a> () const</td></tr>
+<tr class="memdesc:ae172f4fd2aff4d2fdca7b9abfb1006bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the states in close set. <br /></td></tr>
+<tr class="separator:ae172f4fd2aff4d2fdca7b9abfb1006bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f8c0a2d42ab5af6158e37a0948fc75"><td class="memItemLeft" align="right" valign="top"><a id="a81f8c0a2d42ab5af6158e37a0948fc75"></a>
+std::vector&lt; StatePtr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#a81f8c0a2d42ab5af6158e37a0948fc75">getAllSet</a> () const</td></tr>
+<tr class="memdesc:a81f8c0a2d42ab5af6158e37a0948fc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the states in hash map. <br /></td></tr>
+<tr class="separator:a81f8c0a2d42ab5af6158e37a0948fc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -151,10 +159,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasForced</b> (int x,
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasForced</b> (int x, int y, int z, int dx, int dy, int dz)</td></tr>
 <tr class="separator:a69464dc4f6c7c3ce4083f47dc5542f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a316a3d39455f57cf362dd9f3487d4e83"><td class="memItemLeft" align="right" valign="top"><a id="a316a3d39455f57cf362dd9f3487d4e83"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>jump</b> (int x, int y, int dx, int dy, int &amp;new_x, int &amp;new_y)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#a316a3d39455f57cf362dd9f3487d4e83">jump</a> (int x, int y, int dx, int dy, int &amp;new_x, int &amp;new_y)</td></tr>
+<tr class="memdesc:a316a3d39455f57cf362dd9f3487d4e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D jump, return true iff finding the goal or a jump point <br /></td></tr>
 <tr class="separator:a316a3d39455f57cf362dd9f3487d4e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ef84e9ac7422ab0d63c9b0587e72ae6"><td class="memItemLeft" align="right" valign="top"><a id="a2ef84e9ac7422ab0d63c9b0587e72ae6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>jump</b> (int x, int y, int z, int dx, int dy, int dz, int &amp;new_x, int &amp;new_y, int &amp;new_z)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1GraphSearch.html#a2ef84e9ac7422ab0d63c9b0587e72ae6">jump</a> (int x, int y, int z, int dx, int dy, int dz, int &amp;new_x, int &amp;new_y, int &amp;new_z)</td></tr>
+<tr class="memdesc:a2ef84e9ac7422ab0d63c9b0587e72ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D jump, return true iff finding the goal or a jump point <br /></td></tr>
 <tr class="separator:a2ef84e9ac7422ab0d63c9b0587e72ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19ec26e813b0d110bfd3fb3df7580a1f"><td class="memItemLeft" align="right" valign="top"><a id="a19ec26e813b0d110bfd3fb3df7580a1f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init2DJps</b> ()</td></tr>

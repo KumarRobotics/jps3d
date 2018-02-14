@@ -61,9 +61,9 @@ goal:  35 2.5   0
 origin:  0 -5  0
 dim: 799 199   1
 resolution: 0.05
-JPS Planner takes: 4.000000 ms
+JPS Planner takes: 5.000000 ms
 JPS Path Distance: 35.109545
-AStar Planner takes: 77.000000 ms
+AStar Planner takes: 66.000000 ms
 AStar Path Distance: 35.109545
 ```
 

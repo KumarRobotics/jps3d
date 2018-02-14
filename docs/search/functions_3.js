@@ -1,12 +1,13 @@
 var searchData=
 [
+  ['getallset',['getAllSet',['../classJPS_1_1GraphSearch.html#a81f8c0a2d42ab5af6158e37a0948fc75',1,'JPS::GraphSearch::getAllSet()'],['../classJPS_1_1PlannerUtilBase.html#a4449de9b4c40ce642e96af95ba32c64a',1,'JPS::PlannerUtilBase::getAllSet()']]],
+  ['getcloseset',['getCloseSet',['../classJPS_1_1GraphSearch.html#ae172f4fd2aff4d2fdca7b9abfb1006bf',1,'JPS::GraphSearch::getCloseSet()'],['../classJPS_1_1PlannerUtilBase.html#afdabcc2518d04d8291547e0ccd614ddb',1,'JPS::PlannerUtilBase::getCloseSet()']]],
   ['getcloud',['getCloud',['../classJPS_1_1MapUtilBase.html#a7c291b4a35201151c26c61bc55de6728',1,'JPS::MapUtilBase::getCloud()'],['../classJPS_1_1VoxelMapUtil.html#a631b61c3caa29de0b06e9793fa5dc8f6',1,'JPS::VoxelMapUtil::getCloud()']]],
   ['getdim',['getDim',['../classJPS_1_1MapUtilBase.html#a091cf676cb5536da1794854343c4e277',1,'JPS::MapUtilBase']]],
   ['getindex',['getIndex',['../classJPS_1_1MapUtilBase.html#a84741993623c680e5d35c67743dde4ea',1,'JPS::MapUtilBase::getIndex()'],['../classJPS_1_1VoxelMapUtil.html#af7d7102ffb5fee5df45113e4f87fc785',1,'JPS::VoxelMapUtil::getIndex()']]],
   ['getjpssucc',['getJpsSucc',['../classJPS_1_1GraphSearch.html#a65f4a24fa9d8033d7805ee84132e668d',1,'JPS::GraphSearch']]],
   ['getmap',['getMap',['../classJPS_1_1MapUtilBase.html#a84c4b913233961774394d6766158ce1a',1,'JPS::MapUtilBase']]],
-  ['getopenedcloud',['getOpenedCloud',['../classJPS_1_1PlannerUtilBase.html#a281b7db5f2774ac2a5845c7e9e7ead44',1,'JPS::PlannerUtilBase']]],
-  ['getopenedstate',['getOpenedState',['../classJPS_1_1GraphSearch.html#ae03e7e274e75e4468a1205ebc17f0a58',1,'JPS::GraphSearch']]],
+  ['getopenset',['getOpenSet',['../classJPS_1_1GraphSearch.html#ab4e40596f80a9ceaba5f2c1a6f033ea7',1,'JPS::GraphSearch::getOpenSet()'],['../classJPS_1_1PlannerUtilBase.html#aec3ade857a824156af91bc32f7fa85b9',1,'JPS::PlannerUtilBase::getOpenSet()']]],
   ['getorigin',['getOrigin',['../classJPS_1_1MapUtilBase.html#a1ce1d4604f169ac0c456d87adc4c27ff',1,'JPS::MapUtilBase']]],
   ['getpath',['getPath',['../classJPS_1_1PlannerBase.html#a09780f526dfa56a08b84f44861a039b2',1,'JPS::PlannerBase::getPath()'],['../classJPS_1_1GraphSearch.html#abc943331e019c3c718cd80f4c4064753',1,'JPS::GraphSearch::getPath()'],['../classJPS_1_1PlannerUtilBase.html#a197db7e7d455b3a86be4ae91993ac440',1,'JPS::PlannerUtilBase::getPath()']]],
   ['getrawpath',['getRawPath',['../classJPS_1_1PlannerBase.html#a3680d746c63d2145977c018b33d21992',1,'JPS::PlannerBase::getRawPath()'],['../classJPS_1_1PlannerUtilBase.html#ab2ce17bb7d8ddb750ffa42f17e7ffbe0',1,'JPS::PlannerUtilBase::getRawPath()']]],

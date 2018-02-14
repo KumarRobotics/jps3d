@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['setmap',['setMap',['../classJPS_1_1MapUtilBase.html#a2eb8df49cc3daaf0e9e6133e6ce93cfb',1,'JPS::MapUtilBase']]],
-  ['setmaputil',['setMapUtil',['../classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4',1,'JPS::PlannerBase::setMapUtil()'],['../classJPS_1_1PlannerUtilBase.html#aa750ebbf6d8d54f6179a73411835aa2d',1,'JPS::PlannerUtilBase::setMapUtil()']]],
-  ['state',['State',['../structJPS_1_1State.html#a574a1c732c40b943df83fcb7c3726473',1,'JPS::State::State(int id, int x, int y, int dx, int dy)'],['../structJPS_1_1State.html#a3aa15ff70720179c76d025808d76c300',1,'JPS::State::State(int id, int x, int y, int z, int dx, int dy, int dz)']]],
-  ['status',['status',['../classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f',1,'JPS::PlannerBase::status()'],['../classJPS_1_1PlannerUtilBase.html#aeb48b25c6ddaeb9b79b0fd851b757a00',1,'JPS::PlannerUtilBase::status()']]]
+  ['raytrace',['rayTrace',['../classJPS_1_1MapUtilBase.html#a3c0e41327eab1753516f8ddea2c7ca7f',1,'JPS::MapUtilBase::rayTrace()'],['../classJPS_1_1VoxelMapUtil.html#a5a322f1fd9d12bd250c52b48d8e07da0',1,'JPS::VoxelMapUtil::rayTrace()']]],
+  ['recoverpath',['recoverPath',['../classJPS_1_1GraphSearch.html#a432cf1e1c8f0b43646b15748ee5a5d56',1,'JPS::GraphSearch']]],
+  ['removepts',['removePts',['../classJPS_1_1PlannerBase.html#a6ed4ecc8b788b90dd9c164cae007ecd0',1,'JPS::PlannerBase::removePts()'],['../classJPS_1_1PlannerUtilBase.html#a6bf6074f24a5ccbe5aec6f9649c7d56a',1,'JPS::PlannerUtilBase::removePts()']]]
 ];
