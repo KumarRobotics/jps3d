@@ -2,8 +2,7 @@
 
 using namespace JPS;
 
-PlannerUtilBase::PlannerUtilBase() {
-}
+PlannerUtilBase::PlannerUtilBase() {}
 
 void PlannerUtilBase::setMapUtil(std::shared_ptr<JPS::VoxelMapUtil> &map_util) { map_util_ = map_util; }
 
@@ -102,9 +101,26 @@ vec_Vec3f PlannerUtilBase::optimize(const vec_Vec3f &path) {
   return optimized_path;
 }
 
-vec_Vec3f PlannerUtilBase::getOpenedCloud() const {
+
+vec_Vec3f PlannerUtilBase::getOpenSet() const {
   vec_Vec3f ps;
-  std::vector<StatePtr> ss = graph_search_->getOpenedState();
+  std::vector<StatePtr> ss = graph_search_->getOpenSet();
+  for(const auto& it: ss) 
+    ps.push_back(map_util_->intToFloat(Vec3i(it->x, it->y, it->z)));
+  return ps;
+}
+
+vec_Vec3f PlannerUtilBase::getCloseSet() const {
+  vec_Vec3f ps;
+  std::vector<StatePtr> ss = graph_search_->getCloseSet();
+  for(const auto& it: ss) 
+    ps.push_back(map_util_->intToFloat(Vec3i(it->x, it->y, it->z)));
+  return ps;
+}
+
+vec_Vec3f PlannerUtilBase::getAllSet() const {
+  vec_Vec3f ps;
+  std::vector<StatePtr> ss = graph_search_->getAllSet();
   for(const auto& it: ss) 
     ps.push_back(map_util_->intToFloat(Vec3i(it->x, it->y, it->z)));
   return ps;

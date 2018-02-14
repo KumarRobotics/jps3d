@@ -150,7 +150,8 @@ bool GraphSearch::plan(StatePtr& currNode_ptr, int maxExpand, int start_id, int 
     else 
       getJpsSucc(currNode_ptr, succ_ids, succ_costs);
 
-    //printf("size of succs: %zu\n", succ_ids.size());
+    // if(verbose_)
+   // printf("size of succs: %zu\n", succ_ids.size());
     // Process successors
     for( int s = 0; s < (int) succ_ids.size(); s++ )
     {
@@ -194,12 +195,14 @@ bool GraphSearch::plan(StatePtr& currNode_ptr, int maxExpand, int start_id, int 
 
 
     if(maxExpand > 0 && expand_iteration >= maxExpand) {
-      printf("MaxExpandStep [%d] Reached!!!!!!\n\n", maxExpand);
+      if(verbose_)
+        printf("MaxExpandStep [%d] Reached!!!!!!\n\n", maxExpand);
       return false;
     }
 
     if( pq_.empty()) {
-      printf("Priority queue is empty!!!!!!\n\n");
+      if(verbose_)
+        printf("Priority queue is empty!!!!!!\n\n");
       return false;
     }
   }
@@ -359,11 +362,11 @@ bool GraphSearch::jump(int x, int y, int dx, int dy, int& new_x, int& new_y ) {
   if (!isFree(new_x, new_y))
     return false;
 
-  //printf("dx: %d, dy: %d\n", dx, dy);
   if (new_x ==  xGoal_ && new_y == yGoal_)
     return true;
 
-  if (hasForced(new_x, new_y, dx, dy))
+
+  if (hasForced(new_x, new_y, dx, dy)) 
     return true;
 
   const int id = (dx+1)+3*(dy+1);
@@ -469,10 +472,29 @@ std::vector<StatePtr> GraphSearch::getPath() const {
   return path_;
 }
 
-std::vector<StatePtr> GraphSearch::getOpenedState() const {
+std::vector<StatePtr> GraphSearch::getOpenSet() const {
   std::vector<StatePtr> ss;
   for(const auto& it: hm_) {
-    if(it && it->opened)
+    if(it && it->opened && !it->closed)
+      ss.push_back(it);
+  }
+  return ss;
+}
+
+std::vector<StatePtr> GraphSearch::getCloseSet() const {
+  std::vector<StatePtr> ss;
+  for(const auto& it: hm_) {
+    if(it && it->closed)
+      ss.push_back(it);
+  }
+  return ss;
+}
+
+
+std::vector<StatePtr> GraphSearch::getAllSet() const {
+  std::vector<StatePtr> ss;
+  for(const auto& it: hm_) {
+    if(it)
       ss.push_back(it);
   }
   return ss;
@@ -494,6 +516,17 @@ JPS2DNeib::JPS2DNeib() {
             f2[id][0][dev],f2[id][1][dev]);
       }
       id ++;
+    }
+  }
+}
+
+void JPS2DNeib::print() {
+  for(int dx = -1; dx <= 1; dx++) {
+    for(int dy = -1; dy <= 1; dy++) {
+      int id = (dx+1)+3*(dy+1);
+      printf("[dx: %d, dy: %d]-->id: %d:\n", dx, dy, id);
+      for(unsigned int i = 0; i < sizeof(f1[id][0])/sizeof(f1[id][0][0]); i++)
+        printf("                f1: [%d, %d]\n", f1[id][0][i], f1[id][1][i]);
     }
   }
 }
@@ -527,7 +560,7 @@ void JPS2DNeib::Neib(int dx, int dy, int norm1, int dev, int& tx, int& ty)
 }
 
 void JPS2DNeib::FNeib( int dx, int dy, int norm1, int dev,
-                          int& fx, int& fy, int& nx, int& ny)
+                       int& fx, int& fy, int& nx, int& ny)
 {
   switch(norm1)
   {
@@ -537,9 +570,11 @@ void JPS2DNeib::FNeib( int dx, int dy, int norm1, int dev,
         case 0: fx= 0; fy= 1; break;
         case 1: fx= 0; fy= -1;  break;
       }
+
       // switch order if different direction
-      if(dx == 0)
-        fx = fy; fy = 0;
+      if(dx == 0) 
+        fx = fy, fy = 0;
+
       nx = dx + fx; ny = dy + fy;
       return;
     case 2:

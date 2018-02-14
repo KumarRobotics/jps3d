@@ -27,11 +27,14 @@ public:
   }
   ///Float position to discrete cell
   Vec3f intToFloat(const Vec3i &pp) {
-    return (pp.cast<decimal_t>() + Vec3f::Constant(0.5)) * res_ + origin_d_;
+    //return (pp.cast<decimal_t>() + Vec3f::Constant(0.5))* res_ + origin_d_;
+    return pp.cast<decimal_t>()* res_ + origin_d_;
   }
   ///Discrete cell to float position
   Vec3i floatToInt(const Vec3f &pt) {
-    return ((pt - origin_d_) / res_).cast<int>();
+    return Vec3i(std::round((pt(0)-origin_d_(0))/res_),
+        std::round((pt(1)-origin_d_(1))/res_),
+        std::round((pt(2)-origin_d_(2))/res_));
   }
   ///Check if the cell is outside
   bool isOutSide(const Vec3i &pn) {

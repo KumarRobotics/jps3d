@@ -83,11 +83,13 @@ namespace JPS
     //                          0 neighbors to add if forced (never happens)
     // straight (norm 1):       1 neighbor always added
     //                          2 forced neighbors to check
-    //                          8 neighbors to add if forced
+    //                          2 neighbors to add if forced
     // diagonal (norm sqrt(2)): 3 neighbors always added
     //                          2 forced neighbors to check
     //                          2 neighbors to add if forced
     static constexpr int nsz[3][2] = {{8, 0}, {1, 2}, {3, 2}};
+
+    void print();
     JPS2DNeib();
     private:
     void Neib(int dx, int dy, int norm1, int dev, int& tx, int& ty);
@@ -186,8 +188,14 @@ namespace JPS
       /// Get the optimal path
       std::vector<StatePtr> getPath() const;
 
-      /// Get the states that have been opened
-      std::vector<StatePtr> getOpenedState() const;
+      /// Get the states in open set
+      std::vector<StatePtr> getOpenSet() const;
+
+      /// Get the states in close set
+      std::vector<StatePtr> getCloseSet() const;
+
+      /// Get the states in hash map
+      std::vector<StatePtr> getAllSet() const;
 
     private:
       /// Main planning loop
@@ -214,7 +222,9 @@ namespace JPS
       bool hasForced(int x, int y, int dx, int dy);
       bool hasForced(int x, int y, int z, int dx, int dy, int dz);
 
+      ///2D jump, return true iff finding the goal or a jump point
       bool jump(int x, int y, int dx, int dy, int& new_x, int& new_y);
+      ///3D jump, return true iff finding the goal or a jump point
       bool jump(int x, int y, int z, int dx, int dy, int dz, int& new_x, int& new_y, int& new_z);
 
       void init2DJps();

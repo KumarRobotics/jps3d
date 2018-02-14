@@ -46,8 +46,12 @@ namespace JPS {
 
       ///Need to be specified in Child class, main planning function
       virtual bool plan(const Vec3f &start, const Vec3f &goal, decimal_t eps = 1, bool use_jps = false) = 0;
-      ///Get the opened nodes
-      vec_Vec3f getOpenedCloud() const;
+      ///Get the nodes in open set
+      vec_Vec3f getOpenSet() const;
+      ///Get the nodes in close set
+      vec_Vec3f getCloseSet() const;
+      ///Get all the nodes
+      vec_Vec3f getAllSet() const;
 
     protected:
       ///Assume using 3D voxel map for all 2d and 3d planning

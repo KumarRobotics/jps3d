@@ -1,45 +1,59 @@
 # MRSL Jump Point Search Planning Library
-Implementation of Jump Point Search in both 2D and 3D environments. Original jump point seach algorithm is proposed in ["D. Harabor and A. Grastien. Online Graph Pruning for Pathfinding on Grid Maps. In National Conference on Artificial Intelligence (AAAI), 2011"](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/download/3761/4007). The 3D version is proposed in ["S. Liu, M. Watterson, K. Mohta, K. Sun, S. Bhattacharya, C.J. Taylor and V. Kumar. Planning Dynamically Feasible Trajectories for Quadrotors using Safe Flight Corridors in 3-D Complex Environments. ICRA 2017"](http://ieeexplore.ieee.org/abstract/document/7839930/). 
+- - -
+Jump Point Search for path planning in both 2D and 3D environments. Original jump point seach algorithm is proposed in ["D. Harabor and A. Grastien. Online Graph Pruning for Pathfinding on Grid Maps. In National Conference on Artificial Intelligence (AAAI), 2011"](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/download/3761/4007). The 3D version is proposed in ["S. Liu, M. Watterson, K. Mohta, K. Sun, S. Bhattacharya, C.J. Taylor and V. Kumar. Planning Dynamically Feasible Trajectories for Quadrotors using Safe Flight Corridors in 3-D Complex Environments. ICRA 2017"](http://ieeexplore.ieee.org/abstract/document/7839930/). 
 
-## Compilation
-Required: 
- - Boost
- - Eigen
+## Installation 
+#### Required: 
+ - Eigen3
  - yaml-cpp
 
-A) Simple cmake
+Simply run following commands to install dependancy:
 ```sh
-$ mkdir build && cd build && cmake .. && make
+$ sudo apt update
+$ sudo apt install -y libeigen3-dev libyaml-cpp-dev cmake
 ```
 
-B) Using CATKIN 
+#### A) Simple cmake
+```sh
+$ mkdir build && cd build && cmake .. && make -j4
+```
+
+#### B) Using CATKIN 
 ```sh
 $ mv jps3d ~/catkin_ws/src
 $ cd ~/catkin_ws & catkin_make_isolated -DCMAKE_BUILD_TYPE=Release
 ```
 
-Note that in other repository, add following command in `CMakeLists.txt` in order to correctly find `jps3d`:
+#### Include in other projects
+Note that in other repository, add following commands in `CMakeLists.txt` in order to correctly link `jps3d`:
 ```sh
+find_package(jps3d REQUIRED)
 include_directories(${JPS3D_INCLUDE_DIRS})
+...
+add_executable(test_xxx src/test_xxx.cpp)
+target_link_libraries(test_xxx ${JPS3D_LIBRARIES})
 ``` 
 
-Two libs will be installed in the system: the standard `jps_lib` and a fast implementation `nx_jps_lib`. The latter one only supports 3D and a bit faster than the former standard one.
+Two libs will be installed in the system: the standard `jps_lib` and a faster implementation `nx_jps_lib` written by Nikolay Anatasov. The latter one only supports 3D.
 
-## Example Usage
+## Usage
 The simple API are provided in the base planner class, here are some important functions to set up a planning thread:
 ```c++
 std::unique_ptr<PlannerBase> planner(new XXXUtil(false)); // Declare a XXX planner
 planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
-bool valid = planner->plan(start, goal); // Plan from start to goal
+bool valid_jps = planner->plan(start, goal, 1, true); // Plan from start to goal with heuristic weight 1, using JPS
+bool valid_astar = planner->plan(start, goal, 1, false); // Plan from start to goal with heuristic weight 1, using A*
 ```
-In this library, we consider 3D voxel grid but user can write their own 2D map util plugin using the ```MapBaseUtil``` class. Two planners are provided as follows:
+Two XXX planners are provided:
  - ```GraphSearch2DUtil```
  - ```GraphSearch3DUtil```
 
-The results from ```A*``` and ```JPS``` are plotted in [corridor.jpg](https://github.com/sikang/jps3d/blob/master/data/corridor.jpg).
-Green path is from A*, black path is from JPS.
+## Example
+An example in 2D map is given in `test/test_planner_2d.cpp`, in which we plan from start to goal using both ```A*``` and ```JPS```. 
+The results are plotted in [corridor.png](https://github.com/sikang/jps3d/blob/master/data/corridor.png).
+Green path is from ```A*```, red path is from ```JPS```.
 
-![Visualization](./data/corridor.jpg)
+![Visualization](./data/corridor.png)
 ```sh
 $ ./build/test_planner_2d ../data/corridor.yaml
 start: 2.5  -2   0
