@@ -70,5 +70,5 @@ AStar Path Distance: 35.109545
 To generate map in `yaml` format which can be loaded directly in the test node, a simple executable file `test/create_map.cpp` is used. User can easily change the location of blocks in the source code.
 
 ## Doxygen
-For more details, please refer to https://sikang.github.io/jps3d/index.html
+For more details, please refer to [Doxygen](https://sikang.github.io/jps3d).
 

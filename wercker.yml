@@ -1,0 +1,18 @@
+box: ubuntu
+
+build:
+  steps:
+    - script:
+      name: install dependencies
+      code: |
+        sudo apt-get update
+        sudo apt install -y libeigen3-dev libyaml-cpp-dev cmake
+    - script:
+      name: build
+      code: |
+        mkdir build
+        cd build
+        cmake ..
+        make -j4
+
+
