@@ -1,12 +1,13 @@
 var searchData=
 [
   ['id',['id',['../structJPS_1_1State.html#a12b7e5ae25094c25bcb5e5dedfcbf576',1,'JPS::State']]],
-  ['info',['info',['../classJPS_1_1MapUtilBase.html#a5263272e2fa90b86ebbb48b5b39dc4be',1,'JPS::MapUtilBase::info()'],['../classJPS_1_1VoxelMapUtil.html#abc7dfc0a7e4b05ff7985fbd451815b58',1,'JPS::VoxelMapUtil::info()']]],
-  ['inttofloat',['intToFloat',['../classJPS_1_1MapUtilBase.html#a1895e31c76b9236b0b233d9929bd1a53',1,'JPS::MapUtilBase::intToFloat()'],['../classJPS_1_1VoxelMapUtil.html#a6f6c590b04181d34f46f6d7668fa57d5',1,'JPS::VoxelMapUtil::intToFloat()']]],
-  ['isblocked',['isBlocked',['../classJPS_1_1MapUtilBase.html#a0186b4d2c20399e8350a73edbbe64d02',1,'JPS::MapUtilBase']]],
-  ['isfree',['isFree',['../classJPS_1_1MapUtilBase.html#a4054801afa4b1e3bb3cbbf134acf2df5',1,'JPS::MapUtilBase::isFree(int idx)'],['../classJPS_1_1MapUtilBase.html#a61c19e0eed19941ca9ba21a7f023a2d3',1,'JPS::MapUtilBase::isFree(const Ti &amp;pn)']]],
-  ['isoccupied',['isOccupied',['../classJPS_1_1MapUtilBase.html#a4a43395581aec9033cadbf9109499f65',1,'JPS::MapUtilBase::isOccupied(int idx)'],['../classJPS_1_1MapUtilBase.html#a76845fbc649ee90896a4453cca2dd286',1,'JPS::MapUtilBase::isOccupied(const Ti &amp;pn)']]],
-  ['isoutside',['isOutSide',['../classJPS_1_1MapUtilBase.html#a7cdd42535f34b5f5ecca1992dff841bc',1,'JPS::MapUtilBase::isOutSide()'],['../classJPS_1_1VoxelMapUtil.html#a82e4479149fec2a23fd7316eea50be3d',1,'JPS::VoxelMapUtil::isOutSide()']]],
-  ['isoutsidexyz',['isOutSideXYZ',['../classJPS_1_1MapUtilBase.html#a376645df7a9600e172f9dc7eaa20ffaa',1,'JPS::MapUtilBase']]],
-  ['isunknown',['isUnKnown',['../classJPS_1_1MapUtilBase.html#ad0e90a36cb17ee02ef61aba9655ce09e',1,'JPS::MapUtilBase::isUnKnown(int idx)'],['../classJPS_1_1MapUtilBase.html#a5f304009ccf48a6449d5fe77248a6714',1,'JPS::MapUtilBase::isUnKnown(const Ti &amp;pn)']]]
+  ['info',['info',['../classJPS_1_1MapUtil.html#ab37f13016c575616c2861c363d6fc100',1,'JPS::MapUtil']]],
+  ['init2djps',['init2DJps',['../classJPS_1_1GraphSearch.html#a19ec26e813b0d110bfd3fb3df7580a1f',1,'JPS::GraphSearch']]],
+  ['inttofloat',['intToFloat',['../classJPS_1_1MapUtil.html#a1ab3654115ae825874d3d551683886a9',1,'JPS::MapUtil']]],
+  ['isblocked',['isBlocked',['../classJPS_1_1MapUtil.html#aa9435afb2c5d374103c786ccb22eb7b4',1,'JPS::MapUtil']]],
+  ['isfree',['isFree',['../classJPS_1_1MapUtil.html#a9f3ae5f032931a5671b9f406086af719',1,'JPS::MapUtil::isFree(int idx)'],['../classJPS_1_1MapUtil.html#a7f11bf3aade5f92e25c50eba562df534',1,'JPS::MapUtil::isFree(const Veci&lt; Dim &gt; &amp;pn)'],['../classJPS_1_1GraphSearch.html#a3442f3918356356034c4c583bfff3975',1,'JPS::GraphSearch::isFree(int x, int y) const'],['../classJPS_1_1GraphSearch.html#af8288f4b6acca97c9bf39dadc5236c78',1,'JPS::GraphSearch::isFree(int x, int y, int z) const']]],
+  ['isoccupied',['isOccupied',['../classJPS_1_1MapUtil.html#ae189397c064965d44b2f94b91011ea52',1,'JPS::MapUtil::isOccupied(int idx)'],['../classJPS_1_1MapUtil.html#a6bfb96298e94e17750691556cb092726',1,'JPS::MapUtil::isOccupied(const Veci&lt; Dim &gt; &amp;pn)'],['../classJPS_1_1GraphSearch.html#abeb6da93ddad8e38af801f3b0220ed7f',1,'JPS::GraphSearch::isOccupied(int x, int y) const'],['../classJPS_1_1GraphSearch.html#afc1ce54f571547ea8f1efde2e848e249',1,'JPS::GraphSearch::isOccupied(int x, int y, int z) const']]],
+  ['isoutside',['isOutside',['../classJPS_1_1MapUtil.html#a20a80b81495d9b7694d297ea01d8b409',1,'JPS::MapUtil']]],
+  ['isoutsidexyz',['isOutsideXYZ',['../classJPS_1_1MapUtil.html#a91b5bba88e83d37f597a9d3f905bb6cc',1,'JPS::MapUtil']]],
+  ['isunknown',['isUnknown',['../classJPS_1_1MapUtil.html#a7d9204506b953011d256d1baee5fa4c5',1,'JPS::MapUtil::isUnknown(int idx)'],['../classJPS_1_1MapUtil.html#aec0709f3e97aa23c6cbd9fb13c6beb0d',1,'JPS::MapUtil::isUnknown(const Veci&lt; Dim &gt; &amp;pn)']]]
 ];

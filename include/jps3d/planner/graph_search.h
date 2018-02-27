@@ -31,6 +31,7 @@ namespace JPS
 
   ///Define priority queue
   struct State; // forward declaration
+  ///State pointer
   using StatePtr = std::shared_ptr<State>;
   using priorityQueue = boost::heap::d_ary_heap<StatePtr, boost::heap::mutable_<true>,
                         boost::heap::arity<2>, boost::heap::compare< compare_state<StatePtr> >>;
@@ -44,16 +45,19 @@ namespace JPS
     int x, y, z = 0;
     /// direction 
     int dx, dy, dz;                            // discrete coordinates of this node
-    // id of predicessors
+    /// id of predicessors
     int parentId = -1;
 
-    // pointer to heap location
+    /// pointer to heap location
     priorityQueue::handle_type heapkey;
 
-    // plan data
+    /// g cost
     double g = std::numeric_limits<double>::infinity();
+    /// heuristic cost
     double h;
+    /// if has been opened
     bool opened = false;
+    /// if has been closed
     bool closed = false;
 
     /// 2D constructor
@@ -207,27 +211,39 @@ namespace JPS
       /// Recover the optimal path
       std::vector<StatePtr> recoverPath(StatePtr node, int id);
 
+      /// Get subscript
       int coordToId(int x, int y) const;
+      /// Get subscript
       int coordToId(int x, int y, int z) const;
 
+      /// Check if (x, y) is free
       bool isFree(int x, int y) const;
+      /// Check if (x, y, z) is free
       bool isFree(int x, int y, int z) const;
 
+      /// Check if (x, y) is occupied
       bool isOccupied(int x, int y) const;
+      /// Check if (x, y, z) is occupied
       bool isOccupied(int x, int y, int z) const;
 
+      /// Clculate heuristic
       double getHeur(int x, int y) const;
+      /// Clculate heuristic
       double getHeur(int x, int y, int z) const;
 
+      /// Determine if (x, y) has forced neighbor with direction (dx, dy)
       bool hasForced(int x, int y, int dx, int dy);
+      /// Determine if (x, y, z) has forced neighbor with direction (dx, dy, dz)
       bool hasForced(int x, int y, int z, int dx, int dy, int dz);
 
-      ///2D jump, return true iff finding the goal or a jump point
+      /// 2D jump, return true iff finding the goal or a jump point
       bool jump(int x, int y, int dx, int dy, int& new_x, int& new_y);
-      ///3D jump, return true iff finding the goal or a jump point
+      /// 3D jump, return true iff finding the goal or a jump point
       bool jump(int x, int y, int z, int dx, int dy, int dz, int& new_x, int& new_y, int& new_z);
 
+      /// Initialize 2D jps arrays
       void init2DJps();
+
       const char* cMap_;
       int xDim_, yDim_, zDim_;
       double eps_;

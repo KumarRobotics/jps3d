@@ -89,7 +89,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>NXJPS3DUtil</b> (bool verbose=false)</td></tr>
 <tr class="separator:afa6a1a97d57c3da09aa61a17b2164883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eded358aa92fdece4326b093b9d227c"><td class="memItemLeft" align="right" valign="top"><a id="a0eded358aa92fdece4326b093b9d227c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1NXJPS3DUtil.html#a0eded358aa92fdece4326b093b9d227c">plan</a> (const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;start, const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;goal, <a class="el" href="data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266">decimal_t</a> eps=1.0)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1NXJPS3DUtil.html#a0eded358aa92fdece4326b093b9d227c">plan</a> (const <a class="el" href="data__type_8h.html#afd53e073786661e24985c48b4ef92fcb">Vec3f</a> &amp;start, const <a class="el" href="data__type_8h.html#afd53e073786661e24985c48b4ef92fcb">Vec3f</a> &amp;goal, decimal_t eps=1.0)</td></tr>
 <tr class="memdesc:a0eded358aa92fdece4326b093b9d227c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Need to be specified in Child class, main planning function. <br /></td></tr>
 <tr class="separator:a0eded358aa92fdece4326b093b9d227c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classJPS_1_1PlannerBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classJPS_1_1PlannerBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classJPS_1_1PlannerBase.html">JPS::PlannerBase</a></td></tr>
@@ -98,7 +98,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a692fbe2665210509424cf74b2686c1e5 inherit pub_methods_classJPS_1_1PlannerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple constructor. <br /></td></tr>
 <tr class="separator:a692fbe2665210509424cf74b2686c1e5 inherit pub_methods_classJPS_1_1PlannerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa78c0d312d1faf276bd6cfe20e4dd4 inherit pub_methods_classJPS_1_1PlannerBase"><td class="memItemLeft" align="right" valign="top"><a id="a1aa78c0d312d1faf276bd6cfe20e4dd4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4">setMapUtil</a> (<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *map_util)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4">setMapUtil</a> (<a class="el" href="classJPS_1_1MapUtil.html">JPS::VoxelMapUtil</a> *map_util)</td></tr>
 <tr class="memdesc:a1aa78c0d312d1faf276bd6cfe20e4dd4 inherit pub_methods_classJPS_1_1PlannerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set map util for collistion checking. <br /></td></tr>
 <tr class="separator:a1aa78c0d312d1faf276bd6cfe20e4dd4 inherit pub_methods_classJPS_1_1PlannerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d6e7c0ce366f9b796f217436b8b283f inherit pub_methods_classJPS_1_1PlannerBase"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f">status</a> ()</td></tr>
@@ -132,23 +132,23 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:afe96381964e45ce89a979ae022462b85"><td class="memItemLeft" align="right" valign="top"><a id="afe96381964e45ce89a979ae022462b85"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>linkToGoal</b> (const <a class="el" href="data__type_8h.html#ae912524491a09326ef25e4e4781c965f">Vec3i</a> &amp;pn)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>linkToGoal</b> (const <a class="el" href="data__type_8h.html#a27cc7cd350b4919c77a6803461feb516">Vec3i</a> &amp;pn)</td></tr>
 <tr class="separator:afe96381964e45ce89a979ae022462b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a8433888b258601aa126f021d03fc5d1f"><td class="memItemLeft" align="right" valign="top"><a id="a8433888b258601aa126f021d03fc5d1f"></a>
-<a class="el" href="data__type_8h.html#ae912524491a09326ef25e4e4781c965f">Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_start_int</b></td></tr>
+<a class="el" href="data__type_8h.html#a27cc7cd350b4919c77a6803461feb516">Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_start_int</b></td></tr>
 <tr class="separator:a8433888b258601aa126f021d03fc5d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38de783ae475d5ab2d272c8f9c140cdd"><td class="memItemLeft" align="right" valign="top"><a id="a38de783ae475d5ab2d272c8f9c140cdd"></a>
-<a class="el" href="data__type_8h.html#ae912524491a09326ef25e4e4781c965f">Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_goal_int</b></td></tr>
+<a class="el" href="data__type_8h.html#a27cc7cd350b4919c77a6803461feb516">Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_goal_int</b></td></tr>
 <tr class="separator:a38de783ae475d5ab2d272c8f9c140cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classJPS_1_1PlannerBase"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classJPS_1_1PlannerBase')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classJPS_1_1PlannerBase.html">JPS::PlannerBase</a></td></tr>
 <tr class="memitem:ad8935b598fa76bfd345a4f1e32224bed inherit pro_attribs_classJPS_1_1PlannerBase"><td class="memItemLeft" align="right" valign="top"><a id="ad8935b598fa76bfd345a4f1e32224bed"></a>
-<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#ad8935b598fa76bfd345a4f1e32224bed">_map_util</a></td></tr>
+<a class="el" href="classJPS_1_1MapUtil.html">JPS::VoxelMapUtil</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#ad8935b598fa76bfd345a4f1e32224bed">_map_util</a></td></tr>
 <tr class="memdesc:ad8935b598fa76bfd345a4f1e32224bed inherit pro_attribs_classJPS_1_1PlannerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assume using 3D voxel map for all 2d and 3d planning. <br /></td></tr>
 <tr class="separator:ad8935b598fa76bfd345a4f1e32224bed inherit pro_attribs_classJPS_1_1PlannerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b458a786c25e9802d412bc72e24ff85 inherit pro_attribs_classJPS_1_1PlannerBase"><td class="memItemLeft" align="right" valign="top"><a id="a7b458a786c25e9802d412bc72e24ff85"></a>

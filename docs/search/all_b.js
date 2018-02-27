@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['optimize',['optimize',['../classJPS_1_1PlannerBase.html#a01b1f0d6134d6d73fa2aad742ea42380',1,'JPS::PlannerBase::optimize()'],['../classJPS_1_1PlannerUtilBase.html#a97b6ee5cf02169c21021a622f32b3317',1,'JPS::PlannerUtilBase::optimize()']]],
-  ['origin_5fd_5f',['origin_d_',['../classJPS_1_1MapUtilBase.html#a1bdbfab99df6da7694fcc9683e117d7c',1,'JPS::MapUtilBase']]]
+  ['opened',['opened',['../structJPS_1_1State.html#a43b5adc47eed218e844b62e14bd90863',1,'JPS::State']]],
+  ['optimize',['optimize',['../classJPS_1_1PlannerBase.html#a01b1f0d6134d6d73fa2aad742ea42380',1,'JPS::PlannerBase::optimize()'],['../classJPSPlanner.html#ab5411f93048dcdf7aa117e8402d44944',1,'JPSPlanner::optimize()']]],
+  ['origin_5fd_5f',['origin_d_',['../classJPS_1_1MapUtil.html#a8c33e3cbd3ffa17a193edab6a6c1c93a',1,'JPS::MapUtil']]]
 ];

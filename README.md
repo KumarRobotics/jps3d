@@ -38,14 +38,29 @@ target_link_libraries(test_xxx ${JPS3D_LIBRARIES})
 Two libs will be installed in the system: the standard `jps_lib` and a faster implementation `nx_jps_lib` written by Nikolay Anatasov. The latter one only supports 3D.
 
 ## Usage
-To start a planning thread:
+There are three steps to start a planning thread:
 ```c++
 std::unique_ptr<PlannerBase> planner(new XXXUtil(false)); // Declare a XXX planner
 planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
+planner->updateMap(); // Set map, must be called before plan
 bool valid_jps = planner->plan(start, goal, 1, true); // Plan from start to goal with heuristic weight 1, using JPS
 bool valid_astar = planner->plan(start, goal, 1, false); // Plan from start to goal with heuristic weight 1, using A*
 ```
-Two XXX planners are provided:
+
+First, the collision checking util must be loaded as:
+```c++
+planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
+```
+The `MAP_UTIL_PTR` can be either `OCCMapUtil` for 2D or `VoxelMapUtil` for 3D. It can be confusing to set up this util, see the example code for more details.
+
+Second, call the function `updateMap()` to allocate the internal map: 
+```
+planner->updateMap(); // Set map, must be called before plan
+```
+
+Finally, call the function `plan` to plan a path from `start` to `goal`. The third input is the heuristic weight, the forth input indicates if plan with `JPS` or `A*`.
+
+Two XXXUtil planners are provided:
  - ```GraphSearch2DUtil```
  - ```GraphSearch3DUtil```
 

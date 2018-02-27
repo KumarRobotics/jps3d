@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decimal_5ft',['decimal_t',['../data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266',1,'data_type.h']]]
+  ['stateptr',['StatePtr',['../graph__search_8h.html#a11a1f690af1cdf7657a6bea76c7fdcef',1,'JPS']]]
 ];

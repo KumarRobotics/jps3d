@@ -94,7 +94,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a692fbe2665210509424cf74b2686c1e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple constructor. <br /></td></tr>
 <tr class="separator:a692fbe2665210509424cf74b2686c1e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa78c0d312d1faf276bd6cfe20e4dd4"><td class="memItemLeft" align="right" valign="top"><a id="a1aa78c0d312d1faf276bd6cfe20e4dd4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4">setMapUtil</a> (<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *map_util)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4">setMapUtil</a> (<a class="el" href="classJPS_1_1MapUtil.html">JPS::VoxelMapUtil</a> *map_util)</td></tr>
 <tr class="memdesc:a1aa78c0d312d1faf276bd6cfe20e4dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set map util for collistion checking. <br /></td></tr>
 <tr class="separator:a1aa78c0d312d1faf276bd6cfe20e4dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d6e7c0ce366f9b796f217436b8b283f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f">status</a> ()</td></tr>
@@ -125,14 +125,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a71c3fc94f6927587a06752c0f600edb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crop the raw path such that the new path will be inside the map. <br /></td></tr>
 <tr class="separator:a71c3fc94f6927587a06752c0f600edb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f86708ce7c1e389651ab65ae71db4ae"><td class="memItemLeft" align="right" valign="top"><a id="a4f86708ce7c1e389651ab65ae71db4ae"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a4f86708ce7c1e389651ab65ae71db4ae">plan</a> (const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;start, const <a class="el" href="data__type_8h.html#a6a51054135436e5d0a4529dc0054ae0a">Vec3f</a> &amp;goal, <a class="el" href="data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266">decimal_t</a> eps=1)=0</td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#a4f86708ce7c1e389651ab65ae71db4ae">plan</a> (const <a class="el" href="data__type_8h.html#afd53e073786661e24985c48b4ef92fcb">Vec3f</a> &amp;start, const <a class="el" href="data__type_8h.html#afd53e073786661e24985c48b4ef92fcb">Vec3f</a> &amp;goal, decimal_t eps=1)=0</td></tr>
 <tr class="memdesc:a4f86708ce7c1e389651ab65ae71db4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Need to be specified in Child class, main planning function. <br /></td></tr>
 <tr class="separator:a4f86708ce7c1e389651ab65ae71db4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ad8935b598fa76bfd345a4f1e32224bed"><td class="memItemLeft" align="right" valign="top"><a id="ad8935b598fa76bfd345a4f1e32224bed"></a>
-<a class="el" href="classJPS_1_1VoxelMapUtil.html">JPS::VoxelMapUtil</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#ad8935b598fa76bfd345a4f1e32224bed">_map_util</a></td></tr>
+<a class="el" href="classJPS_1_1MapUtil.html">JPS::VoxelMapUtil</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJPS_1_1PlannerBase.html#ad8935b598fa76bfd345a4f1e32224bed">_map_util</a></td></tr>
 <tr class="memdesc:ad8935b598fa76bfd345a4f1e32224bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assume using 3D voxel map for all 2d and 3d planning. <br /></td></tr>
 <tr class="separator:ad8935b598fa76bfd345a4f1e32224bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b458a786c25e9802d412bc72e24ff85"><td class="memItemLeft" align="right" valign="top"><a id="a7b458a786c25e9802d412bc72e24ff85"></a>

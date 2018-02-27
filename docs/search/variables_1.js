@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['dilate_5fneighbor_5f',['dilate_neighbor_',['../classJPS_1_1MapUtilBase.html#a9f0722b63cb06897d5988cf5cc2eba05',1,'JPS::MapUtilBase']]],
-  ['dim_5f',['dim_',['../classJPS_1_1MapUtilBase.html#a96799b00d6dbfbd55be5697116841dd8',1,'JPS::MapUtilBase']]],
-  ['dx',['dx',['../structJPS_1_1State.html#afaa913dcc116c136a292f5297899f8b8',1,'JPS::State']]]
+  ['closed',['closed',['../structJPS_1_1State.html#aa56de0397bc14c03ed5c3311f5710b43',1,'JPS::State']]],
+  ['cmap_5f',['cmap_',['../classJPSPlanner.html#a1c9067d5114ac6d3e50c2f0d073b49f9',1,'JPSPlanner']]]
 ];

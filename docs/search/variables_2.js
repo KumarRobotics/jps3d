@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['goal_5foutside_5f',['goal_outside_',['../classJPS_1_1PlannerUtilBase.html#a97baa7a817921e848ee5f238903f800a',1,'JPS::PlannerUtilBase']]],
-  ['graph_5fsearch_5f',['graph_search_',['../classJPS_1_1PlannerUtilBase.html#a961ddda4e1b8af1c3204742144b9ac20',1,'JPS::PlannerUtilBase']]]
+  ['dim_5f',['dim_',['../classJPS_1_1MapUtil.html#a17867570bcea899f59307997821cc202',1,'JPS::MapUtil']]],
+  ['dx',['dx',['../structJPS_1_1State.html#afaa913dcc116c136a292f5297899f8b8',1,'JPS::State']]]
 ];

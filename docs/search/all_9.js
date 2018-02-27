@@ -1,9 +1,9 @@
 var searchData=
 [
   ['mrsl_20jump_20point_20search_20planning_20library',['MRSL Jump Point Search Planning Library',['../index.html',1,'']]],
-  ['map_5f',['map_',['../classJPS_1_1MapUtilBase.html#a6e569fee04e36e774e5978eeee9e906b',1,'JPS::MapUtilBase']]],
-  ['map_5futil_5f',['map_util_',['../classJPS_1_1PlannerUtilBase.html#a0c5213cce9676781a190bdfcb8bc0f25',1,'JPS::PlannerUtilBase']]],
+  ['map_5f',['map_',['../classJPS_1_1MapUtil.html#a566997fa2a6a96693bbe95a9a31a4f77',1,'JPS::MapUtil']]],
+  ['map_5futil_2eh',['map_util.h',['../map__util_8h.html',1,'']]],
+  ['map_5futil_5f',['map_util_',['../classJPSPlanner.html#ab4955b4445f34b833060f3924c994c4f',1,'JPSPlanner']]],
   ['mapreader',['MapReader',['../classMapReader.html',1,'']]],
-  ['maputilbase',['MapUtilBase',['../classJPS_1_1MapUtilBase.html',1,'JPS::MapUtilBase&lt; Ti, Tf, Tmap &gt;'],['../classJPS_1_1MapUtilBase.html#afad6efcb6a404c48f04853aed561a8c0',1,'JPS::MapUtilBase::MapUtilBase()']]],
-  ['maputilbase_3c_20vec3i_2c_20vec3f_2c_20std_3a_3avector_3c_20signed_20char_20_3e_20_3e',['MapUtilBase&lt; Vec3i, Vec3f, std::vector&lt; signed char &gt; &gt;',['../classJPS_1_1MapUtilBase.html',1,'JPS']]]
+  ['maputil',['MapUtil',['../classJPS_1_1MapUtil.html',1,'JPS::MapUtil&lt; Dim &gt;'],['../classJPS_1_1MapUtil.html#aa8fd6e0ec48b26aa2389d1fb0abc98ab',1,'JPS::MapUtil::MapUtil()']]]
 ];
