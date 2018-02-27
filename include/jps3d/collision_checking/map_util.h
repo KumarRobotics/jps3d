@@ -251,17 +251,6 @@ namespace JPS {
         map_ = map;
       }
 
-      void freeVoxels(const Vecf<Dim>& pt, const vec_Veci<Dim> ns)
-      {
-        const Veci<Dim> pn = floatToInt(pt);
-        for(const auto& n: ns) {
-          Veci<Dim> pnn = pn + n;
-          if(isUnknown(pnn))
-            map_[getIndex(pnn)] = val_free;
-        }
-      }
-
-
       ///Free unknown voxels
       void freeUnknown() {
         Veci<Dim> n;
@@ -285,6 +274,8 @@ namespace JPS {
         }
       }
 
+      ///Map entity
+      Tmap map_;
     protected:
       ///Resolution
       decimal_t res_;
@@ -292,9 +283,6 @@ namespace JPS {
       Vecf<Dim> origin_d_;
       ///Dimension, int type
       Veci<Dim> dim_;
-      ///Map entity
-      Tmap map_;
-
       ///Assume occupied cell has value 100
       int8_t val_occ = 100;
       ///Assume free cell has value 0
