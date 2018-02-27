@@ -1,6 +1,6 @@
 #include <stack>
-#include <jps3d/basic_type/data_utils.h>
-#include <jps3d/collision_checking/voxel_map_util.h>
+#include <jps3d/common/data_type.h>
+#include <jps3d/collision_checking/map_util.h>
 
 namespace JPS {
   /**

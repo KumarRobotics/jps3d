@@ -2,10 +2,10 @@
  * @file data_utils.h
  * @brief Provide a few widely used function for basic type
  */
-#ifndef DATA_UTIL_H
-#define DATA_UTIL_H
+#ifndef JPS_DATA_UTIL_H
+#define JPS_DATA_UTIL_H
 
-#include <jps3d/basic_type/data_type.h>
+#include <jps3d/common/data_type.h>
 
 ///Template for transforming a vector
 template <class T, class TF>
@@ -28,8 +28,12 @@ decimal_t total_distance(const vec_E<T>& vs){
 
 ///Transform all entries in a vector using given TF
 #define transform_vec3 transform_vec<Vec3f, Aff3f>
-///Sum up total distance for Vec3f
+///Sum up total distance for vec_Vec2f
+#define total_distance2f total_distance<Vec2f>
+///Sum up total distance for vec_Vec3f
 #define total_distance3f total_distance<Vec3f>
-///Sum up total distance for Vec3i
+///Sum up total distance for vec_Vec2i
+#define total_distance2i total_distance<Vec2i>
+///Sum up total distance for vec_Vec3i
 #define total_distance3i total_distance<Vec3i>
 #endif

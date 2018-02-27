@@ -52,7 +52,7 @@ vec_Vec3f PlannerBase::crop(const vec_Vec3f& path){
   for(int i = 1; i < (int) path.size(); i ++)
   {
     Vec3i pn = _map_util->floatToInt(path[i]);
-    if(_map_util->isOutSide(pn))
+    if(_map_util->isOutside(pn))
     {
       vec_Vec3i pns = _map_util->rayTrace(path[i-1], path[i]);
       if(pns.size() > 2)

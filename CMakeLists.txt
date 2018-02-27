@@ -24,8 +24,6 @@ INCLUDE_DIRECTORIES(include ${EIGEN3_INCLUDE_DIRS})
 
 
 add_library(jps_lib src/graph_search.cpp
-  src/graph_search_2d_util.cpp
-  src/graph_search_3d_util.cpp
   src/planner_util_base.cpp)
 
 #add_library(yag_jps_lib

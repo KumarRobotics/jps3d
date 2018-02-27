@@ -30,7 +30,7 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
   if (!_map_util->isFree(_start_int)) {
     if(_planner_verbose)
       printf(ANSI_COLOR_YELLOW "start is not free! cleared" ANSI_COLOR_RESET "\n");
-    if(_map_util->isOutSide(_start_int)) {
+    if(_map_util->isOutside(_start_int)) {
       Vec3i dim = _map_util->getDim();
       if(_planner_verbose)
         printf(ANSI_COLOR_RED "Start is outside [%d, %d, %d], dim: [%d, %d, %d]" ANSI_COLOR_RESET "\n",
@@ -55,12 +55,12 @@ bool NXJPS3DUtil::plan(const Vec3f &start, const Vec3f &goal, decimal_t eps) {
     return false;
   }
 
-  if (_map_util->isOutSideXYZ(_goal_int, 0) ||
-      _map_util->isOutSideXYZ(_goal_int, 1))
+  if (_map_util->isOutsideXYZ(_goal_int, 0) ||
+      _map_util->isOutsideXYZ(_goal_int, 1))
     _goal_outside = true;
   else
   {
-    if(_map_util->isOutSideXYZ(_goal_int, 2)) {
+    if(_map_util->isOutsideXYZ(_goal_int, 2)) {
       _goal_int(2) = _start_int(2);
       if(_planner_verbose)
         printf(ANSI_COLOR_CYAN "change goal z! " ANSI_COLOR_RESET "\n");

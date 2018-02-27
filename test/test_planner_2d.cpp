@@ -1,6 +1,7 @@
 #include "timer.hpp"
 #include "read_map.hpp"
-#include <jps3d/planner/graph_search_2d_util.h>
+#include <jps3d/common/data_utils.h>
+#include <jps3d/planner/planner_util_base.h>
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
@@ -15,38 +16,38 @@ int main(int argc, char ** argv){
   }
 
   // Read the map from yaml
-  MapReader<Vec3i, Vec3f> reader(argv[1], true); // Map read from a given file
+  MapReader<Vec2i, Vec2f> reader(argv[1], true); // Map read from a given file
   if(!reader.exist()) {
     printf(ANSI_COLOR_RED "Cannot read input file [%s]!\n" ANSI_COLOR_RESET, argv[1]);
     return -1;
   }
 
   // store map in map_util
-  std::shared_ptr<VoxelMapUtil> map_util = std::make_shared<VoxelMapUtil>();
+  std::shared_ptr<OccMapUtil> map_util = std::make_shared<OccMapUtil>();
   map_util->setMap(reader.origin(), reader.dim(), reader.data(), reader.resolution());
-  //map_util->dilate(0.1, 0.1);
-  //map_util->dilating();
 
-  const Vec3f start(reader.start(0), reader.start(1), reader.start(2));
-  const Vec3f goal(reader.goal(0), reader.goal(1), reader.goal(2));
+  const Vec2f start(reader.start(0), reader.start(1));
+  const Vec2f goal(reader.goal(0), reader.goal(1));
 
-  std::unique_ptr<GraphSearch2DUtil> planner_jps(new GraphSearch2DUtil(false)); // Declare a planner
+  std::unique_ptr<GraphSearch2DUtil> planner_jps(new GraphSearch2DUtil(true)); // Declare a planner
   planner_jps->setMapUtil(map_util); // Set collision checking function
 
   std::unique_ptr<GraphSearch2DUtil> planner_astar(new GraphSearch2DUtil(false)); // Declare a planner
   planner_astar->setMapUtil(map_util); // Set collision checking function
 
   Timer time_jps(true);
+  planner_jps->updateMap();
   bool valid_jps = planner_jps->plan(start, goal, 1, true); // Plan from start to goal using JPS
   double dt_jps = time_jps.Elapsed().count();
   printf("JPS Planner takes: %f ms\n", dt_jps);
-  printf("JPS Path Distance: %f\n", total_distance3f(planner_jps->getRawPath()));
+  printf("JPS Path Distance: %f\n", total_distance2f(planner_jps->getRawPath()));
 
   Timer time_astar(true);
+  planner_astar->updateMap();
   bool valid_astar = planner_astar->plan(start, goal, 1, false); // Plan from start to goal using A*
   double dt_astar = time_astar.Elapsed().count();
   printf("AStar Planner takes: %f ms\n", dt_astar);
-  printf("AStar Path Distance: %f\n", total_distance3f(planner_astar->getRawPath()));
+  printf("AStar Path Distance: %f\n", total_distance2f(planner_astar->getRawPath()));
 
 
   // Plot the result in svg image
@@ -57,8 +58,8 @@ int main(int argc, char ** argv){
 
   // Draw the canvas
   boost::geometry::model::polygon<point_2d> bound;
-  const Vec3i dim = map_util->getDim();
-  const Vec3f ori = map_util->getOrigin();
+  const Vec2i dim = map_util->getDim();
+  const Vec2f ori = map_util->getOrigin();
   const double res = map_util->getRes();
 
   const double origin_x = ori(0);
@@ -91,8 +92,8 @@ int main(int argc, char ** argv){
   // Draw the obstacles
   for(int x = 0; x < dim(0); x ++) {
     for(int y = 0; y < dim(1); y ++) {
-      if(!map_util->isFree(Vec3i(x, y, 0))) {
-        Vec3f pt = map_util->intToFloat(Vec3i(x, y, 0));
+      if(!map_util->isFree(Vec2i(x, y))) {
+        Vec2f pt = map_util->intToFloat(Vec2i(x, y));
         point_2d a;
         boost::geometry::assign_values(a, pt(0), pt(1));
         mapper.add(a);
@@ -103,7 +104,7 @@ int main(int argc, char ** argv){
 
   // Draw the path from JPS
   if(valid_jps) {
-    vec_Vec3f path = planner_jps->getRawPath();
+    vec_Vec2f path = planner_jps->getRawPath();
     boost::geometry::model::linestring<point_2d> line;
     for(auto pt: path) 
       line.push_back(point_2d(pt(0), pt(1)));
@@ -113,7 +114,7 @@ int main(int argc, char ** argv){
 
   // Draw the path from A*
   if(valid_astar) {
-    vec_Vec3f path = planner_astar->getRawPath();
+    vec_Vec2f path = planner_astar->getRawPath();
     boost::geometry::model::linestring<point_2d> line;
     for(auto pt: path) 
       line.push_back(point_2d(pt(0), pt(1)));
