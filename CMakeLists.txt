@@ -39,8 +39,12 @@ target_link_libraries(nx_jps_lib ${Boost_LIBRARIES})
 add_executable(create_map test/create_map.cpp)
 target_link_libraries(create_map ${YAMLCPP_LIBRARIES})
 
+include(CTest)
+
 add_executable(test_planner_2d test/test_planner_2d.cpp)
 target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES})
+add_test(test_planner_2d test_planner_2d ${CMAKE_SOURCE_DIR}/data/corridor.yaml)
+
 
 
 install(FILES "${PROJECT_NAME}Config.cmake" "${PROJECT_NAME}ConfigVersion.cmake"

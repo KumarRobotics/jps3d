@@ -14,5 +14,10 @@ build:
         cd build
         cmake ..
         make -j4
+    - script:
+      name: test
+      code: |
+        cd build
+        make test
 
 

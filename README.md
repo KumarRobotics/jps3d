@@ -25,6 +25,25 @@ $ mv jps3d ~/catkin_ws/src
 $ cd ~/catkin_ws & catkin_make_isolated -DCMAKE_BUILD_TYPE=Release
 ```
 
+#### CTest
+Run following command in the `build` folder for testing the executables:
+```sh
+$ make test
+```
+
+If everything works, you should see the results as:
+```
+Running tests...
+Test project /home/sikang/fla_ws/src/fla_planning/packages/fast_flight/jps3d/build
+    Start 1: test_planner_2d
+1/1 Test #1: test_planner_2d ..................   Passed    0.98 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.98 sec
+```
+
+
 #### Include in other projects
 Note that in other repository, add following commands in `CMakeLists.txt` in order to correctly link `jps3d`:
 ```sh
