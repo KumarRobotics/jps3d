@@ -1,7 +1,7 @@
 #include "timer.hpp"
 #include "read_map.hpp"
 #include <jps3d/common/data_utils.h>
-#include <jps3d/planner/planner_util_base.h>
+#include <jps3d/planner/planner_util.h>
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>

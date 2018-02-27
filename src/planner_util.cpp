@@ -1,4 +1,4 @@
-#include <jps3d/planner/planner_util_base.h>
+#include <jps3d/planner/planner_util.h>
 
 template <int Dim>
 JPSPlanner<Dim>::JPSPlanner(bool verbose): planner_verbose_(verbose) {
