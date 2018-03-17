@@ -45,6 +45,9 @@ add_executable(test_planner_2d test/test_planner_2d.cpp)
 target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES})
 add_test(test_planner_2d test_planner_2d ${CMAKE_SOURCE_DIR}/data/corridor.yaml)
 
+add_executable(test_planner_3d test/test_planner_3d.cpp)
+target_link_libraries(test_planner_3d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES})
+add_test(test_planner_3d test_planner_3d ${CMAKE_SOURCE_DIR}/data/simple3d.yaml)
 
 
 install(FILES "${PROJECT_NAME}Config.cmake" "${PROJECT_NAME}ConfigVersion.cmake"
@@ -57,4 +60,3 @@ install(TARGETS jps_lib nx_jps_lib
 
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME})
-
