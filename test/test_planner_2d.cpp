@@ -29,26 +29,24 @@ int main(int argc, char ** argv){
   const Vec2f start(reader.start(0), reader.start(1));
   const Vec2f goal(reader.goal(0), reader.goal(1));
 
-  std::unique_ptr<GraphSearch2DUtil> planner_jps(new GraphSearch2DUtil(true)); // Declare a planner
-  planner_jps->setMapUtil(map_util); // Set collision checking function
-
-  std::unique_ptr<GraphSearch2DUtil> planner_astar(new GraphSearch2DUtil(false)); // Declare a planner
-  planner_astar->setMapUtil(map_util); // Set collision checking function
+  std::unique_ptr<GraphSearch2DUtil> planner_ptr(new GraphSearch2DUtil(false)); // Declare a planner
+  planner_ptr->setMapUtil(map_util); // Set collision checking function
+  planner_ptr->updateMap();
 
   Timer time_jps(true);
-  planner_jps->updateMap();
-  bool valid_jps = planner_jps->plan(start, goal, 1, true); // Plan from start to goal using JPS
+  bool valid_jps = planner_ptr->plan(start, goal, 1, true); // Plan from start to goal using JPS
   double dt_jps = time_jps.Elapsed().count();
+  const auto path_jps = planner_ptr->getRawPath(); // Get the planned raw path from JPS
   printf("JPS Planner takes: %f ms\n", dt_jps);
-  printf("JPS Path Distance: %f\n", total_distance2f(planner_jps->getRawPath()));
+  printf("JPS Path Distance: %f\n", total_distance2f(path_jps));
 
   Timer time_astar(true);
-  planner_astar->updateMap();
-  bool valid_astar = planner_astar->plan(start, goal, 1, false); // Plan from start to goal using A*
+  bool valid_astar = planner_ptr->plan(start, goal, 1, false); // Plan from start to goal using A*
   double dt_astar = time_astar.Elapsed().count();
+  const auto path_astar = planner_ptr->getRawPath(); // Get the planned raw path from A*
+  printf("JPS Planner takes: %f ms\n", dt_jps);
   printf("AStar Planner takes: %f ms\n", dt_astar);
-  printf("AStar Path Distance: %f\n", total_distance2f(planner_astar->getRawPath()));
-
+  printf("AStar Path Distance: %f\n", total_distance2f(path_astar));
 
   // Plot the result in svg image
   typedef boost::geometry::model::d2::point_xy<double> point_2d;
@@ -104,7 +102,7 @@ int main(int argc, char ** argv){
 
   // Draw the path from JPS
   if(valid_jps) {
-    vec_Vec2f path = planner_jps->getRawPath();
+    vec_Vec2f path = path_jps;
     boost::geometry::model::linestring<point_2d> line;
     for(auto pt: path) 
       line.push_back(point_2d(pt(0), pt(1)));
@@ -114,7 +112,7 @@ int main(int argc, char ** argv){
 
   // Draw the path from A*
   if(valid_astar) {
-    vec_Vec2f path = planner_astar->getRawPath();
+    vec_Vec2f path = path_astar;
     boost::geometry::model::linestring<point_2d> line;
     for(auto pt: path) 
       line.push_back(point_2d(pt(0), pt(1)));

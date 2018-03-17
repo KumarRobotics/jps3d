@@ -3,10 +3,6 @@
 #include <jps3d/common/data_utils.h>
 #include <jps3d/planner/planner_util.h>
 
-#include <boost/geometry.hpp>
-#include <boost/geometry/geometries/point_xy.hpp>
-#include <boost/geometry/geometries/polygon.hpp>
-
 using namespace JPS;
 
 int main(int argc, char ** argv){
@@ -29,25 +25,29 @@ int main(int argc, char ** argv){
   const Vec3f start(reader.start(0), reader.start(1), reader.start(2));
   const Vec3f goal(reader.goal(0), reader.goal(1), reader.goal(2));
 
-  std::unique_ptr<GraphSearch3DUtil> planner_jps(new GraphSearch3DUtil(true)); // Declare a planner
-  planner_jps->setMapUtil(map_util); // Set collision checking function
-
-  std::unique_ptr<GraphSearch3DUtil> planner_astar(new GraphSearch3DUtil(false)); // Declare a planner
-  planner_astar->setMapUtil(map_util); // Set collision checking function
+  std::unique_ptr<GraphSearch3DUtil> planner_ptr(new GraphSearch3DUtil(true)); // Declare a planner
+  planner_ptr->setMapUtil(map_util); // Set collision checking function
+  planner_ptr->updateMap();
 
   Timer time_jps(true);
-  planner_jps->updateMap();
-  bool valid_jps = planner_jps->plan(start, goal, 1, true); // Plan from start to goal using JPS
+  bool valid_jps = planner_ptr->plan(start, goal, 1, true); // Plan from start to goal using JPS
   double dt_jps = time_jps.Elapsed().count();
   printf("JPS Planner takes: %f ms\n", dt_jps);
-  printf("JPS Path Distance: %f\n", total_distance3f(planner_jps->getRawPath()));
+  printf("JPS Path Distance: %f\n", total_distance3f(planner_ptr->getRawPath()));
+  printf("JPS Path: \n");
+  auto path_jps = planner_ptr->getRawPath();
+  for(const auto& it: path_jps) 
+    std::cout << it.transpose() << std::endl;
 
   Timer time_astar(true);
-  planner_astar->updateMap();
-  bool valid_astar = planner_astar->plan(start, goal, 1, false); // Plan from start to goal using A*
+  bool valid_astar = planner_ptr->plan(start, goal, 1, false); // Plan from start to goal using A*
   double dt_astar = time_astar.Elapsed().count();
   printf("AStar Planner takes: %f ms\n", dt_astar);
-  printf("AStar Path Distance: %f\n", total_distance3f(planner_astar->getRawPath()));
+  printf("AStar Path Distance: %f\n", total_distance3f(planner_ptr->getRawPath()));
+  printf("AStar Path: \n");
+  auto path_astar = planner_ptr->getRawPath();
+  for(const auto& it: path_astar) 
+    std::cout << it.transpose() << std::endl;
 
   return 0;
 }

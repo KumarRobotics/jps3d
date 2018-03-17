@@ -34,15 +34,16 @@ $ make test
 If everything works, you should see the results as:
 ```
 Running tests...
-Test project /home/sikang/fla_ws/src/fla_planning/packages/fast_flight/jps3d/build
+Test project /home/sikang/cpp_ws/src/jps3d/build
     Start 1: test_planner_2d
-1/1 Test #1: test_planner_2d ..................   Passed    0.98 sec
+1/2 Test #1: test_planner_2d ..................   Passed    0.98 sec
+    Start 2: test_planner_3d
+2/2 Test #2: test_planner_3d ..................   Passed    0.00 sec
 
-100% tests passed, 0 tests failed out of 1
+100% tests passed, 0 tests failed out of 2
 
 Total Test time (real) =   0.98 sec
 ```
-
 
 #### Include in other projects
 Note that in other repository, add following commands in `CMakeLists.txt` in order to correctly link `jps3d`:
@@ -54,7 +55,7 @@ add_executable(test_xxx src/test_xxx.cpp)
 target_link_libraries(test_xxx ${JPS3D_LIBRARIES})
 ``` 
 
-Two libs will be installed in the system: the standard `jps_lib` and a faster implementation `nx_jps_lib` written by Nikolay Anatasov. The latter one only supports 3D.
+Two libs will be installed in the system: the standard `jps_lib` and a faster implementation `nx_jps_lib` written by ["Nikolay Anatasov"](https://natanaso.github.io/). The latter one only supports 3D.
 
 ## Usage
 There are three steps to start a planning thread:
@@ -91,16 +92,19 @@ Green path is from ```A*```, red path is from ```JPS```.
 ![Visualization](./data/corridor.png)
 ```sh
 $ ./build/test_planner_2d ../data/corridor.yaml
-start: 2.5  -2   0
-goal:  35 2.5   0
-origin:  0 -5  0
-dim: 799 199   1
+start: 2.5  -2
+goal:  35 2.5
+origin:  0 -5
+dim: 799 199
 resolution: 0.05
 JPS Planner takes: 5.000000 ms
 JPS Path Distance: 35.109545
-AStar Planner takes: 66.000000 ms
+JPS Planner takes: 5.000000 ms
+AStar Planner takes: 62.000000 ms
 AStar Path Distance: 35.109545
 ```
+
+An example in 3D map is presented in `test/test_planner_3d` with the yaml `data/simple3d.yaml`.
 
 To generate map in `yaml` format which can be loaded directly in the test node, a simple executable file `test/create_map.cpp` is used. User can easily change the location of blocks in the source code.
 
