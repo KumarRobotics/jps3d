@@ -19,17 +19,10 @@ ELSE()
   MESSAGE(FATAL_ERROR "Could not find yaml-cpp.")
 ENDIF()
 
-
 INCLUDE_DIRECTORIES(include ${EIGEN3_INCLUDE_DIRS})
-
 
 add_library(jps_lib src/graph_search.cpp
   src/planner_util.cpp)
-
-#add_library(yag_jps_lib
-#  src/yag_planner/jps_3d_util.cpp
-#  src/nx_planner/planner_base.cpp)
-#target_link_libraries(yag_jps_lib ${Boost_LIBRARIES})
 
 add_library(nx_jps_lib src/nx_planner/nx_jps_3d.cpp
   src/nx_planner/jps_3D.cpp
@@ -46,7 +39,7 @@ target_link_libraries(test_planner_2d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRA
 add_test(test_planner_2d test_planner_2d ${CMAKE_SOURCE_DIR}/data/corridor.yaml)
 
 add_executable(test_planner_3d test/test_planner_3d.cpp)
-target_link_libraries(test_planner_3d jps_lib ${YAMLCPP_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(test_planner_3d jps_lib ${YAMLCPP_LIBRARIES})
 add_test(test_planner_3d test_planner_3d ${CMAKE_SOURCE_DIR}/data/simple3d.yaml)
 
 
