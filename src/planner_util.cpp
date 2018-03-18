@@ -2,9 +2,9 @@
 
 template <int Dim>
 JPSPlanner<Dim>::JPSPlanner(bool verbose): planner_verbose_(verbose) {
-    planner_verbose_ = verbose;
-    if(planner_verbose_)
-      printf(ANSI_COLOR_CYAN "JPS PLANNER VERBOSE ON\n" ANSI_COLOR_RESET);
+  planner_verbose_ = verbose;
+  if(planner_verbose_)
+    printf(ANSI_COLOR_CYAN "JPS PLANNER VERBOSE ON\n" ANSI_COLOR_RESET);
 }
 
 template <int Dim>
@@ -22,7 +22,7 @@ template <int Dim>
 vec_Vecf<Dim> JPSPlanner<Dim>::getRawPath() { return raw_path_; }
 
 template <int Dim>
-vec_Vecf<Dim> JPSPlanner<Dim>::optimize(const vec_Vecf<Dim> &path) {
+vec_Vecf<Dim> JPSPlanner<Dim>::removeCornerPts(const vec_Vecf<Dim> &path) {
   if (path.size() < 2)
     return path;
 
@@ -66,7 +66,7 @@ vec_Vecf<Dim> JPSPlanner<Dim>::optimize(const vec_Vecf<Dim> &path) {
 }
 
 template <int Dim>
-vec_Vecf<Dim> JPSPlanner<Dim>::removePts(const vec_Vecf<Dim> &path) {
+vec_Vecf<Dim> JPSPlanner<Dim>::removeLinePts(const vec_Vecf<Dim> &path) {
   if (path.size() < 3)
     return path;
 
@@ -229,10 +229,11 @@ bool JPSPlanner<Dim>::plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decima
   raw_path_ = ps;
   std::reverse(std::begin(raw_path_), std::end(raw_path_));
 
-  path_ = removePts(raw_path_);
-  path_ = optimize(path_);
+  // Simplify the raw path
+  path_ = removeLinePts(raw_path_);
+  path_ = removeCornerPts(path_);
   std::reverse(std::begin(path_), std::end(path_));
-  path_ = optimize(path_);
+  path_ = removeCornerPts(path_);
   std::reverse(std::begin(path_), std::end(path_));
 
   return true;

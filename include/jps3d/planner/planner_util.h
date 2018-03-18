@@ -38,9 +38,9 @@ class JPSPlanner
     ///Get the raw path
     vec_Vecf<Dim> getRawPath();
     ///remove redundant points on the same line
-    vec_Vecf<Dim> removePts(const vec_Vecf<Dim> &path);
+    vec_Vecf<Dim> removeLinePts(const vec_Vecf<Dim> &path);
     ///Remove some corner waypoints
-    vec_Vecf<Dim> optimize(const vec_Vecf<Dim> &path);
+    vec_Vecf<Dim> removeCornerPts(const vec_Vecf<Dim> &path);
     ///Must be called before run the planning thread
     void updateMap();
     ///Need to be specified in Child class, main planning function
