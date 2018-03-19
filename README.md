@@ -78,7 +78,7 @@ Second, call the function `updateMap()` to allocate the internal map:
 planner->updateMap(); // Set map, must be called before plan
 ```
 
-Finally, call the function `plan` to plan a path from `start` to `goal`. The third input is the heuristic weight, the forth input indicates if plan with `JPS` or `A*`.
+Finally, call the function `plan` to plan a path from `start` to `goal`. The third input is the heuristic weight, the forth input indicates whether planning with `JPS` or `A*`.
 
 Two XXXUtil planners are provided:
  - ```GraphSearch2DUtil```

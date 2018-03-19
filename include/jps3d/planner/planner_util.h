@@ -1,5 +1,5 @@
 /**
- * @file planner_util_base.h
+ * @file planner_util.h
  * @brief JPS::JPSPlanner Abstract Class
  */
 #ifndef JPS_PLANNER_BASE_H
