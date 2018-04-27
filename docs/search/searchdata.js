@@ -2,10 +2,10 @@ var indexSectionsWithContent =
 {
   0: "_acdfghijmnoprstuvx",
   1: "acghjmnpst",
-  2: "dgm",
+  2: "dgmp",
   3: "cdfghijmoprstu",
   4: "_cdghimoprsvx",
-  5: "stv",
+  5: "gstv",
   6: "at",
   7: "m"
 };

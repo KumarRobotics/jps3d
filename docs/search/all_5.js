@@ -20,5 +20,7 @@ var searchData=
   ['goal_5foutside',['goal_outside',['../classJPS_1_1PlannerBase.html#a4fb223e421c1018cad6ad9dfb9423c53',1,'JPS::PlannerBase']]],
   ['graph_5fsearch_2eh',['graph_search.h',['../graph__search_8h.html',1,'']]],
   ['graph_5fsearch_5f',['graph_search_',['../classJPSPlanner.html#a4cd510f4058572a84bf96450a7add32b',1,'JPSPlanner']]],
-  ['graphsearch',['GraphSearch',['../classJPS_1_1GraphSearch.html',1,'JPS::GraphSearch'],['../classJPS_1_1GraphSearch.html#aed8ddc08aa6e343b095505c230c4294b',1,'JPS::GraphSearch::GraphSearch(const char *cMap, int xDim, int yDim, double eps=1, bool verbose=false)'],['../classJPS_1_1GraphSearch.html#a9025917e37cc0e2d551e1f92bb8360df',1,'JPS::GraphSearch::GraphSearch(const char *cMap, int xDim, int yDim, int zDim, double eps=1, bool verbose=false)']]]
+  ['graphsearch',['GraphSearch',['../classJPS_1_1GraphSearch.html',1,'JPS::GraphSearch'],['../classJPS_1_1GraphSearch.html#aed8ddc08aa6e343b095505c230c4294b',1,'JPS::GraphSearch::GraphSearch(const char *cMap, int xDim, int yDim, double eps=1, bool verbose=false)'],['../classJPS_1_1GraphSearch.html#a9025917e37cc0e2d551e1f92bb8360df',1,'JPS::GraphSearch::GraphSearch(const char *cMap, int xDim, int yDim, int zDim, double eps=1, bool verbose=false)']]],
+  ['graphsearch2dutil',['GraphSearch2DUtil',['../planner__util_8h.html#a793bacfa7a4daaa5c17ccad092cd42ec',1,'planner_util.h']]],
+  ['graphsearch3dutil',['GraphSearch3DUtil',['../planner__util_8h.html#a08df48bb18be6799594528d98854b3f7',1,'planner_util.h']]]
 ];
