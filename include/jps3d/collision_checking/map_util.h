@@ -141,7 +141,7 @@ namespace JPS {
       }
 
       ///Get occupied voxels 
-      vec_Vec3f getCloud() {
+      vec_Vecf<Dim> getCloud() {
         vec_Vecf<Dim> cloud;
         Veci<Dim> n;
         if(Dim == 3) {
@@ -167,7 +167,7 @@ namespace JPS {
       }
 
       ///Get free voxels 
-      vec_Vec3f getFreeCloud() {
+      vec_Vecf<Dim> getFreeCloud() {
         vec_Vecf<Dim> cloud;
         Veci<Dim> n;
         if(Dim == 3) {
@@ -191,8 +191,9 @@ namespace JPS {
 
         return cloud;
       }
+
       ///Get unknown voxels 
-      vec_Vec3f getUnknownCloud() {
+      vec_Vecf<Dim> getUnknownCloud() {
         vec_Vecf<Dim> cloud;
         Veci<Dim> n;
         if(Dim == 3) {
