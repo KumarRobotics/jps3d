@@ -174,17 +174,26 @@ bool JPSPlanner<Dim>::plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decima
 
   const Veci<Dim> start_int = map_util_->floatToInt(start);
   if (!map_util_->isFree(start_int)) {
-    if(planner_verbose_) 
-      printf(ANSI_COLOR_RED "start is not free!\n" ANSI_COLOR_RESET);
-    //_map_util->clearAround(_start_int);
+    if(planner_verbose_) {
+      if (map_util_->isOccupied(start_int)) 
+        printf(ANSI_COLOR_RED "start is occupied!\n" ANSI_COLOR_RESET);
+      else if (map_util_->isUnknown(start_int)) 
+        printf(ANSI_COLOR_RED "start is unknown!\n" ANSI_COLOR_RESET);
+      else {
+        printf(ANSI_COLOR_RED "start is outside!\n" ANSI_COLOR_RESET);
+        std::cout << "startI: " << start_int.transpose() << std::endl;
+        std::cout <<"Map origin: " << map_util_->getOrigin().transpose() << std::endl;
+        std::cout <<"Map dim: " << map_util_->getDim().transpose() << std::endl;
+      }
+    }
     status_ = 1;
     return false;
   }
 
   const Veci<Dim> goal_int = map_util_->floatToInt(goal);
-  if (map_util_->isOccupied(goal_int)) {
+  if (!map_util_->isFree(goal_int)) {
     if(planner_verbose_) 
-      printf(ANSI_COLOR_RED "goal is occupied!\n" ANSI_COLOR_RESET);
+      printf(ANSI_COLOR_RED "goal is not free!\n" ANSI_COLOR_RESET);
     status_ = 2;
     return false;
   }
