@@ -1,6 +1,6 @@
 # - Config file for the jps3d package
 # It defines the following variables
-#  JPS3D_INCLUDE_DIRS - include directories for motion_primitive_library
+#  JPS3D_INCLUDE_DIRS - include directories for JPS3D
 #  JPS3D_LIBRARIES    - libraries to link against
  
 # Compute paths
