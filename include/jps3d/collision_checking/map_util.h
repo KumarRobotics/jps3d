@@ -131,10 +131,10 @@ namespace JPS {
       }
 
       ///Check if the ray from p1 to p2 is occluded
-      bool isBlocked(const Vecf<Dim>& p1, const Vecf<Dim>& p2) {
+      bool isBlocked(const Vecf<Dim>& p1, const Vecf<Dim>& p2, int8_t val = 100) {
         vec_Veci<Dim> pns = rayTrace(p1, p2);
         for (const auto &pn : pns) {
-          if (isOccupied(pn))
+          if (map_[getIndex(pn)] >= val)
             return true;
         }
         return false;
