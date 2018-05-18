@@ -37,7 +37,7 @@ vec_Vecf<Dim> JPSPlanner<Dim>::removeCornerPts(const vec_Vecf<Dim> &path) {
   if (!map_util_->isBlocked(pose1, pose2))
     cost1 = (pose1 - pose2).norm();
   else
-    cost1 = std::numeric_limits<decimal_t>::max();
+    cost1 = std::numeric_limits<decimal_t>::infinity();
 
   for (unsigned int i = 1; i < path.size() - 1; i++) {
     pose1 = path[i];
@@ -45,12 +45,12 @@ vec_Vecf<Dim> JPSPlanner<Dim>::removeCornerPts(const vec_Vecf<Dim> &path) {
     if (!map_util_->isBlocked(pose1, pose2))
       cost2 = (pose1 - pose2).norm();
     else
-      cost2 = std::numeric_limits<decimal_t>::max();
+      cost2 = std::numeric_limits<decimal_t>::infinity();
 
     if (!map_util_->isBlocked(prev_pose, pose2))
       cost3 = (prev_pose - pose2).norm();
     else
-      cost3 = std::numeric_limits<decimal_t>::max();
+      cost3 = std::numeric_limits<decimal_t>::infinity();
 
     if (cost3 < cost1 + cost2)
       cost1 = cost3;
