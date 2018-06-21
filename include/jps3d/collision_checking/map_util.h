@@ -9,7 +9,7 @@
 #include <jps3d/common/data_type.h>
 
 namespace JPS {
-  ///The type of map data Tmap is defined as a 1D array 
+  ///The type of map data Tmap is defined as a 1D array
   using Tmap = std::vector<signed char>;
   /**
    * @biref The map util class for collision checking
@@ -21,9 +21,9 @@ namespace JPS {
       MapUtil() {}
       ///Get map data
       Tmap getMap() { return map_; }
-      ///Get resolution 
+      ///Get resolution
       decimal_t getRes() { return res_; }
-      ///Get dimensions 
+      ///Get dimensions
       Veci<Dim> getDim() { return dim_; }
       ///Get origin
       Vecf<Dim> getOrigin() { return origin_d_; }
@@ -44,7 +44,7 @@ namespace JPS {
 
       ///Check if the cell is outside by coordinate
       bool isOutside(const Veci<Dim> &pn) {
-        for(int i = 0; i < Dim; i++) 
+        for(int i = 0; i < Dim; i++)
           if (pn(i) < 0 || pn(i) >= dim_(i))
             return true;
         return false;
@@ -71,7 +71,7 @@ namespace JPS {
       }
 
       /**
-       * @brief Set map 
+       * @brief Set map
        *
        * @param ori origin position
        * @param dim number of cells in each dimension
@@ -99,13 +99,13 @@ namespace JPS {
       Veci<Dim> floatToInt(const Vecf<Dim> &pt) {
         Veci<Dim> pn;
         for(int i = 0; i < Dim; i++)
-          pn(i) = std::round((pt(i) - origin_d_(i)) / res_);
+          pn(i) = std::round((pt(i) - origin_d_(i)) / res_ - 0.5);
         return pn;
       }
       ///Discrete cell coordinate to float position
       Vecf<Dim> intToFloat(const Veci<Dim> &pn) {
-        return pn.template cast<decimal_t>() * res_ + origin_d_;
-        //return (pp.cast<decimal_t>() + Vec3f::Constant(0.5)) * res_ + origin_d_;
+        //return pn.template cast<decimal_t>() * res_ + origin_d_;
+        return (pn.template cast<decimal_t>() + Vecf<Dim>::Constant(0.5)) * res_ + origin_d_;
       }
 
       ///Raytrace from float point pt1 to pt2
@@ -140,7 +140,7 @@ namespace JPS {
         return false;
       }
 
-      ///Get occupied voxels 
+      ///Get occupied voxels
       vec_Vecf<Dim> getCloud() {
         vec_Vecf<Dim> cloud;
         Veci<Dim> n;
@@ -166,7 +166,7 @@ namespace JPS {
         return cloud;
       }
 
-      ///Get free voxels 
+      ///Get free voxels
       vec_Vecf<Dim> getFreeCloud() {
         vec_Vecf<Dim> cloud;
         Veci<Dim> n;
@@ -192,7 +192,7 @@ namespace JPS {
         return cloud;
       }
 
-      ///Get unknown voxels 
+      ///Get unknown voxels
       vec_Vecf<Dim> getUnknownCloud() {
         vec_Vecf<Dim> cloud;
         Veci<Dim> n;
