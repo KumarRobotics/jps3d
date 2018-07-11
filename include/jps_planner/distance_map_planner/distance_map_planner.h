@@ -111,25 +111,25 @@ protected:
   /// 1-D map array
   std::vector<int8_t> cmap_;
   /// max potential value
-  int8_t H_MAX = 100;
+  int8_t H_MAX{100};
   /// heuristic weight
-  double eps_ = 1.0;
+  double eps_{0.0};
   /// potential weight
-  double cweight_ = 0.1;
+  double cweight_{0.1};
   /// radius of distance field
-  double distance_radius_ = 0.5;
+  double distance_radius_{0.0};
   /// height of distance field
-  double distance_height_ = 0.3;
+  double distance_height_{0.0};
   /// radius of searching tunnel
-  double search_radius_ = 1.0;
+  double search_radius_{0.0};
   /// height of searching tunnel
-  double search_height_ = 0.1;
+  double search_height_{0.0};
   /// xy range of local distance map
-  double range_xy_ = 2.0;
+  double range_xy_{0.0};
   /// z range of local distance map
-  double range_z_ = 1.0;
+  double range_z_{0.0};
   /// power index for creating mask
-  int pow_ = 1;
+  int pow_{1};
   /// verbose
   bool verbose_;
 
