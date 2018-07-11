@@ -1,7 +1,7 @@
 #include "timer.hpp"
 #include "read_map.hpp"
-#include <jps3d/common/data_utils.h>
-#include <jps3d/planner/planner_util.h>
+#include <jps_basis/data_utils.h>
+#include <jps_planner/jps_planner/jps_planner.h>
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
@@ -29,7 +29,7 @@ int main(int argc, char ** argv){
   const Vec2f start(reader.start(0), reader.start(1));
   const Vec2f goal(reader.goal(0), reader.goal(1));
 
-  std::unique_ptr<GraphSearch2DUtil> planner_ptr(new GraphSearch2DUtil(false)); // Declare a planner
+  std::unique_ptr<JPSPlanner2D> planner_ptr(new JPSPlanner2D(false)); // Declare a planner
   planner_ptr->setMapUtil(map_util); // Set collision checking function
   planner_ptr->updateMap();
 
@@ -104,7 +104,7 @@ int main(int argc, char ** argv){
   if(valid_jps) {
     vec_Vec2f path = path_jps;
     boost::geometry::model::linestring<point_2d> line;
-    for(auto pt: path) 
+    for(auto pt: path)
       line.push_back(point_2d(pt(0), pt(1)));
     mapper.add(line);
     mapper.map(line, "opacity:0.4;fill:none;stroke:rgb(212,0,0);stroke-width:5"); // Red
@@ -114,7 +114,7 @@ int main(int argc, char ** argv){
   if(valid_astar) {
     vec_Vec2f path = path_astar;
     boost::geometry::model::linestring<point_2d> line;
-    for(auto pt: path) 
+    for(auto pt: path)
       line.push_back(point_2d(pt(0), pt(1)));
     mapper.add(line);
     mapper.map(line, "opacity:0.4;fill:none;stroke:rgb(1,212,0);stroke-width:5"); // Green

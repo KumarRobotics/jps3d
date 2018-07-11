@@ -1,10 +1,10 @@
-# MRSL Jump Point Search Planning Library
+# MRSL Jump Point Search Planning Library v1.0
 [![wercker status](https://app.wercker.com/status/880ab5feaff25f0483e5f2c4f834b8c0/s/master "wercker status")](https://app.wercker.com/project/byKey/880ab5feaff25f0483e5f2c4f834b8c0)
 - - -
-Jump Point Search for path planning in both 2D and 3D environments. Original jump point seach algorithm is proposed in ["D. Harabor and A. Grastien. Online Graph Pruning for Pathfinding on Grid Maps. In National Conference on Artificial Intelligence (AAAI), 2011"](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/download/3761/4007). The 3D version is proposed in ["S. Liu, M. Watterson, K. Mohta, K. Sun, S. Bhattacharya, C.J. Taylor and V. Kumar. Planning Dynamically Feasible Trajectories for Quadrotors using Safe Flight Corridors in 3-D Complex Environments. ICRA 2017"](http://ieeexplore.ieee.org/abstract/document/7839930/). 
+Jump Point Search for path planning in both 2D and 3D environments. Original jump point seach algorithm is proposed in ["D. Harabor and A. Grastien. Online Graph Pruning for Pathfinding on Grid Maps. In National Conference on Artificial Intelligence (AAAI), 2011"](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/download/3761/4007). The 3D version is proposed in ["S. Liu, M. Watterson, K. Mohta, K. Sun, S. Bhattacharya, C.J. Taylor and V. Kumar. Planning Dynamically Feasible Trajectories for Quadrotors using Safe Flight Corridors in 3-D Complex Environments. ICRA 2017"](http://ieeexplore.ieee.org/abstract/document/7839930/).
 
-## Installation 
-#### Required: 
+## Installation
+#### Required:
  - Eigen3
  - yaml-cpp
 
@@ -19,7 +19,7 @@ $ sudo apt install -y libeigen3-dev libyaml-cpp-dev libboost-dev cmake
 $ mkdir build && cd build && cmake .. && make -j4
 ```
 
-#### B) Using CATKIN 
+#### B) Using CATKIN
 ```sh
 $ mv jps3d ~/catkin_ws/src
 $ cd ~/catkin_ws & catkin_make_isolated -DCMAKE_BUILD_TYPE=Release
@@ -53,14 +53,14 @@ include_directories(${JPS3D_INCLUDE_DIRS})
 ...
 add_executable(test_xxx src/test_xxx.cpp)
 target_link_libraries(test_xxx ${JPS3D_LIBRARIES})
-``` 
+```
 
-Two libs will be installed in the system: the standard `jps_lib` and a faster implementation `nx_jps_lib` written by ["Nikolay Anatasov"](https://natanaso.github.io/). The latter one only supports 3D.
+Two libs will be installed in the system: the standard `jps_lib` and a variation `dmp_lib`.
 
 ## Usage
 There are three steps to start a planning thread:
 ```c++
-std::unique_ptr<PlannerBase> planner(new XXXUtil(false)); // Declare a XXX planner
+std::unique_ptr<JPSPlanner2D> planner(new JPSPlanner2D(false)); // Declare a 2D planner
 planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
 planner->updateMap(); // Set map, must be called before plan
 bool valid_jps = planner->plan(start, goal, 1, true); // Plan from start to goal with heuristic weight 1, using JPS
@@ -73,19 +73,21 @@ planner->setMapUtil(MAP_UTIL_PTR); // Set collision checking function
 ```
 The `MAP_UTIL_PTR` can be either `OCCMapUtil` for 2D or `VoxelMapUtil` for 3D. It can be confusing to set up this util, see the example code for more details.
 
-Second, call the function `updateMap()` to allocate the internal map: 
+Second, call the function `updateMap()` to allocate the internal map:
 ```
 planner->updateMap(); // Set map, must be called before plan
 ```
 
 Finally, call the function `plan` to plan a path from `start` to `goal`. The third input is the heuristic weight, the forth input indicates whether planning with `JPS` or `A*`.
 
-Two XXXUtil planners are provided:
- - ```GraphSearch2DUtil```
- - ```GraphSearch3DUtil```
+Four planners are provided:
+ - ```JPSPlanner2D```
+ - ```JPSPlanner3D```
+ - ```DMPlanner2D```
+ - ```DMPlanner3D```
 
 ## Example
-An example in 2D map is given in `test/test_planner_2d.cpp`, in which we plan from start to goal using both ```A*``` and ```JPS```. 
+An example in 2D map is given in `test/test_planner_2d.cpp`, in which we plan from start to goal using both ```A*``` and ```JPS```.
 The results are plotted in [corridor.png](https://github.com/sikang/jps3d/blob/master/data/corridor.png).
 Green path is from ```A*```, red path is from ```JPS```.
 

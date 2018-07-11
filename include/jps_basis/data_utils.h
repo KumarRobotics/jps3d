@@ -5,7 +5,7 @@
 #ifndef JPS_DATA_UTIL_H
 #define JPS_DATA_UTIL_H
 
-#include <jps3d/common/data_type.h>
+#include <jps_basis/data_type.h>
 
 ///Template for transforming a vector
 template <class T, class TF>

@@ -1,7 +1,7 @@
 #include "timer.hpp"
 #include "read_map.hpp"
-#include <jps3d/common/data_utils.h>
-#include <jps3d/planner/planner_util.h>
+#include <jps_basis/data_utils.h>
+#include <jps_planner/jps_planner/jps_planner.h>
 
 using namespace JPS;
 
@@ -25,7 +25,7 @@ int main(int argc, char ** argv){
   const Vec3f start(reader.start(0), reader.start(1), reader.start(2));
   const Vec3f goal(reader.goal(0), reader.goal(1), reader.goal(2));
 
-  std::unique_ptr<GraphSearch3DUtil> planner_ptr(new GraphSearch3DUtil(true)); // Declare a planner
+  std::unique_ptr<JPSPlanner3D> planner_ptr(new JPSPlanner3D(true)); // Declare a planner
   planner_ptr->setMapUtil(map_util); // Set collision checking function
   planner_ptr->updateMap();
 
@@ -36,7 +36,7 @@ int main(int argc, char ** argv){
   printf("JPS Path Distance: %f\n", total_distance3f(planner_ptr->getRawPath()));
   printf("JPS Path: \n");
   auto path_jps = planner_ptr->getRawPath();
-  for(const auto& it: path_jps) 
+  for(const auto& it: path_jps)
     std::cout << it.transpose() << std::endl;
 
   Timer time_astar(true);
@@ -46,7 +46,7 @@ int main(int argc, char ** argv){
   printf("AStar Path Distance: %f\n", total_distance3f(planner_ptr->getRawPath()));
   printf("AStar Path: \n");
   auto path_astar = planner_ptr->getRawPath();
-  for(const auto& it: path_astar) 
+  for(const auto& it: path_astar)
     std::cout << it.transpose() << std::endl;
 
   return 0;

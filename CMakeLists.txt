@@ -21,13 +21,12 @@ ENDIF()
 
 INCLUDE_DIRECTORIES(include ${EIGEN3_INCLUDE_DIRS})
 
-add_library(jps_lib src/graph_search.cpp
-  src/planner_util.cpp)
+add_library(jps_lib src/jps_planner/graph_search.cpp
+  src/jps_planner/jps_planner.cpp)
 
-add_library(nx_jps_lib src/nx_planner/nx_jps_3d.cpp
-  src/nx_planner/jps_3D.cpp
-  src/nx_planner/planner_base.cpp)
-target_link_libraries(nx_jps_lib ${Boost_LIBRARIES})
+add_library(dmp_lib src/distance_map_planner/graph_search.cpp
+  src/distance_map_planner/distance_map_planner.cpp)
+#target_link_libraries(dmp_lib ${JPS3D_LIBRARIES})
 
 add_executable(create_map test/create_map.cpp)
 target_link_libraries(create_map ${YAMLCPP_LIBRARIES})
@@ -42,14 +41,13 @@ add_executable(test_planner_3d test/test_planner_3d.cpp)
 target_link_libraries(test_planner_3d jps_lib ${YAMLCPP_LIBRARIES})
 add_test(test_planner_3d test_planner_3d ${CMAKE_SOURCE_DIR}/data/simple3d.yaml)
 
-
 install(FILES "${PROJECT_NAME}Config.cmake" "${PROJECT_NAME}ConfigVersion.cmake"
   DESTINATION "share/${PROJECT_NAME}/cmake")
 
-install(TARGETS jps_lib nx_jps_lib
+install(TARGETS jps_lib dmp_lib
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib)
 
-install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION include/${PROJECT_NAME})
+install(DIRECTORY include/jps_basis include/jps_planner include/jps_collision
+  DESTINATION include)

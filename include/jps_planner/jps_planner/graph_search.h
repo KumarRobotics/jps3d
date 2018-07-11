@@ -1,6 +1,6 @@
 /**
  * @file graph_search.h
- * @brief backend of graph search, implementation of A* and Lifelong Planning A*
+ * @brief backend of graph search, implementation of A* and JPS
  */
 
 #ifndef JPS_GRAPH_SEARCH_H
@@ -43,7 +43,7 @@ namespace JPS
     int id;
     /// Coord
     int x, y, z = 0;
-    /// direction 
+    /// direction
     int dx, dy, dz;                            // discrete coordinates of this node
     /// id of predicessors
     int parentId = -1;
@@ -143,7 +143,7 @@ namespace JPS
   {
     public:
      /**
-       * @brief 2D graph search constructor 
+       * @brief 2D graph search constructor
        *
        * @param cMap 1D array stores the occupancy, with the order equal to \f$x + xDim * y\f$
        * @param xDim map length
@@ -153,7 +153,7 @@ namespace JPS
        */
       GraphSearch(const char* cMap, int xDim, int yDim, double eps = 1, bool verbose = false);
       /**
-       * @brief 3D graph search constructor 
+       * @brief 3D graph search constructor
        *
        * @param cMap 1D array stores the occupancy, with the order equal to \f$x + xDim * y + xDim * yDim * z\f$
        * @param xDim map length
@@ -164,7 +164,7 @@ namespace JPS
        */
       GraphSearch(const char* cMap, int xDim, int yDim, int zDim, double eps = 1, bool verbose = false);
 
-      /** 
+      /**
        * @brief start 2D planning thread
        *
        * @param xStart start x coordinate
@@ -175,7 +175,7 @@ namespace JPS
        * @param maxExpand maximum number of expansion allowed, optional, default is -1, means no limitation
        */
       bool plan(int xStart, int yStart, int xGoal, int yGoal, bool useJps, int maxExpand = -1);
-      /** 
+      /**
        * @brief start 3D planning thread
        *
        * @param xStart start x coordinate

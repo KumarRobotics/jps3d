@@ -1,13 +1,13 @@
 /**
- * @file planner_util.h
- * @brief JPS::JPSPlanner Abstract Class
+ * @file jps_planner.h
+ * @brief JPSPlanner
  */
 #ifndef JPS_PLANNER_BASE_H
 #define JPS_PLANNER_BASE_H
 
-#include <jps3d/common/data_type.h>
-#include <jps3d/planner/graph_search.h>
-#include <jps3d/collision_checking/map_util.h>
+#include <jps_basis/data_type.h>
+#include <jps_planner/jps_planner/graph_search.h>
+#include <jps_collision/map_util.h>
 
 class GraphSearch;
 /**
@@ -43,7 +43,7 @@ class JPSPlanner
     vec_Vecf<Dim> removeCornerPts(const vec_Vecf<Dim> &path);
     ///Must be called before run the planning thread
     void updateMap();
-    ///Need to be specified in Child class, main planning function
+    ///Planning function
     bool plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decimal_t eps = 1, bool use_jps = true);
     ///Get the nodes in open set
     vec_Vecf<Dim> getOpenSet() const;
@@ -69,9 +69,9 @@ class JPSPlanner
 };
 
 ///Planner for 2D OccMap
-typedef JPSPlanner<2> GraphSearch2DUtil;
+typedef JPSPlanner<2> JPSPlanner2D;
 
 ///Planner for 3D VoxelMap
-typedef JPSPlanner<3> GraphSearch3DUtil;
+typedef JPSPlanner<3> JPSPlanner3D;
 
 #endif

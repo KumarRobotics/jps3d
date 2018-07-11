@@ -1,11 +1,11 @@
-#include <jps3d/planner/graph_search.h>
+#include <jps_planner/jps_planner/graph_search.h>
 #include <cmath>
 
 using namespace JPS;
 
 GraphSearch::GraphSearch(const char* cMap, int xDim, int yDim, double eps, bool verbose) :
-  cMap_(cMap), xDim_(xDim), yDim_(yDim), eps_(eps), verbose_(verbose) 
-{ 
+  cMap_(cMap), xDim_(xDim), yDim_(yDim), eps_(eps), verbose_(verbose)
+{
   hm_.resize(xDim_ * yDim_);
   seen_.resize(xDim_ * yDim_, false);
 
@@ -20,8 +20,8 @@ GraphSearch::GraphSearch(const char* cMap, int xDim, int yDim, double eps, bool 
 }
 
 GraphSearch::GraphSearch(const char* cMap, int xDim, int yDim, int zDim, double eps, bool verbose) :
-  cMap_(cMap), xDim_(xDim), yDim_(yDim), zDim_(zDim), eps_(eps), verbose_(verbose) 
-{ 
+  cMap_(cMap), xDim_(xDim), yDim_(yDim), zDim_(zDim), eps_(eps), verbose_(verbose)
+{
   hm_.resize(xDim_ * yDim_ * zDim_);
   seen_.resize(xDim_ * yDim_ * zDim_, false);
 
@@ -74,7 +74,7 @@ inline double GraphSearch::getHeur(int x, int y, int z) const {
   return eps_ * std::sqrt((x - xGoal_) * (x - xGoal_) + (y - yGoal_) * (y - yGoal_) + (z - zGoal_) * (z - zGoal_));
 }
 
-bool GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal, bool useJps, int maxExpand) 
+bool GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal, bool useJps, int maxExpand)
 {
   use_2d_ = true;
   pq_.clear();
@@ -97,7 +97,7 @@ bool GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal, bool useJps
   return plan(currNode_ptr, maxExpand, start_id, goal_id);
 }
 
-bool GraphSearch::plan(int xStart, int yStart, int  zStart, int xGoal, int yGoal, int zGoal, bool useJps, int maxExpand) 
+bool GraphSearch::plan(int xStart, int yStart, int  zStart, int xGoal, int yGoal, int zGoal, bool useJps, int maxExpand)
 {
   use_2d_ = false;
   pq_.clear();
@@ -116,7 +116,7 @@ bool GraphSearch::plan(int xStart, int yStart, int  zStart, int xGoal, int yGoal
   StatePtr currNode_ptr = std::make_shared<State>(State(start_id, xStart, yStart, zStart, 0, 0, 0));
   currNode_ptr->g = 0;
   currNode_ptr->h = getHeur(xStart, yStart, zStart);
- 
+
   return plan(currNode_ptr, maxExpand, start_id, goal_id);
 }
 
@@ -147,7 +147,7 @@ bool GraphSearch::plan(StatePtr& currNode_ptr, int maxExpand, int start_id, int 
     // Get successors
     if(!use_jps_)
       getSucc(currNode_ptr, succ_ids, succ_costs);
-    else 
+    else
       getJpsSucc(currNode_ptr, succ_ids, succ_costs);
 
     // if(verbose_)
@@ -191,7 +191,7 @@ bool GraphSearch::plan(StatePtr& currNode_ptr, int maxExpand, int start_id, int 
           child_ptr->opened = true;
         }
       } //
-    } // Process successors    
+    } // Process successors
 
 
     if(maxExpand > 0 && expand_iteration >= maxExpand) {
@@ -280,8 +280,8 @@ void GraphSearch::getJpsSucc(const StatePtr& curr, std::vector<int>& succ_ids, s
       int new_x, new_y;
       int dx, dy;
       if(dev < num_neib) {
-        dx = jn2d_->ns[id][0][dev]; 
-        dy = jn2d_->ns[id][1][dev]; 
+        dx = jn2d_->ns[id][0][dev];
+        dy = jn2d_->ns[id][1][dev];
         if(!jump(curr->x, curr->y, dx, dy, new_x, new_y)) continue;
       }
       else {
@@ -292,19 +292,19 @@ void GraphSearch::getJpsSucc(const StatePtr& curr, std::vector<int>& succ_ids, s
           dy = jn2d_->f2[id][1][dev-num_neib];
           if(!jump(curr->x, curr->y, dx, dy, new_x, new_y)) continue;
         }
-        else 
+        else
           continue;
       }
 
       int new_id = coordToId(new_x, new_y);
       if(!seen_[new_id]) {
         seen_[new_id] = true;
-        hm_[new_id] = std::make_shared<State>(new_id, new_x, new_y, dx, dy); 
+        hm_[new_id] = std::make_shared<State>(new_id, new_x, new_y, dx, dy);
         hm_[new_id]->h = getHeur(new_x, new_y);
       }
 
       succ_ids.push_back(new_id);
-      succ_costs.push_back(std::sqrt((new_x - curr->x) * (new_x - curr->x) + 
+      succ_costs.push_back(std::sqrt((new_x - curr->x) * (new_x - curr->x) +
             (new_y - curr->y) * (new_y - curr->y)));
     }
   }
@@ -318,10 +318,10 @@ void GraphSearch::getJpsSucc(const StatePtr& curr, std::vector<int>& succ_ids, s
       int new_x, new_y, new_z;
       int dx, dy, dz;
       if(dev < num_neib) {
-        dx = jn3d_->ns[id][0][dev]; 
-        dy = jn3d_->ns[id][1][dev]; 
+        dx = jn3d_->ns[id][0][dev];
+        dy = jn3d_->ns[id][1][dev];
         dz = jn3d_->ns[id][2][dev];
-        if(!jump(curr->x, curr->y, curr->z, 
+        if(!jump(curr->x, curr->y, curr->z,
               dx, dy, dz, new_x, new_y, new_z)) continue;
       }
       else {
@@ -332,23 +332,23 @@ void GraphSearch::getJpsSucc(const StatePtr& curr, std::vector<int>& succ_ids, s
           dx = jn3d_->f2[id][0][dev-num_neib];
           dy = jn3d_->f2[id][1][dev-num_neib];
           dz = jn3d_->f2[id][2][dev-num_neib];
-          if(!jump(curr->x, curr->y, curr->z, 
+          if(!jump(curr->x, curr->y, curr->z,
                 dx, dy, dz, new_x, new_y, new_z)) continue;
         }
-        else 
+        else
           continue;
       }
 
       int new_id = coordToId(new_x, new_y, new_z);
       if(!seen_[new_id]) {
         seen_[new_id] = true;
-        hm_[new_id] = std::make_shared<State>(new_id, new_x, new_y, new_z, dx, dy, dz); 
+        hm_[new_id] = std::make_shared<State>(new_id, new_x, new_y, new_z, dx, dy, dz);
         hm_[new_id]->h = getHeur(new_x, new_y, new_z);
       }
 
       succ_ids.push_back(new_id);
-      succ_costs.push_back(std::sqrt((new_x - curr->x) * (new_x - curr->x) + 
-            (new_y - curr->y) * (new_y - curr->y) + 
+      succ_costs.push_back(std::sqrt((new_x - curr->x) * (new_x - curr->x) +
+            (new_y - curr->y) * (new_y - curr->y) +
             (new_z - curr->z) * (new_z - curr->z)));
     }
 
@@ -366,7 +366,7 @@ bool GraphSearch::jump(int x, int y, int dx, int dy, int& new_x, int& new_y ) {
     return true;
 
 
-  if (hasForced(new_x, new_y, dx, dy)) 
+  if (hasForced(new_x, new_y, dx, dy))
     return true;
 
   const int id = (dx+1)+3*(dy+1);
@@ -390,10 +390,10 @@ bool GraphSearch::jump(int x, int y, int z, int dx, int dy, int dz, int& new_x, 
   if (!isFree(new_x, new_y, new_z))
     return false;
 
-  if (new_x ==  xGoal_ && new_y == yGoal_ && new_z == zGoal_) 
+  if (new_x ==  xGoal_ && new_y == yGoal_ && new_z == zGoal_)
     return true;
 
-  if (hasForced(new_x, new_y, new_z, dx, dy, dz)) 
+  if (hasForced(new_x, new_y, new_z, dx, dy, dz))
     return true;
 
   const int id = (dx+1)+3*(dy+1)+9*(dz+1);
@@ -403,7 +403,7 @@ bool GraphSearch::jump(int x, int y, int z, int dx, int dy, int dz, int& new_x, 
   {
     int new_new_x, new_new_y, new_new_z;
     if(jump(new_x,new_y,new_z,
-          jn3d_->ns[id][0][k], jn3d_->ns[id][1][k], jn3d_->ns[id][2][k], 
+          jn3d_->ns[id][0][k], jn3d_->ns[id][1][k], jn3d_->ns[id][2][k],
         new_new_x, new_new_y, new_new_z)) return true;
   }
 
@@ -572,7 +572,7 @@ void JPS2DNeib::FNeib( int dx, int dy, int norm1, int dev,
       }
 
       // switch order if different direction
-      if(dx == 0) 
+      if(dx == 0)
         fx = fy, fy = 0;
 
       nx = dx + fx; ny = dy + fy;
@@ -591,7 +591,7 @@ void JPS2DNeib::FNeib( int dx, int dy, int norm1, int dev,
       }
   }
 }
- 
+
 constexpr int JPS3DNeib::nsz[4][2];
 
 JPS3DNeib::JPS3DNeib() {

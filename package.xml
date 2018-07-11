@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>jps3d</name>
-  <version>0.2.0</version>
+  <version>1.0.0</version>
   <description>The jps3d package</description>
   <maintainer email="sikang@seas.upenn.edu">sikang</maintainer>
 

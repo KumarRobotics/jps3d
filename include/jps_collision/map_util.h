@@ -6,7 +6,7 @@
 #define JPS_MAP_UTIL_H
 
 #include <iostream>
-#include <jps3d/common/data_type.h>
+#include <jps_basis/data_type.h>
 
 namespace JPS {
   ///The type of map data Tmap is defined as a 1D array

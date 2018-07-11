@@ -1,4 +1,4 @@
-#include <jps3d/planner/planner_util.h>
+#include <jps_planner/jps_planner/jps_planner.h>
 
 template <int Dim>
 JPSPlanner<Dim>::JPSPlanner(bool verbose): planner_verbose_(verbose) {
@@ -136,14 +136,14 @@ vec_Vecf<Dim> JPSPlanner<Dim>::getAllSet() const {
   return ps;
 }
 
-template <int Dim> 
+template <int Dim>
 void JPSPlanner<Dim>::updateMap() {
   Veci<Dim> dim = map_util_->getDim();
 
   if(Dim == 3) {
     cmap_.resize(dim(0)*dim(1)*dim(2));
     for( int z = 0; z < dim(2); ++z) {
-      for( int y = 0; y < dim(1); ++y) { 
+      for( int y = 0; y < dim(1); ++y) {
         for( int x = 0; x < dim(0); ++x) {
           Veci<Dim> pn;
           pn << x, y, z;
@@ -154,7 +154,7 @@ void JPSPlanner<Dim>::updateMap() {
   }
   else {
     cmap_.resize(dim(0)*dim(1));
-      for( int y = 0; y < dim(1); ++y) 
+      for( int y = 0; y < dim(1); ++y)
         for( int x = 0; x < dim(0); ++x)
           cmap_[x+y*dim(0)] = map_util_->isOccupied(Veci<Dim>(x,y)) ? 1:0;
   }
@@ -175,9 +175,9 @@ bool JPSPlanner<Dim>::plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decima
   const Veci<Dim> start_int = map_util_->floatToInt(start);
   if (!map_util_->isFree(start_int)) {
     if(planner_verbose_) {
-      if (map_util_->isOccupied(start_int)) 
+      if (map_util_->isOccupied(start_int))
         printf(ANSI_COLOR_RED "start is occupied!\n" ANSI_COLOR_RESET);
-      else if (map_util_->isUnknown(start_int)) 
+      else if (map_util_->isUnknown(start_int))
         printf(ANSI_COLOR_RED "start is unknown!\n" ANSI_COLOR_RESET);
       else {
         printf(ANSI_COLOR_RED "start is outside!\n" ANSI_COLOR_RESET);
@@ -192,14 +192,14 @@ bool JPSPlanner<Dim>::plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decima
 
   const Veci<Dim> goal_int = map_util_->floatToInt(goal);
   if (!map_util_->isFree(goal_int)) {
-    if(planner_verbose_) 
+    if(planner_verbose_)
       printf(ANSI_COLOR_RED "goal is not free!\n" ANSI_COLOR_RESET);
     status_ = 2;
     return false;
   }
 
   if(cmap_.empty()) {
-    if(planner_verbose_) 
+    if(planner_verbose_)
       printf(ANSI_COLOR_RED "need to set cmap, call updateMap()!\n" ANSI_COLOR_RESET);
     return -1;
   }
