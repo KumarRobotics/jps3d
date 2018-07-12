@@ -34,19 +34,15 @@ public:
    * it returns the inflated region
    */
 
-  std::vector<bool> setPath(const vec_Vecf<Dim> &path, decimal_t r, decimal_t h,
+  std::vector<bool> setPath(const vec_Vecf<Dim> &path, const Vecf<Dim>& radius,
                             bool dense);
 
-  void setDistanceRadius(double r);
-  void setDistanceHeight(double h);
-  void setSearchRadius(double r);
-  void setSearchHeight(double h);
-  void setRangeXY(double r);
-  void setRangeZ(double h);
+  void setSearchRadius(const Vecf<Dim>& r);
+  void setPotentialRadius(const Vecf<Dim>& r);
+  void setPotentialMapRange(const Vecf<Dim>& r);
   void setEps(double eps);
   void setCweight(double c);
   void setPow(int pow);
-
 
   /**
    * @brief Status of the planner
@@ -100,16 +96,21 @@ protected:
   std::shared_ptr<JPS::MapUtil<Dim>> map_util_;
   /// The planner back-end
   std::shared_ptr<DMP::GraphSearch> graph_search_;
+  /// Mask for generating potential field around obstacle
+  vec_E<std::pair<Veci<Dim>, int8_t>> mask_;
+  /// tunnel for visualization
+  std::vector<bool> search_region_;
+  /// 1-D map array
+  std::vector<int8_t> cmap_;
+
+  /// Enabled for printing info
+  bool planner_verbose_;
   /// Raw path from planner
   vec_Vecf<Dim> raw_path_;
   /// Modified path for future usage
   vec_Vecf<Dim> path_;
   /// Flag indicating the success of planning
   int status_ = 0;
-  /// Enabled for printing info
-  bool planner_verbose_;
-  /// 1-D map array
-  std::vector<int8_t> cmap_;
   /// max potential value
   int8_t H_MAX{100};
   /// heuristic weight
@@ -117,27 +118,13 @@ protected:
   /// potential weight
   double cweight_{0.1};
   /// radius of distance field
-  double distance_radius_{0.0};
-  /// height of distance field
-  double distance_height_{0.0};
+  Vecf<Dim> potential_radius_{Vecf<Dim>::Zero()};
   /// radius of searching tunnel
-  double search_radius_{0.0};
-  /// height of searching tunnel
-  double search_height_{0.0};
+  Vecf<Dim> search_radius_{Vecf<Dim>::Zero()};
   /// xy range of local distance map
-  double range_xy_{0.0};
-  /// z range of local distance map
-  double range_z_{0.0};
+  Vecf<Dim> potential_map_range_{Vecf<Dim>::Zero()};
   /// power index for creating mask
   int pow_{1};
-  /// verbose
-  bool verbose_;
-
-  /// Mask for generating potential field around obstacle
-  vec_E<std::pair<Veci<Dim>, int8_t>> mask_;
-  /// tunnel for visualization
-  std::vector<bool> search_region_;
-
 };
 
 /// Planner for 2D OccMap

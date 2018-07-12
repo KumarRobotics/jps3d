@@ -13,33 +13,18 @@ void DMPlanner<Dim>::setMapUtil(const std::shared_ptr<JPS::MapUtil<Dim>> &map_ut
 }
 
 template <int Dim>
-void DMPlanner<Dim>::setDistanceRadius(double r) {
-  distance_radius_ = r;
-}
-
-template <int Dim>
-void DMPlanner<Dim>::setDistanceHeight(double h) {
-  distance_height_ = h;
-}
-
-template <int Dim>
-void DMPlanner<Dim>::setSearchRadius(double r) {
+void DMPlanner<Dim>::setSearchRadius(const Vecf<Dim>& r) {
   search_radius_ = r;
 }
 
 template <int Dim>
-void DMPlanner<Dim>::setSearchHeight(double h) {
-  search_height_ = h;
+void DMPlanner<Dim>::setPotentialRadius(const Vecf<Dim>& r) {
+  potential_radius_ = r;
 }
 
 template <int Dim>
-void DMPlanner<Dim>::setRangeXY(double r) {
-  range_xy_ = r;
-}
-
-template <int Dim>
-void DMPlanner<Dim>::setRangeZ(double h) {
-  range_z_ = h;
+void DMPlanner<Dim>::setPotentialMapRange(const Vecf<Dim>& r) {
+  potential_map_range_ = r;
 }
 
 template <int Dim>
@@ -191,7 +176,8 @@ void DMPlanner<Dim>::updateMap() {
 
 
 template <int Dim>
-std::vector<bool> DMPlanner<Dim>::setPath(const vec_Vecf<Dim>& path, decimal_t r, decimal_t h, bool dense) {
+std::vector<bool> DMPlanner<Dim>::setPath(const vec_Vecf<Dim>& path,
+                                          const Vecf<Dim>& radius, bool dense) {
   // create cells along path
   vec_Veci<Dim> ps;
   if(!dense) {
@@ -209,7 +195,7 @@ std::vector<bool> DMPlanner<Dim>::setPath(const vec_Vecf<Dim>& path, decimal_t r
 
   // create mask
   vec_Veci<Dim> ns;
-  int rn = std::ceil(r / map_util_->getRes());
+  int rn = std::ceil(radius(0) / map_util_->getRes());
   if(Dim == 2) {
     for(int nx = -rn; nx <= rn; nx++) {
       for(int ny = -rn; ny <= rn; ny++) {
@@ -220,7 +206,7 @@ std::vector<bool> DMPlanner<Dim>::setPath(const vec_Vecf<Dim>& path, decimal_t r
     }
   }
   else {
-    int hn = std::ceil(h / map_util_->getRes());
+    int hn = std::ceil(radius(2) / map_util_->getRes());
     for(int nx = -rn; nx <= rn; nx++) {
       for(int ny = -rn; ny <= rn; ny++) {
         for(int nz = -hn; nz <= hn; nz++) {
@@ -364,8 +350,7 @@ void DMPlanner<Dim>::createMask(int pow) {
   // create mask
   double res = map_util_->getRes();
   double h_max = H_MAX;
-  int rn = std::ceil(distance_radius_ / res);
-  int hn = std::ceil(distance_height_ / res);
+  int rn = std::ceil(potential_radius_(0) / res);
   //printf("rn: %d\n", rn);
   //printf("hn: %d\n", hn);
   Veci<Dim> n;
@@ -381,6 +366,7 @@ void DMPlanner<Dim>::createMask(int pow) {
     }
   }
   else {
+    int hn = std::ceil(potential_radius_(2) / res);
     for(n(0) = -rn; n(0) <= rn; n(0)++) {
       for(n(1) = -rn; n(1) <= rn; n(1)++) {
         for(n(2) = -hn; n(2) <= hn; n(2)++) {
@@ -553,31 +539,22 @@ bool DMPlanner<Dim>::plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decimal
 
 template <int Dim>
 bool DMPlanner<Dim>::computePath(const Vecf<Dim>& start, const Vecf<Dim>& goal, const vec_Vecf<Dim>& path) {
-  if(verbose_) {
+  if(planner_verbose_) {
     printf("****************[DistanceMapPlanner]***************\n");
     printf("eps: %f\n", eps_);
     printf("cweight: %f\n", cweight_);
-    printf("distance_radius: %f\n", distance_radius_);
-    printf("distance_height: %f\n", distance_height_);
-    printf("search_radius: %f\n", search_radius_);
-    printf("search_height: %f\n", search_height_);
-    printf("range_xy: %f\n", range_xy_);
-    printf("range_z: %f\n", range_z_);
     printf("pow: %d\n", pow_);
+    std::cout << "search_radius: " << search_radius_.transpose() << std::endl;
+    std::cout << "potential_radius: " << potential_radius_.transpose() << std::endl;
+    std::cout << "potential map range: " << potential_map_range_.transpose() << std::endl;;
     printf("****************[DistanceMapPlanner]***************\n");
   }
   createMask(pow_);
 
-  Vecf<Dim> range;
-  if(Dim == 2)
-    range << range_xy_, range_xy_;
-  else
-    range << range_xy_, range_xy_, range_z_;
-
-  updateDistanceMap(start, range);
+  updateDistanceMap(start, potential_map_range_);
 
   updateMap();
-  search_region_ = setPath(path, search_radius_, search_height_, false); // sparse input path
+  search_region_ = setPath(path, search_radius_, false); // sparse input path
 
   return plan(start, goal, eps_, cweight_);
 }

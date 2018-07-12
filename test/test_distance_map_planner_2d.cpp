@@ -30,6 +30,7 @@ int main(int argc, char ** argv){
   const Vec2f start(reader.start(0), reader.start(1));
   const Vec2f goal(reader.goal(0), reader.goal(1));
 
+  // Set up JPS planner
   JPSPlanner2D jps(false); // Declare a planner
   jps.setMapUtil(map_util); // Set collision checking function
   jps.updateMap();
@@ -43,18 +44,19 @@ int main(int argc, char ** argv){
   printf("JPS Path Distance: %f\n", total_distance2f(path_jps));
 
 
-  // Run DM planner
+  // Set up DMP planner
   DMPlanner2D dmp(false);
-  dmp.setMapUtil(map_util);
-  dmp.setCweight(.1);
-  dmp.setDistanceRadius(1.0);
-  dmp.setSearchRadius(0.5);
+  dmp.setMapUtil(map_util); // Set map uti for collision checking
+  dmp.setPotentialRadius(Vec2f(1.0, 1.0)); // Set 2D potential field radius
+  dmp.setSearchRadius(Vec2f(0.5, 0.5)); // Set the valid search region around given path
+
+  // Run DMP planner
   Timer time_dist(true);
-  bool valid_dist = dmp.computePath(start, goal, path_jps);
+  bool valid_dist = dmp.computePath(start, goal, path_jps); // Compute the path given the jps path
   double dt_dist = time_dist.Elapsed().count();
   const auto path_dist = dmp.getPath();
-  printf("DM Planner takes: %f ms\n", dt_dist);
-  printf("DM Path Distance: %f\n", total_distance2f(path_dist));
+  printf("DMP Planner takes: %f ms\n", dt_dist);
+  printf("DMP Path Distance: %f\n", total_distance2f(path_dist));
 
   // Plot the result in svg image
   typedef boost::geometry::model::d2::point_xy<double> point_2d;

@@ -96,7 +96,7 @@ An example code for a 2D map is given in [`test/test_planner_2d.cpp`](https://gi
 in which we plan from start to goal using both ```A*``` and ```JPS```.
 The results are plotted in [corridor.png](https://github.com/sikang/jps3d/blob/master/data/corridor.png).
 Green path is from ```A*```, red path is from ```JPS```. Even though they are using two different routes and `JPS` is much faster, the distance/cost of two paths is the same.
-In other words, `JPS` guarantees the optimality but saves significant amount of computation time.
+In other words, `JPS` guarantees the optimality but saves a significant amount of computation time.
 
 ![Visualization](./data/corridor.png)
 ```bash
@@ -116,17 +116,17 @@ AStar Path Distance: 35.109545
 An example in 3D map is presented in [`test/test_planner_3d.cpp`](https://github.com/sikang/jps3d/blob/master/test/test_planner_3d.cpp) with the yaml `data/simple3d.yaml`.
 
 ##### Mapping Example
-To generate map in `yaml` format which can be loaded directly in the test node, a simple executable file [`test/create_map.cpp`](https://github.com/KumarRobotics/jps3d/blob/master/test/create_map.cpp) is used.
+To generate map in `yaml` format which can be loaded directly in the test node, a simple executable file [`test/create_map.cpp`](https://github.com/sikang/jps3d/blob/master/test/create_map.cpp) is used.
 User can easily change the location of blocks in the source code.
 
 ## DMP Usage
-As mentioned before, `DMPlanner` stands for distance map planner which utilizes the artificial potential field to find a path that is safer for the robot to navigate.
+As mentioned before, `DMPlanner` stands for distance map planner which utilizes the artificial potential field to find a safer local path around a given path for the robot to navigate.
 The key feature of this planner is its ability to push the path away from obstacles as much as possible. An example is given in the following figure
 [example_dmp.png](https://github.com/sikang/jps3d/blob/master/data/example_dmp.png), where red path is from `JPS` which is always attached to obstacles and green path is derived from `DMP` which is much safer.
 
 ![Visualization](./data/example_dmp.png)
 
-The code for generating this figure is given in [`test/test_distance_map_2d.cpp`](https://github.com/KumarRobotics/jps3d/blob/master/test/test_distance_map_planner_2d.cpp).
+The code for generating this figure is given in [`test/test_distance_map_2d.cpp`](https://github.com/sikang/jps3d/blob/master/test/test_distance_map_planner_2d.cpp).
 ```bash
 $ ./build/test_distance_map_planner_2d ../data/corridor.yaml
 start: 2.5  -2
@@ -134,21 +134,10 @@ goal:  35 2.5
 origin:  0 -5
 dim: 799 199
 resolution: 0.05
-JPS Planner takes: 6.000000 ms
+JPS Planner takes: 7.000000 ms
 JPS Path Distance: 35.109545
-****************[DistanceMapPlanner]***************
-eps: 0.000000
-cweight: 0.100000
-distance_radius: 1.000000
-distance_height: 0.000000
-search_radius: 0.500000
-search_height: 0.000000
-range_xy: 0.000000
-range_z: 0.000000
-pow: 1
-****************[DistanceMapPlanner]***************
-DM Planner takes: 106.000000 ms
-DM Path Distance: 37.062964
+DMP Planner takes: 104.000000 ms
+DMP Path Distance: 37.062964
 ```
 
 ## Doxygen
