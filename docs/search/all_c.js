@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['parentid',['parentId',['../structJPS_1_1State.html#a4b66f81604569c64048119fcd9fd04ec',1,'JPS::State']]],
-  ['path_5f',['path_',['../classJPSPlanner.html#a8feba0adc780669b8e2cb9f34d943e65',1,'JPSPlanner']]],
-  ['plan',['plan',['../classJPS_1_1NXJPS3DUtil.html#a0eded358aa92fdece4326b093b9d227c',1,'JPS::NXJPS3DUtil::plan()'],['../classJPS_1_1PlannerBase.html#a4f86708ce7c1e389651ab65ae71db4ae',1,'JPS::PlannerBase::plan()'],['../classJPS_1_1GraphSearch.html#aba5529f28299cb6045efe5ab48990d94',1,'JPS::GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal, bool useJps, int maxExpand=-1)'],['../classJPS_1_1GraphSearch.html#a49634772a36c414fcfdb80a0ba17ef63',1,'JPS::GraphSearch::plan(int xStart, int yStart, int zStart, int xGoal, int yGoal, int zGoal, bool useJps, int maxExpand=-1)'],['../classJPS_1_1GraphSearch.html#ace907ec84b5f2a261de5229e9763e6ce',1,'JPS::GraphSearch::plan(StatePtr &amp;currNode_ptr, int max_expand, int start_id, int goal_id)'],['../classJPSPlanner.html#a8f6ae73c17f412a893a542efaa6e625f',1,'JPSPlanner::plan()']]],
-  ['planner_5futil_2eh',['planner_util.h',['../planner__util_8h.html',1,'']]],
-  ['planner_5fverbose_5f',['planner_verbose_',['../classJPSPlanner.html#a2e76b13f0da618aac2b0d0cb5ef97c30',1,'JPSPlanner']]],
-  ['plannerbase',['PlannerBase',['../classJPS_1_1PlannerBase.html',1,'JPS::PlannerBase'],['../classJPS_1_1PlannerBase.html#a692fbe2665210509424cf74b2686c1e5',1,'JPS::PlannerBase::PlannerBase()']]]
+  ['raw_5fpath_5f',['raw_path_',['../classDMPlanner.html#a4d70235f3a9cf834b9e963ec75ccc6c9',1,'DMPlanner::raw_path_()'],['../classJPSPlanner.html#a5c53347ae8c5c8d51dfb474ede9f4b34',1,'JPSPlanner::raw_path_()']]],
+  ['raytrace',['rayTrace',['../classJPS_1_1MapUtil.html#aa8548996d3399404b33570188c8b5f10',1,'JPS::MapUtil']]],
+  ['recoverpath',['recoverPath',['../classDMP_1_1GraphSearch.html#a432cf1e1c8f0b43646b15748ee5a5d56',1,'DMP::GraphSearch::recoverPath()'],['../classJPS_1_1GraphSearch.html#a432cf1e1c8f0b43646b15748ee5a5d56',1,'JPS::GraphSearch::recoverPath()']]],
+  ['removecornerpts',['removeCornerPts',['../classDMPlanner.html#a2d40fbc86e538ad0f791a7af0f66730c',1,'DMPlanner::removeCornerPts()'],['../classJPSPlanner.html#aeadb00efb90d9ce1ce5508c6233d3620',1,'JPSPlanner::removeCornerPts()']]],
+  ['removelinepts',['removeLinePts',['../classDMPlanner.html#a22daa9893b8403a568a954777585fdd3',1,'DMPlanner::removeLinePts()'],['../classJPSPlanner.html#a7d0cfae7a132861188e362de04bf23d9',1,'JPSPlanner::removeLinePts()']]],
+  ['res_5f',['res_',['../classJPS_1_1MapUtil.html#a9972aed929695ceee20a8db01f23cabd',1,'JPS::MapUtil']]]
 ];

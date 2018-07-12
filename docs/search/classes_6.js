@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nxjps3dutil',['NXJPS3DUtil',['../classJPS_1_1NXJPS3DUtil.html',1,'JPS']]]
+  ['timer',['Timer',['../classJPS_1_1Timer.html',1,'JPS']]]
 ];

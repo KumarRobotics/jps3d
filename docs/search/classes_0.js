@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['astate',['Astate',['../structJPS_1_1Astate.html',1,'JPS']]]
+  ['compare_5fstate',['compare_state',['../structDMP_1_1compare__state.html',1,'DMP']]],
+  ['compare_5fstate',['compare_state',['../structJPS_1_1compare__state.html',1,'JPS']]]
 ];

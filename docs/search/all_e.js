@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['setmap',['setMap',['../classJPS_1_1MapUtil.html#a46c58b74f9236571bf0f0c13c36e1799',1,'JPS::MapUtil']]],
-  ['setmaputil',['setMapUtil',['../classJPS_1_1PlannerBase.html#a1aa78c0d312d1faf276bd6cfe20e4dd4',1,'JPS::PlannerBase::setMapUtil()'],['../classJPSPlanner.html#a6010d38eee1042eaaa60227ee562f099',1,'JPSPlanner::setMapUtil()']]],
-  ['state',['State',['../structJPS_1_1State.html',1,'JPS::State'],['../structJPS_1_1State.html#a574a1c732c40b943df83fcb7c3726473',1,'JPS::State::State(int id, int x, int y, int dx, int dy)'],['../structJPS_1_1State.html#a3aa15ff70720179c76d025808d76c300',1,'JPS::State::State(int id, int x, int y, int z, int dx, int dy, int dz)']]],
-  ['stateptr',['StatePtr',['../graph__search_8h.html#a11a1f690af1cdf7657a6bea76c7fdcef',1,'JPS']]],
-  ['status',['status',['../classJPS_1_1PlannerBase.html#a2d6e7c0ce366f9b796f217436b8b283f',1,'JPS::PlannerBase::status()'],['../classJPSPlanner.html#a93ab066509dd8984b4ca50cb88eee5f1',1,'JPSPlanner::status()']]],
-  ['status_5f',['status_',['../classJPSPlanner.html#ab410c44958c4836634833122bf28aa0f',1,'JPSPlanner']]]
+  ['timer',['Timer',['../classJPS_1_1Timer.html',1,'JPS']]],
+  ['tmap',['Tmap',['../map__util_8h.html#ae95b386410227fb07270118da3a80230',1,'JPS']]],
+  ['total_5fdistance',['total_distance',['../data__utils_8h.html#a3f82ae87bcf143405fd986be6ca44a68',1,'data_utils.h']]],
+  ['total_5fdistance2f',['total_distance2f',['../data__utils_8h.html#a450ba3b43f715e59d5dbdd6463a2c636',1,'data_utils.h']]],
+  ['total_5fdistance2i',['total_distance2i',['../data__utils_8h.html#ae4b1c5dee9fbcba9024f16621cf71198',1,'data_utils.h']]],
+  ['total_5fdistance3f',['total_distance3f',['../data__utils_8h.html#a188bab5f6177f4853e7bff0d5c61cfe6',1,'data_utils.h']]],
+  ['total_5fdistance3i',['total_distance3i',['../data__utils_8h.html#aca4035bd3287a21e2e0a8e7a5a0357f5',1,'data_utils.h']]],
+  ['transform_5fvec',['transform_vec',['../data__utils_8h.html#ac3745ddcc3002193bbcd5caab64cd1df',1,'data_utils.h']]],
+  ['transform_5fvec3',['transform_vec3',['../data__utils_8h.html#a79960a9e7c7bad6ec5641ed1729ad8d0',1,'data_utils.h']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['closed',['closed',['../structJPS_1_1State.html#aa56de0397bc14c03ed5c3311f5710b43',1,'JPS::State']]],
-  ['cmap_5f',['cmap_',['../classJPSPlanner.html#a1c9067d5114ac6d3e50c2f0d073b49f9',1,'JPSPlanner']]]
+  ['dim_5f',['dim_',['../classJPS_1_1MapUtil.html#a17867570bcea899f59307997821cc202',1,'JPS::MapUtil']]],
+  ['dx',['dx',['../structJPS_1_1State.html#afaa913dcc116c136a292f5297899f8b8',1,'JPS::State']]]
 ];
