@@ -120,6 +120,19 @@ int main(int argc, char ** argv){
     mapper.map(line, "opacity:0.4;fill:none;stroke:rgb(1,212,0);stroke-width:5"); // Green
   }
 
+  // Write title at the lower right corner on canvas
+  mapper.text(point_2d(origin_x + range_x - 6, origin_y+1.8), "test_planner_2d",
+              "fill-opacity:1.0;fill:rgb(10,10,250);");
+
+  mapper.text(point_2d(origin_x + range_x - 8, origin_y+1.2), "Green: ",
+              "fill-opacity:1.0;fill:rgb(1,212,0);");
+  mapper.text(point_2d(origin_x + range_x - 5.5, origin_y+1.2), "astar path",
+              "fill-opacity:1.0;fill:rgb(0,0,0);");
+
+  mapper.text(point_2d(origin_x + range_x - 8, origin_y+0.6), "Red: ",
+              "fill-opacity:1.0;fill:rgb(212,0,0);");
+  mapper.text(point_2d(origin_x + range_x - 5.5, origin_y+0.6), "jps path",
+              "fill-opacity:1.0;fill:rgb(0,0,0);");
 
   return 0;
 }

@@ -122,7 +122,7 @@ User can easily change the location of blocks in the source code.
 ## DMP Usage
 As mentioned before, `DMPlanner` stands for distance map planner which utilizes the artificial potential field to find a safer local path around a given path for the robot to navigate.
 The key feature of this planner is its ability to push the path away from obstacles as much as possible. An example is given in the following figure
-[example_dmp.png](https://github.com/sikang/jps3d/blob/master/data/example_dmp.png), where red path is from `JPS` which is always attached to obstacles and green path is derived from `DMP` which is much safer.
+[example_dmp.png](https://github.com/sikang/jps3d/blob/master/data/example_dmp.png), where red path comes from `JPS` which is always attached to obstacles and blue path is derived from `DMP` which is much safer.
 
 ![Visualization](./data/example_dmp.png)
 

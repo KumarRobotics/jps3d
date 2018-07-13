@@ -46,7 +46,7 @@ int main(int argc, char ** argv){
 
   // Set up DMP planner
   DMPlanner2D dmp(false);
-  dmp.setMapUtil(map_util); // Set map uti for collision checking
+  dmp.setMapUtil(map_util); // Set map util for collision checking
   dmp.setPotentialRadius(Vec2f(1.0, 1.0)); // Set 2D potential field radius
   dmp.setSearchRadius(Vec2f(0.5, 0.5)); // Set the valid search region around given path
 
@@ -114,6 +114,14 @@ int main(int argc, char ** argv){
     }
   }
 
+  // Draw searched region
+  for (const auto &pt : dmp.getSearchRegion()) {
+    point_2d a;
+    boost::geometry::assign_values(a, pt(0), pt(1));
+    mapper.add(a);
+    mapper.map(a, "fill-opacity:0.2;fill:rgb(100,200,100);", 1); // Green
+  }
+
   // Draw the path from JPS
   if(valid_jps) {
     vec_Vec2f path = path_jps;
@@ -131,9 +139,27 @@ int main(int argc, char ** argv){
     for(auto pt: path)
       line.push_back(point_2d(pt(0), pt(1)));
     mapper.add(line);
-    mapper.map(line, "opacity:0.4;fill:none;stroke:rgb(1,212,0);stroke-width:5"); // Green
+    mapper.map(line, "opacity:0.8;fill:none;stroke:rgb(10,10,250);stroke-width:5"); // Blue
   }
 
+  // Write title at the lower right corner on canvas
+  mapper.text(point_2d(origin_x + range_x - 11, origin_y+2.4), "test_distance_map_planner_2d",
+              "fill-opacity:1.0;fill:rgb(10,10,250);");
+
+  mapper.text(point_2d(origin_x + range_x - 13, origin_y+1.8), "Green: ",
+              "fill-opacity:1.0;fill:rgb(100,200,100);");
+  mapper.text(point_2d(origin_x + range_x - 10.5, origin_y+1.8), "search region",
+              "fill-opacity:1.0;fill:rgb(0,0,0);");
+
+  mapper.text(point_2d(origin_x + range_x - 13, origin_y+1.2), "Red: ",
+              "fill-opacity:1.0;fill:rgb(212,0,0);");
+  mapper.text(point_2d(origin_x + range_x - 10.5, origin_y+1.2), "original path",
+              "fill-opacity:1.0;fill:rgb(0,0,0);");
+
+  mapper.text(point_2d(origin_x + range_x - 13, origin_y+0.6), "Blue:",
+              "fill-opacity:1.0;fill:rgb(10,10,250);");
+  mapper.text(point_2d(origin_x + range_x - 10.5, origin_y+0.6), "perturbed path",
+              "fill-opacity:1.0;fill:rgb(0,0,0);");
 
   return 0;
 }
