@@ -80,7 +80,7 @@ namespace DMP
   {
     public:
      /**
-       * @brief 2D graph search constructor 
+       * @brief 2D graph search constructor
        *
        * @param cMap 1D array stores the occupancy, with the order equal to \f$x + xDim * y\f$
        * @param xDim map length
@@ -91,7 +91,7 @@ namespace DMP
        */
       GraphSearch(const int8_t* cMap, int xDim, int yDim, double eps = 1, double cweight = 0.1, bool verbose = false);
       /**
-       * @brief 3D graph search constructor 
+       * @brief 3D graph search constructor
        *
        * @param cMap 1D array stores the occupancy, with the order equal to \f$x + xDim * y + xDim * yDim * z\f$
        * @param xDim map length
@@ -103,7 +103,7 @@ namespace DMP
        */
       GraphSearch(const int8_t* cMap, int xDim, int yDim, int zDim, double eps = 1, double cweight = 0.1, bool verbose = false);
 
-      /** 
+      /**
        * @brief start 2D planning thread
        *
        * @param xStart start x coordinate
@@ -111,9 +111,11 @@ namespace DMP
        * @param xGoal goal x coordinate
        * @param yGoal goal y coordinate
        * @param in_region a region that is valid for searching, empty means no boundary
+       *
+       * return the total path cost, which is infinity if failed
        */
-      bool plan(int xStart, int yStart, int xGoal, int yGoal, std::vector<bool> in_region = std::vector<bool>());
-      /** 
+      double plan(int xStart, int yStart, int xGoal, int yGoal, std::vector<bool> in_region = std::vector<bool>());
+      /**
        * @brief start 3D planning thread
        *
        * @param xStart start x coordinate
@@ -123,8 +125,10 @@ namespace DMP
        * @param yGoal goal y coordinate
        * @param zGoal goal z coordinate
        * @param in_region a region that is valid for searching, empty means no boundary
+       *
+       * return the total path cost, which is infinity if failed
        */
-      bool plan(int xStart, int yStart, int zStart, int xGoal, int yGoal, int zGoal, std::vector<bool> in_region = std::vector<bool>());
+      double plan(int xStart, int yStart, int zStart, int xGoal, int yGoal, int zGoal, std::vector<bool> in_region = std::vector<bool>());
 
       /// Get the optimal path
       std::vector<StatePtr> getPath() const;
@@ -140,7 +144,7 @@ namespace DMP
 
     private:
       /// Main planning loop
-      bool plan(StatePtr& currNode_ptr, int start_id, int goal_id);
+      double plan(StatePtr& currNode_ptr, int start_id, int goal_id);
       /// Get successor function for A*
       void getSucc(const StatePtr& curr, std::vector<int>& succ_ids, std::vector<double>& succ_costs);
       /// Recover the optimal path

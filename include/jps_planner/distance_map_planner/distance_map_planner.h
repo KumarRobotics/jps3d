@@ -56,6 +56,8 @@ public:
   vec_Vecf<Dim> getPath();
   /// Get the raw path
   vec_Vecf<Dim> getRawPath();
+  /// Get the prior path
+  vec_Vecf<Dim> getPriorPath();
   /// Get the nodes in open set
   vec_Vecf<Dim> getOpenSet() const;
   /// Get the nodes in close set
@@ -78,13 +80,12 @@ public:
    */
   void updateDistanceMap(const Vecf<Dim>& pos, const Vecf<Dim>& range);
 
-
+  /// Compute the optimal path
+  bool computePath(const Vecf<Dim>& start, const Vecf<Dim>& goal, const vec_Vecf<Dim>& path);
+protected:
   /// Need to be specified in Child class, main planning function
   bool plan(const Vecf<Dim> &start, const Vecf<Dim> &goal,
             decimal_t eps = 1, decimal_t cweight = 0.1);
-
-  bool computePath(const Vecf<Dim>& start, const Vecf<Dim>& goal, const vec_Vecf<Dim>& path);
-protected:
   /// remove redundant points on the same line
   vec_Vecf<Dim> removeLinePts(const vec_Vecf<Dim> &path);
   /// Remove some corner waypoints
@@ -105,6 +106,10 @@ protected:
 
   /// Enabled for printing info
   bool planner_verbose_;
+  /// Path cost (raw)
+  double path_cost_;
+  /// Prior path from planner
+  vec_Vecf<Dim> prior_path_;
   /// Raw path from planner
   vec_Vecf<Dim> raw_path_;
   /// Modified path for future usage
@@ -125,6 +130,7 @@ protected:
   Vecf<Dim> potential_map_range_{Vecf<Dim>::Zero()};
   /// power index for creating mask
   int pow_{1};
+
 };
 
 /// Planner for 2D OccMap
@@ -132,5 +138,23 @@ typedef DMPlanner<2> DMPlanner2D;
 
 /// Planner for 3D VoxelMap
 typedef DMPlanner<3> DMPlanner3D;
+
+
+template <int Dim> class IterativeDMPlanner : public DMPlanner<Dim> {
+ public:
+  IterativeDMPlanner(bool verbose = false);
+
+  /// Iteratively compute the optimal path
+  bool iterativeComputePath(const Vecf<Dim> &start, const Vecf<Dim> &goal,
+                            const vec_Vecf<Dim> &path, int max_iteration);
+};
+
+/// Iterative Planner for 2D OccMap
+typedef IterativeDMPlanner<2> IterativeDMPlanner2D;
+
+/// Iterative Planner for 3D VoxelMap
+typedef IterativeDMPlanner<3> IterativeDMPlanner3D;
+
+
 
 #endif

@@ -65,7 +65,7 @@ inline double GraphSearch::getHeur(int x, int y, int z) const {
                    (z - zGoal_) * (z - zGoal_));
 }
 
-bool GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal,
+double GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal,
                        std::vector<bool> in_region) {
   use_2d_ = true;
   pq_.clear();
@@ -98,8 +98,8 @@ bool GraphSearch::plan(int xStart, int yStart, int xGoal, int yGoal,
   return plan(currNode_ptr, start_id, goal_id);
 }
 
-bool GraphSearch::plan(int xStart, int yStart, int zStart, int xGoal, int yGoal,
-                       int zGoal, std::vector<bool> in_region) {
+double GraphSearch::plan(int xStart, int yStart, int zStart, int xGoal,
+                         int yGoal, int zGoal, std::vector<bool> in_region) {
   use_2d_ = false;
   pq_.clear();
   path_.clear();
@@ -132,7 +132,7 @@ bool GraphSearch::plan(int xStart, int yStart, int zStart, int xGoal, int yGoal,
   return plan(currNode_ptr, start_id, goal_id);
 }
 
-bool GraphSearch::plan(StatePtr &currNode_ptr, int start_id, int goal_id) {
+double GraphSearch::plan(StatePtr &currNode_ptr, int start_id, int goal_id) {
   // Insert start node
   currNode_ptr->heapkey = pq_.push(currNode_ptr);
   currNode_ptr->opened = true;
@@ -189,7 +189,7 @@ bool GraphSearch::plan(StatePtr &currNode_ptr, int start_id, int goal_id) {
     if (pq_.empty()) {
       if (verbose_)
         printf("Priority queue is empty!!!!!!\n\n");
-      return false;
+      return std::numeric_limits<double>::infinity();
     }
   }
 
@@ -200,7 +200,7 @@ bool GraphSearch::plan(StatePtr &currNode_ptr, int start_id, int goal_id) {
 
   path_ = recoverPath(currNode_ptr, start_id);
 
-  return true;
+  return currNode_ptr->g;
 }
 
 std::vector<StatePtr> GraphSearch::recoverPath(StatePtr node, int start_id) {
