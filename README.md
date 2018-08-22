@@ -141,5 +141,5 @@ DMP Path Distance: 37.062964
 ```
 
 ## Doxygen
-For more details, please refer to [Doxygen](https://sikang.github.io/jps3d).
+For more details, please refer to [Doxygen](https://kumarrobotics.github.io/jps3d).
 

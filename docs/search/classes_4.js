@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['mapreader',['MapReader',['../classMapReader.html',1,'']]],
-  ['maputil',['MapUtil',['../classJPS_1_1MapUtil.html',1,'JPS']]]
+  ['jps2dneib',['JPS2DNeib',['../structJPS_1_1JPS2DNeib.html',1,'JPS']]],
+  ['jps3dneib',['JPS3DNeib',['../structJPS_1_1JPS3DNeib.html',1,'JPS']]],
+  ['jpsplanner',['JPSPlanner',['../classJPSPlanner.html',1,'']]]
 ];
