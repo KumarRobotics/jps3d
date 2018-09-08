@@ -109,4 +109,9 @@ typedef MatDNf<3> MatD3f;
 ///Dynamic MxN Eigen float matrix
 typedef Matf<Eigen::Dynamic, Eigen::Dynamic> MatDf;
 
+///Allias of Eigen::Affine2d
+typedef Eigen::Transform<decimal_t, 2, Eigen::Affine> Aff2f;
+///Allias of Eigen::Affine3d
+typedef Eigen::Transform<decimal_t, 3, Eigen::Affine> Aff3f;
+
 #endif
