@@ -8,11 +8,6 @@ DMPlanner<Dim>::DMPlanner(bool verbose): planner_verbose_(verbose) {
 }
 
 template <int Dim>
-void DMPlanner<Dim>::setMapUtil(const std::shared_ptr<JPS::MapUtil<Dim>> &map_util) {
-  map_util_ = map_util;
-}
-
-template <int Dim>
 void DMPlanner<Dim>::setSearchRadius(const Vecf<Dim>& r) {
   search_radius_ = r;
 }
@@ -288,6 +283,10 @@ vec_Vecf<Dim> DMPlanner<Dim>::getSearchRegion() {
   return pts;
 }
 
+template <int Dim>
+std::shared_ptr<JPS::MapUtil<Dim>> DMPlanner<Dim>::getMapUtil() {
+  return map_util_;
+}
 
 template <int Dim>
 bool DMPlanner<Dim>::checkAvailability(const Veci<Dim>& pn) {
@@ -393,7 +392,9 @@ vec_E<std::pair<Veci<Dim>, int8_t>> DMPlanner<Dim>::createMask(int pow) {
 }
 
 template <int Dim>
-void DMPlanner<Dim>::updateMap(const Vecf<Dim>& pos) {
+void DMPlanner<Dim>::setMap(const std::shared_ptr<JPS::MapUtil<Dim>> &map_util,
+                            const Vecf<Dim> &pos) {
+  map_util_ = std::make_shared<JPS::MapUtil<Dim>>(*map_util);
   const auto mask = createMask(pow_);
   // compute a 2D local distance map
   const auto dim = map_util_->getDim();
@@ -458,8 +459,8 @@ void DMPlanner<Dim>::updateMap(const Vecf<Dim>& pos) {
     }
   }
 
-  //map_util_->setMap(map_util_->getOrigin(), dim, distance_map, map_util_->getRes());
   cmap_ = distance_map;
+  map_util_->setMap(map_util_->getOrigin(), dim, distance_map, map_util_->getRes());
 }
 
 template <int Dim>
@@ -478,7 +479,7 @@ bool DMPlanner<Dim>::plan(const Vecf<Dim> &start, const Vecf<Dim> &goal, decimal
   /// check if the map exists
   if(cmap_.empty()) {
     if(planner_verbose_)
-      printf(ANSI_COLOR_RED "need to set cmap, call updateMap()!\n" ANSI_COLOR_RESET);
+      printf(ANSI_COLOR_RED "need to set cmap, call setMap()!\n" ANSI_COLOR_RESET);
     status_ = -1;
     return false;
   }
@@ -560,7 +561,6 @@ bool DMPlanner<Dim>::computePath(const Vecf<Dim>& start, const Vecf<Dim>& goal, 
     std::cout << "search_radius: " << search_radius_.transpose() << std::endl;
     std::cout << "potential_radius: " << potential_radius_.transpose() << std::endl;
     std::cout << "potential_map_range: " << potential_map_range_.transpose() << std::endl;
-    printf("****************[DistanceMapPlanner]***************\n");
   }
 
   search_region_ = setPath(path, search_radius_, false); // sparse input path
@@ -592,7 +592,6 @@ bool IterativeDMPlanner<Dim>::iterativeComputePath(
     std::cout << "search_radius: " << this->search_radius_.transpose() << std::endl;
     std::cout << "potential_radius: " << this->potential_radius_.transpose() << std::endl;
     std::cout << "potential_map_range: " << this->potential_map_range_.transpose() << std::endl;
-    printf("****************[IterativeDistanceMapPlanner]***************\n");
   }
 
   vec_Vecf<Dim> path = prior_path;

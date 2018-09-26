@@ -43,19 +43,17 @@ int main(int argc, char ** argv){
   printf("JPS Planner takes: %f ms\n", dt_jps);
   printf("JPS Path Distance: %f\n", total_distance2f(path_jps));
 
-
   // Set up DMP planner
-  DMPlanner2D dmp(true);
-  dmp.setMapUtil(map_util); // Set map util for collision checking
+  DMPlanner2D dmp(false);
   dmp.setPotentialRadius(Vec2f(1.0, 1.0)); // Set 2D potential field radius
   dmp.setSearchRadius(Vec2f(0.5, 0.5)); // Set the valid search region around given path
-  dmp.updateMap(start); // Must be called before planning
+  dmp.setMap(map_util, start); // Set map util for collision checking, must be called before planning
 
   // Run DMP planner
   Timer time_dist(true);
   bool valid_dist = dmp.computePath(start, goal, path_jps); // Compute the path given the jps path
   double dt_dist = time_dist.Elapsed().count();
-  const auto path_dist = dmp.getPath();
+  const auto path_dist = dmp.getRawPath();
   printf("DMP Planner takes: %f ms\n", dt_dist);
   printf("DMP Path Distance: %f\n", total_distance2f(path_dist));
 
@@ -98,12 +96,13 @@ int main(int argc, char ** argv){
 
 
   // Draw the obstacles
-  const auto data = map_util->getMap();
+  const auto data = dmp.getMapUtil()->getMap();
   for(int x = 0; x < dim(0); x ++) {
     for(int y = 0; y < dim(1); y ++) {
-      if(!map_util->isFree(Vec2i(x, y))) {
+      auto value = data[map_util->getIndex(Vec2i(x,y))];
+      if(value > 0) {
         Vec2f pt = map_util->intToFloat(Vec2i(x, y));
-        decimal_t occ = (decimal_t) data[map_util->getIndex(Vec2i(x,y))]/100;
+        decimal_t occ = (decimal_t) value/100;
         point_2d a;
         boost::geometry::assign_values(a, pt(0), pt(1));
         mapper.add(a);
