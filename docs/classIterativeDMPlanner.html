@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MRSL JPS3D Library
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
    <div id="projectbrief">An implementaion of Jump Point Search on 3D voxel map</div>
   </td>
@@ -90,30 +90,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ad33e7686995b0205ea104d9b5910962b inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#ad33e7686995b0205ea104d9b5910962b">DMPlanner</a> (bool verbose=false)</td></tr>
 <tr class="memdesc:ad33e7686995b0205ea104d9b5910962b inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple constructor.  <a href="classDMPlanner.html#ad33e7686995b0205ea104d9b5910962b">More...</a><br /></td></tr>
 <tr class="separator:ad33e7686995b0205ea104d9b5910962b inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ffe97a6343da3334359e05cdfe6ef9f inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a4ffe97a6343da3334359e05cdfe6ef9f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a4ffe97a6343da3334359e05cdfe6ef9f">setMapUtil</a> (const std::shared_ptr&lt; <a class="el" href="classJPS_1_1MapUtil.html">JPS::MapUtil</a>&lt; Dim &gt;&gt; &amp;map_util)</td></tr>
-<tr class="memdesc:a4ffe97a6343da3334359e05cdfe6ef9f inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set map util for collistion checking. <br /></td></tr>
-<tr class="separator:a4ffe97a6343da3334359e05cdfe6ef9f inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaeb5f88f845c3b3f915895d3bb9570e inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#afaeb5f88f845c3b3f915895d3bb9570e">setPath</a> (const <a class="el" href="data__type_8h.html#a0a3b37beb40c06edc02cb4b7339f2b96">vec_Vecf</a>&lt; Dim &gt; &amp;path, const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;radius, bool dense)</td></tr>
 <tr class="memdesc:afaeb5f88f845c3b3f915895d3bb9570e inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a prior path and get region around it  <a href="classDMPlanner.html#afaeb5f88f845c3b3f915895d3bb9570e">More...</a><br /></td></tr>
 <tr class="separator:afaeb5f88f845c3b3f915895d3bb9570e inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d3b480cf42c3c6878a92b36ec0c53cd inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a6d3b480cf42c3c6878a92b36ec0c53cd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSearchRadius</b> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;r)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a6d3b480cf42c3c6878a92b36ec0c53cd">setSearchRadius</a> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;r)</td></tr>
+<tr class="memdesc:a6d3b480cf42c3c6878a92b36ec0c53cd inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set search radius around a prior path. <br /></td></tr>
 <tr class="separator:a6d3b480cf42c3c6878a92b36ec0c53cd inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a185cc248ad90126275293b68e766e4fe inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a185cc248ad90126275293b68e766e4fe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPotentialRadius</b> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;r)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a185cc248ad90126275293b68e766e4fe">setPotentialRadius</a> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;r)</td></tr>
+<tr class="memdesc:a185cc248ad90126275293b68e766e4fe inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set potential radius. <br /></td></tr>
 <tr class="separator:a185cc248ad90126275293b68e766e4fe inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91f87e62a8be32e7224a26fd504f95e6 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a91f87e62a8be32e7224a26fd504f95e6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPotentialMapRange</b> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;r)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a91f87e62a8be32e7224a26fd504f95e6">setPotentialMapRange</a> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;r)</td></tr>
+<tr class="memdesc:a91f87e62a8be32e7224a26fd504f95e6 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the range of potential map, 0 means the whole map. <br /></td></tr>
 <tr class="separator:a91f87e62a8be32e7224a26fd504f95e6 inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3dba868a99981d6b6bccf54149de31b inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="aa3dba868a99981d6b6bccf54149de31b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEps</b> (double eps)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#aa3dba868a99981d6b6bccf54149de31b">setEps</a> (double eps)</td></tr>
+<tr class="memdesc:aa3dba868a99981d6b6bccf54149de31b inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set heuristic weight. <br /></td></tr>
 <tr class="separator:aa3dba868a99981d6b6bccf54149de31b inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4adf903bf3ebbeb9604a10af01a6e2b5 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a4adf903bf3ebbeb9604a10af01a6e2b5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCweight</b> (double c)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a4adf903bf3ebbeb9604a10af01a6e2b5">setCweight</a> (double c)</td></tr>
+<tr class="memdesc:a4adf903bf3ebbeb9604a10af01a6e2b5 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set collision cost weight. <br /></td></tr>
 <tr class="separator:a4adf903bf3ebbeb9604a10af01a6e2b5 inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a747da87b921d9d15cd80396d944d33cc inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a747da87b921d9d15cd80396d944d33cc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPow</b> (int pow)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a747da87b921d9d15cd80396d944d33cc">setPow</a> (int pow)</td></tr>
+<tr class="memdesc:a747da87b921d9d15cd80396d944d33cc inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the power of potential function <img class="formulaInl" alt="$H_{MAX}(1 - d/d_{max})^{pow}$" src="form_2.png"/>. <br /></td></tr>
 <tr class="separator:a747da87b921d9d15cd80396d944d33cc inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b80d2b48cc701f1ac7e48f48aa442d4 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a2b80d2b48cc701f1ac7e48f48aa442d4">status</a> ()</td></tr>
 <tr class="memdesc:a2b80d2b48cc701f1ac7e48f48aa442d4 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the planner.  <a href="classDMPlanner.html#a2b80d2b48cc701f1ac7e48f48aa442d4">More...</a><br /></td></tr>
@@ -150,17 +152,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setPow</b> (int pow)<
 <a class="el" href="data__type_8h.html#a0a3b37beb40c06edc02cb4b7339f2b96">vec_Vecf</a>&lt; Dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#aec869c92d161c21972eded9d332e36cc">getSearchRegion</a> ()</td></tr>
 <tr class="memdesc:aec869c92d161c21972eded9d332e36cc inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the searching region. <br /></td></tr>
 <tr class="separator:aec869c92d161c21972eded9d332e36cc inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f02c8c64e7e97f0b220dc2187c26a9 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a84f02c8c64e7e97f0b220dc2187c26a9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a84f02c8c64e7e97f0b220dc2187c26a9">updateMap</a> ()</td></tr>
-<tr class="memdesc:a84f02c8c64e7e97f0b220dc2187c26a9 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Must be called before run the planning thread. <br /></td></tr>
-<tr class="separator:a84f02c8c64e7e97f0b220dc2187c26a9 inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35d6ef95fbed90c6c450af1f7f83a5b6 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a35d6ef95fbed90c6c450af1f7f83a5b6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a35d6ef95fbed90c6c450af1f7f83a5b6">createMask</a> (int pow)</td></tr>
-<tr class="memdesc:a35d6ef95fbed90c6c450af1f7f83a5b6 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the mask for potential distance field. <br /></td></tr>
-<tr class="separator:a35d6ef95fbed90c6c450af1f7f83a5b6 inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae205750e4d467b9aa046c12363e6f455 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#ae205750e4d467b9aa046c12363e6f455">updateDistanceMap</a> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;pos, const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;range)</td></tr>
-<tr class="memdesc:ae205750e4d467b9aa046c12363e6f455 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate distance map.  <a href="classDMPlanner.html#ae205750e4d467b9aa046c12363e6f455">More...</a><br /></td></tr>
-<tr class="separator:ae205750e4d467b9aa046c12363e6f455 inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4a86e76f0b912c9b679708eef84123 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="ace4a86e76f0b912c9b679708eef84123"></a>
+std::shared_ptr&lt; <a class="el" href="classJPS_1_1MapUtil.html">JPS::MapUtil</a>&lt; Dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#ace4a86e76f0b912c9b679708eef84123">getMapUtil</a> ()</td></tr>
+<tr class="memdesc:ace4a86e76f0b912c9b679708eef84123 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the internal map util. <br /></td></tr>
+<tr class="separator:ace4a86e76f0b912c9b679708eef84123 inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca946d73c16840a142b086b99810d52a inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#aca946d73c16840a142b086b99810d52a">setMap</a> (const std::shared_ptr&lt; <a class="el" href="classJPS_1_1MapUtil.html">JPS::MapUtil</a>&lt; Dim &gt;&gt; &amp;map_util, const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;pos)</td></tr>
+<tr class="memdesc:aca946d73c16840a142b086b99810d52a inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate distance map.  <a href="classDMPlanner.html#aca946d73c16840a142b086b99810d52a">More...</a><br /></td></tr>
+<tr class="separator:aca946d73c16840a142b086b99810d52a inherit pub_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad544efbb36881600902ead65faaca709 inherit pub_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="ad544efbb36881600902ead65faaca709"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#ad544efbb36881600902ead65faaca709">computePath</a> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;start, const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;goal, const <a class="el" href="data__type_8h.html#a0a3b37beb40c06edc02cb4b7339f2b96">vec_Vecf</a>&lt; Dim &gt; &amp;path)</td></tr>
 <tr class="memdesc:ad544efbb36881600902ead65faaca709 inherit pub_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the optimal path. <br /></td></tr>
@@ -169,6 +167,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classDMPlanner"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classDMPlanner')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classDMPlanner.html">DMPlanner&lt; Dim &gt;</a></td></tr>
+<tr class="memitem:ad1d4dcf1ec57016cbb8cb5e62da07009 inherit pro_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data__type_8h.html#a6b9210d48a0a541940af71827aad1b41">vec_E</a>&lt; std::pair&lt; <a class="el" href="data__type_8h.html#ac208833a6aa7ec29f39eb5ae142aaede">Veci</a>&lt; Dim &gt;, int8_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#ad1d4dcf1ec57016cbb8cb5e62da07009">createMask</a> (int pow)</td></tr>
+<tr class="memdesc:ad1d4dcf1ec57016cbb8cb5e62da07009 inherit pro_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the mask for potential distance field.  <a href="classDMPlanner.html#ad1d4dcf1ec57016cbb8cb5e62da07009">More...</a><br /></td></tr>
+<tr class="separator:ad1d4dcf1ec57016cbb8cb5e62da07009 inherit pro_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0ea003b34a6703da7aaf992711f82a1 inherit pro_methods_classDMPlanner"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#af0ea003b34a6703da7aaf992711f82a1">plan</a> (const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;start, const <a class="el" href="data__type_8h.html#a3a0c45655a5e009e56634ccde0c5c575">Vecf</a>&lt; Dim &gt; &amp;goal, <a class="el" href="data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266">decimal_t</a> eps=1, <a class="el" href="data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266">decimal_t</a> cweight=0.1)</td></tr>
 <tr class="memdesc:af0ea003b34a6703da7aaf992711f82a1 inherit pro_methods_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Need to be specified in Child class, main planning function.  <a href="classDMPlanner.html#af0ea003b34a6703da7aaf992711f82a1">More...</a><br /></td></tr>
 <tr class="separator:af0ea003b34a6703da7aaf992711f82a1 inherit pro_methods_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,10 +194,6 @@ std::shared_ptr&lt; <a class="el" href="classJPS_1_1MapUtil.html">JPS::MapUtil</
 std::shared_ptr&lt; <a class="el" href="classDMP_1_1GraphSearch.html">DMP::GraphSearch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a0e656e5f931bb363e8f0dc758d2bbe4a">graph_search_</a></td></tr>
 <tr class="memdesc:a0e656e5f931bb363e8f0dc758d2bbe4a inherit pro_attribs_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">The planner back-end. <br /></td></tr>
 <tr class="separator:a0e656e5f931bb363e8f0dc758d2bbe4a inherit pro_attribs_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a784c8608208b5c9ab96ec979b03fd003 inherit pro_attribs_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a784c8608208b5c9ab96ec979b03fd003"></a>
-<a class="el" href="data__type_8h.html#a6b9210d48a0a541940af71827aad1b41">vec_E</a>&lt; std::pair&lt; <a class="el" href="data__type_8h.html#ac208833a6aa7ec29f39eb5ae142aaede">Veci</a>&lt; Dim &gt;, int8_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a784c8608208b5c9ab96ec979b03fd003">mask_</a></td></tr>
-<tr class="memdesc:a784c8608208b5c9ab96ec979b03fd003 inherit pro_attribs_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask for generating potential field around obstacle. <br /></td></tr>
-<tr class="separator:a784c8608208b5c9ab96ec979b03fd003 inherit pro_attribs_classDMPlanner"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77dec8dd82a73ec02de24fd7353c7755 inherit pro_attribs_classDMPlanner"><td class="memItemLeft" align="right" valign="top"><a id="a77dec8dd82a73ec02de24fd7353c7755"></a>
 std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDMPlanner.html#a77dec8dd82a73ec02de24fd7353c7755">search_region_</a></td></tr>
 <tr class="memdesc:a77dec8dd82a73ec02de24fd7353c7755 inherit pro_attribs_classDMPlanner"><td class="mdescLeft">&#160;</td><td class="mdescRight">tunnel for visualization <br /></td></tr>

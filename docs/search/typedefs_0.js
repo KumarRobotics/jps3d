@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['decimal_5ft',['decimal_t',['../data__type_8h.html#a7c99d9360fc6cac2762b786e2fb52266',1,'data_type.h']]],
-  ['dmplanner2d',['DMPlanner2D',['../distance__map__planner_8h.html#aed9045bb5a0e2788df41814916cffba7',1,'distance_map_planner.h']]],
-  ['dmplanner3d',['DMPlanner3D',['../distance__map__planner_8h.html#aff076e2c24e0195ad406c5b8e42070a0',1,'distance_map_planner.h']]]
+  ['aff2f',['Aff2f',['../data__type_8h.html#a3b95b3d43bb8590852e0e74abaff3c6a',1,'data_type.h']]],
+  ['aff3f',['Aff3f',['../data__type_8h.html#a99980a710976449f0a9d3d2ae8b8be87',1,'data_type.h']]]
 ];

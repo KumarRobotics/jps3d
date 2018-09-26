@@ -1,4 +1,4 @@
-# MRSL Jump Point Search Planning Library v1.0
+# MRSL Jump Point Search Planning Library v1.1
 [![wercker status](https://app.wercker.com/status/880ab5feaff25f0483e5f2c4f834b8c0/s/master "wercker status")](https://app.wercker.com/project/byKey/880ab5feaff25f0483e5f2c4f834b8c0)
 - - -
 Jump Point Search for path planning in both 2D and 3D environments. Original jump point seach algorithm is proposed in ["D. Harabor and A. Grastien. Online Graph Pruning for Pathfinding on Grid Maps. In National Conference on Artificial Intelligence (AAAI), 2011"](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/download/3761/4007). The 3D version is proposed in ["S. Liu, M. Watterson, K. Mohta, K. Sun, S. Bhattacharya, C.J. Taylor and V. Kumar. Planning Dynamically Feasible Trajectories for Quadrotors using Safe Flight Corridors in 3-D Complex Environments. ICRA 2017"](http://ieeexplore.ieee.org/abstract/document/7839930/).
@@ -120,7 +120,7 @@ To generate map in `yaml` format which can be loaded directly in the test node, 
 User can easily change the location of blocks in the source code.
 
 ## DMP Usage
-As mentioned before, `DMPlanner` stands for distance map planner which utilizes the artificial potential field to find a safer local path around a given path for the robot to navigate.
+`DMPlanner` stands for distance map planner which utilizes the artificial potential field to find a safer local path around a given path. We changed the API for setting map of `DMPlanner` in v1.1.
 The key feature of this planner is its ability to push the path away from obstacles as much as possible. An example is given in the following figure
 [example_dmp.png](https://github.com/sikang/jps3d/blob/master/data/example_dmp.png), where red path comes from `JPS` which is always attached to obstacles and blue path is derived from `DMP` which is much safer.
 
@@ -136,8 +136,8 @@ dim: 799 199
 resolution: 0.05
 JPS Planner takes: 7.000000 ms
 JPS Path Distance: 35.109545
-DMP Planner takes: 104.000000 ms
-DMP Path Distance: 37.062964
+DMP Planner takes: 8.000000 ms
+DMP Path Distance: 37.186501
 ```
 
 ## Doxygen

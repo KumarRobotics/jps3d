@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MRSL JPS3D Library
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
    <div id="projectbrief">An implementaion of Jump Point Search on 3D voxel map</div>
   </td>
@@ -82,7 +82,7 @@ $(function() {
 , <a class="el" href="classJPS_1_1GraphSearch.html#a28a092e66b86baf85f225496bb68fb6f">JPS::GraphSearch</a>
 </li>
 <li>createMask()
-: <a class="el" href="classDMPlanner.html#a35d6ef95fbed90c6c450af1f7f83a5b6">DMPlanner&lt; Dim &gt;</a>
+: <a class="el" href="classDMPlanner.html#ad1d4dcf1ec57016cbb8cb5e62da07009">DMPlanner&lt; Dim &gt;</a>
 </li>
 <li>cweight_
 : <a class="el" href="classDMP_1_1GraphSearch.html#a3d0bb6df54bec79212e12052a9d078a4">DMP::GraphSearch</a>
@@ -164,6 +164,9 @@ $(function() {
 </li>
 <li>getMap()
 : <a class="el" href="classJPS_1_1MapUtil.html#a063970737c83a879af2a5a3048fbbcb0">JPS::MapUtil&lt; Dim &gt;</a>
+</li>
+<li>getMapUtil()
+: <a class="el" href="classDMPlanner.html#ace4a86e76f0b912c9b679708eef84123">DMPlanner&lt; Dim &gt;</a>
 </li>
 <li>getOpenSet()
 : <a class="el" href="classDMP_1_1GraphSearch.html#ab4e40596f80a9ceaba5f2c1a6f033ea7">DMP::GraphSearch</a>
@@ -291,9 +294,6 @@ $(function() {
 <li>MapUtil()
 : <a class="el" href="classJPS_1_1MapUtil.html#aa8fd6e0ec48b26aa2389d1fb0abc98ab">JPS::MapUtil&lt; Dim &gt;</a>
 </li>
-<li>mask_
-: <a class="el" href="classDMPlanner.html#a784c8608208b5c9ab96ec979b03fd003">DMPlanner&lt; Dim &gt;</a>
-</li>
 </ul>
 
 
@@ -378,15 +378,33 @@ $(function() {
 <li>search_region_
 : <a class="el" href="classDMPlanner.html#a77dec8dd82a73ec02de24fd7353c7755">DMPlanner&lt; Dim &gt;</a>
 </li>
+<li>setCweight()
+: <a class="el" href="classDMPlanner.html#a4adf903bf3ebbeb9604a10af01a6e2b5">DMPlanner&lt; Dim &gt;</a>
+</li>
+<li>setEps()
+: <a class="el" href="classDMPlanner.html#aa3dba868a99981d6b6bccf54149de31b">DMPlanner&lt; Dim &gt;</a>
+</li>
 <li>setMap()
-: <a class="el" href="classJPS_1_1MapUtil.html#a46c58b74f9236571bf0f0c13c36e1799">JPS::MapUtil&lt; Dim &gt;</a>
+: <a class="el" href="classDMPlanner.html#aca946d73c16840a142b086b99810d52a">DMPlanner&lt; Dim &gt;</a>
+, <a class="el" href="classJPS_1_1MapUtil.html#a46c58b74f9236571bf0f0c13c36e1799">JPS::MapUtil&lt; Dim &gt;</a>
 </li>
 <li>setMapUtil()
-: <a class="el" href="classDMPlanner.html#a4ffe97a6343da3334359e05cdfe6ef9f">DMPlanner&lt; Dim &gt;</a>
-, <a class="el" href="classJPSPlanner.html#a6010d38eee1042eaaa60227ee562f099">JPSPlanner&lt; Dim &gt;</a>
+: <a class="el" href="classJPSPlanner.html#a6010d38eee1042eaaa60227ee562f099">JPSPlanner&lt; Dim &gt;</a>
 </li>
 <li>setPath()
 : <a class="el" href="classDMPlanner.html#afaeb5f88f845c3b3f915895d3bb9570e">DMPlanner&lt; Dim &gt;</a>
+</li>
+<li>setPotentialMapRange()
+: <a class="el" href="classDMPlanner.html#a91f87e62a8be32e7224a26fd504f95e6">DMPlanner&lt; Dim &gt;</a>
+</li>
+<li>setPotentialRadius()
+: <a class="el" href="classDMPlanner.html#a185cc248ad90126275293b68e766e4fe">DMPlanner&lt; Dim &gt;</a>
+</li>
+<li>setPow()
+: <a class="el" href="classDMPlanner.html#a747da87b921d9d15cd80396d944d33cc">DMPlanner&lt; Dim &gt;</a>
+</li>
+<li>setSearchRadius()
+: <a class="el" href="classDMPlanner.html#a6d3b480cf42c3c6878a92b36ec0c53cd">DMPlanner&lt; Dim &gt;</a>
 </li>
 <li>State()
 : <a class="el" href="structDMP_1_1State.html#ae31377baa800ebcf27a22bbd290196af">DMP::State</a>
@@ -404,12 +422,8 @@ $(function() {
 
 
 <h3><a id="index_u"></a>- u -</h3><ul>
-<li>updateDistanceMap()
-: <a class="el" href="classDMPlanner.html#ae205750e4d467b9aa046c12363e6f455">DMPlanner&lt; Dim &gt;</a>
-</li>
 <li>updateMap()
-: <a class="el" href="classDMPlanner.html#a84f02c8c64e7e97f0b220dc2187c26a9">DMPlanner&lt; Dim &gt;</a>
-, <a class="el" href="classJPSPlanner.html#ab3cc838e3b6817c159f4d29037a7095a">JPSPlanner&lt; Dim &gt;</a>
+: <a class="el" href="classJPSPlanner.html#ab3cc838e3b6817c159f4d29037a7095a">JPSPlanner&lt; Dim &gt;</a>
 </li>
 </ul>
 

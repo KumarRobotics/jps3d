@@ -9,6 +9,7 @@ var searchData=
   ['getindex',['getIndex',['../classJPS_1_1MapUtil.html#a5ac31d74de462b53f15a4e4b72516b68',1,'JPS::MapUtil']]],
   ['getjpssucc',['getJpsSucc',['../classJPS_1_1GraphSearch.html#a65f4a24fa9d8033d7805ee84132e668d',1,'JPS::GraphSearch']]],
   ['getmap',['getMap',['../classJPS_1_1MapUtil.html#a063970737c83a879af2a5a3048fbbcb0',1,'JPS::MapUtil']]],
+  ['getmaputil',['getMapUtil',['../classDMPlanner.html#ace4a86e76f0b912c9b679708eef84123',1,'DMPlanner']]],
   ['getopenset',['getOpenSet',['../classDMPlanner.html#a82932210c58fcd19b8938278fa90e099',1,'DMPlanner::getOpenSet()'],['../classDMP_1_1GraphSearch.html#ab4e40596f80a9ceaba5f2c1a6f033ea7',1,'DMP::GraphSearch::getOpenSet()'],['../classJPS_1_1GraphSearch.html#ab4e40596f80a9ceaba5f2c1a6f033ea7',1,'JPS::GraphSearch::getOpenSet()'],['../classJPSPlanner.html#a0a26e20af3012aa41ed9a52c254fb32b',1,'JPSPlanner::getOpenSet()']]],
   ['getorigin',['getOrigin',['../classJPS_1_1MapUtil.html#acd6b8009a980068b78fbfd61947cc454',1,'JPS::MapUtil']]],
   ['getpath',['getPath',['../classDMPlanner.html#aa995b247ebb1739588a091e1cfe4f5a0',1,'DMPlanner::getPath()'],['../classDMP_1_1GraphSearch.html#abc943331e019c3c718cd80f4c4064753',1,'DMP::GraphSearch::getPath()'],['../classJPS_1_1GraphSearch.html#abc943331e019c3c718cd80f4c4064753',1,'JPS::GraphSearch::getPath()'],['../classJPSPlanner.html#aa6acf7cf663fcc260bc67c4d523f6d43',1,'JPSPlanner::getPath()']]],

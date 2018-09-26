@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MRSL JPS3D Library: MRSL Jump Point Search Planning Library v1.0</title>
+<title>MRSL JPS3D Library: MRSL Jump Point Search Planning Library v1.1</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MRSL JPS3D Library
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
    <div id="projectbrief">An implementaion of Jump Point Search on 3D voxel map</div>
   </td>
@@ -61,7 +61,7 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">MRSL Jump Point Search Planning Library v1.0 </div>  </div>
+<div class="title">MRSL Jump Point Search Planning Library v1.1 </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a href="https://app.wercker.com/project/byKey/880ab5feaff25f0483e5f2c4f834b8c0"></a> </p><hr/>
@@ -92,12 +92,12 @@ Visualization</div></div>
 <h5>Mapping Example</h5>
 <p>To generate map in <code>yaml</code> format which can be loaded directly in the test node, a simple executable file <a href="https://github.com/sikang/jps3d/blob/master/test/create_map.cpp"><code>test/create_map.cpp</code></a> is used. User can easily change the location of blocks in the source code.</p>
 <h2>DMP Usage</h2>
-<p>As mentioned before, <code><a class="el" href="classDMPlanner.html" title="Abstract base for planning. ">DMPlanner</a></code> stands for distance map planner which utilizes the artificial potential field to find a safer local path around a given path for the robot to navigate. The key feature of this planner is its ability to push the path away from obstacles as much as possible. An example is given in the following figure <a href="https://github.com/sikang/jps3d/blob/master/data/example_dmp.png">example_dmp.png</a>, where red path comes from <code>JPS</code> which is always attached to obstacles and blue path is derived from <code>DMP</code> which is much safer.</p>
+<p><code><a class="el" href="classDMPlanner.html" title="Abstract base for planning. ">DMPlanner</a></code> stands for distance map planner which utilizes the artificial potential field to find a safer local path around a given path. We changed the API for setting map of <code><a class="el" href="classDMPlanner.html" title="Abstract base for planning. ">DMPlanner</a></code> in v1.1. The key feature of this planner is its ability to push the path away from obstacles as much as possible. An example is given in the following figure <a href="https://github.com/sikang/jps3d/blob/master/data/example_dmp.png">example_dmp.png</a>, where red path comes from <code>JPS</code> which is always attached to obstacles and blue path is derived from <code>DMP</code> which is much safer.</p>
 <div class="image">
 <img src="example_dmp.png" alt="example_dmp.png"/>
 <div class="caption">
 Visualization</div></div>
-<p> The code for generating this figure is given in <a href="https://github.com/sikang/jps3d/blob/master/test/test_distance_map_planner_2d.cpp"><code>test/test_distance_map_2d.cpp</code></a>. </p><div class="fragment"><div class="line">$ ./build/test_distance_map_planner_2d ../data/corridor.yaml</div><div class="line">start: 2.5  -2</div><div class="line">goal:  35 2.5</div><div class="line">origin:  0 -5</div><div class="line">dim: 799 199</div><div class="line">resolution: 0.05</div><div class="line">JPS Planner takes: 7.000000 ms</div><div class="line">JPS Path Distance: 35.109545</div><div class="line">DMP Planner takes: 104.000000 ms</div><div class="line">DMP Path Distance: 37.062964</div></div><!-- fragment --><h2>Doxygen</h2>
+<p> The code for generating this figure is given in <a href="https://github.com/sikang/jps3d/blob/master/test/test_distance_map_planner_2d.cpp"><code>test/test_distance_map_2d.cpp</code></a>. </p><div class="fragment"><div class="line">$ ./build/test_distance_map_planner_2d ../data/corridor.yaml</div><div class="line">start: 2.5  -2</div><div class="line">goal:  35 2.5</div><div class="line">origin:  0 -5</div><div class="line">dim: 799 199</div><div class="line">resolution: 0.05</div><div class="line">JPS Planner takes: 7.000000 ms</div><div class="line">JPS Path Distance: 35.109545</div><div class="line">DMP Planner takes: 8.000000 ms</div><div class="line">DMP Path Distance: 37.186501</div></div><!-- fragment --><h2>Doxygen</h2>
 <p>For more details, please refer to <a href="https://kumarrobotics.github.io/jps3d">Doxygen</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
