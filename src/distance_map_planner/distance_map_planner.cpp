@@ -173,12 +173,6 @@ vec_Vecf<Dim> DMPlanner<Dim>::getAllSet() const {
 }
 
 template <int Dim>
-void DMPlanner<Dim>::updateMap() {
-  cmap_ = map_util_->getMap();
-}
-
-
-template <int Dim>
 std::vector<bool> DMPlanner<Dim>::setPath(const vec_Vecf<Dim>& path,
                                           const Vecf<Dim>& radius, bool dense) {
   prior_path_ = path;
@@ -359,8 +353,9 @@ vec_Vec3f DMPlanner<Dim>::getCloud(double h_max) {
 
 
 template <int Dim>
-void DMPlanner<Dim>::createMask(int pow) {
-  mask_.clear();
+vec_E<std::pair<Veci<Dim>, int8_t>> DMPlanner<Dim>::createMask(int pow) {
+  /// Mask for generating potential field around obstacle
+   vec_E<std::pair<Veci<Dim>, int8_t>> mask;
   // create mask
   double res = map_util_->getRes();
   double h_max = H_MAX;
@@ -375,7 +370,7 @@ void DMPlanner<Dim>::createMask(int pow) {
           continue;
         double h = h_max * std::pow((1 - (double) std::hypot(n(0), n(1)) / rn), pow);
         if(h > 1e-3)
-          mask_.push_back(std::make_pair(n, (int8_t) h));
+          mask.push_back(std::make_pair(n, (int8_t) h));
       }
     }
   }
@@ -388,23 +383,25 @@ void DMPlanner<Dim>::createMask(int pow) {
             continue;
           double h = h_max * std::pow((1 - (double) std::hypot(n(0), n(1)) / rn) * (1 - (double) std::abs(n(2)) / hn), pow);
           if(h > 1e-3)
-            mask_.push_back(std::make_pair(n, (int8_t) h));
+            mask.push_back(std::make_pair(n, (int8_t) h));
         }
       }
     }
   }
+
+  return mask;
 }
 
-
 template <int Dim>
-void DMPlanner<Dim>::updateDistanceMap(const Vecf<Dim>& pos, const Vecf<Dim>& range) {
+void DMPlanner<Dim>::updateMap(const Vecf<Dim>& pos) {
+  const auto mask = createMask(pow_);
   // compute a 2D local distance map
   const auto dim = map_util_->getDim();
   Veci<Dim> coord1 = Veci<Dim>::Zero();
   Veci<Dim> coord2 = dim;
-  if(range.norm() > 0) {
-    coord1 = map_util_->floatToInt(pos - range);
-    coord2 = map_util_->floatToInt(pos + range);
+  if(potential_map_range_.norm() > 0) {
+    coord1 = map_util_->floatToInt(pos - potential_map_range_);
+    coord2 = map_util_->floatToInt(pos + potential_map_range_);
     for(int i = 0; i < Dim; i++) {
       if(coord1(i) < 0)
         coord1(i) = 0;
@@ -428,7 +425,7 @@ void DMPlanner<Dim>::updateDistanceMap(const Vecf<Dim>& pos, const Vecf<Dim>& ra
         int idx = map_util_->getIndex(n);
         if(map[idx] > 0) {
           distance_map[idx] = H_MAX;
-          for(const auto& it: mask_) {
+          for(const auto& it: mask) {
             const Veci<Dim> new_n = n + it.first;
 
             if(!map_util_->isOutside(new_n)) {
@@ -447,7 +444,7 @@ void DMPlanner<Dim>::updateDistanceMap(const Vecf<Dim>& pos, const Vecf<Dim>& ra
           int idx = map_util_->getIndex(n);
           if(map[idx] > 0) {
             distance_map[idx] = H_MAX;
-            for(const auto& it: mask_) {
+            for(const auto& it: mask) {
               const Veci<Dim> new_n = n + it.first;
 
               if(!map_util_->isOutside(new_n)) {
@@ -461,7 +458,8 @@ void DMPlanner<Dim>::updateDistanceMap(const Vecf<Dim>& pos, const Vecf<Dim>& ra
     }
   }
 
-  map_util_->setMap(map_util_->getOrigin(), dim, distance_map, map_util_->getRes());
+  //map_util_->setMap(map_util_->getOrigin(), dim, distance_map, map_util_->getRes());
+  cmap_ = distance_map;
 }
 
 template <int Dim>
@@ -561,14 +559,10 @@ bool DMPlanner<Dim>::computePath(const Vecf<Dim>& start, const Vecf<Dim>& goal, 
     printf("pow: %d\n", pow_);
     std::cout << "search_radius: " << search_radius_.transpose() << std::endl;
     std::cout << "potential_radius: " << potential_radius_.transpose() << std::endl;
-    std::cout << "potential map range: " << potential_map_range_.transpose() << std::endl;;
+    std::cout << "potential_map_range: " << potential_map_range_.transpose() << std::endl;
     printf("****************[DistanceMapPlanner]***************\n");
   }
-  createMask(pow_);
 
-  updateDistanceMap(start, potential_map_range_);
-
-  updateMap();
   search_region_ = setPath(path, search_radius_, false); // sparse input path
 
   return plan(start, goal, eps_, cweight_);
@@ -597,14 +591,9 @@ bool IterativeDMPlanner<Dim>::iterativeComputePath(
     printf("max_iteration: %d\n", max_iteration);
     std::cout << "search_radius: " << this->search_radius_.transpose() << std::endl;
     std::cout << "potential_radius: " << this->potential_radius_.transpose() << std::endl;
-    std::cout << "potential map range: " << this->potential_map_range_.transpose() << std::endl;;
+    std::cout << "potential_map_range: " << this->potential_map_range_.transpose() << std::endl;
     printf("****************[IterativeDistanceMapPlanner]***************\n");
   }
-  this->createMask(this->pow_);
-
-  this->updateDistanceMap(start, this->potential_map_range_);
-
-  this->updateMap();
 
   vec_Vecf<Dim> path = prior_path;
   double prev_cost = std::numeric_limits<double>::infinity();

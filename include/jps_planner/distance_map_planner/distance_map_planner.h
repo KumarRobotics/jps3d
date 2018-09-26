@@ -69,20 +69,17 @@ public:
   /// Get the searching region
   vec_Vecf<Dim> getSearchRegion();
 
-  /// Must be called before run the planning thread
-  void updateMap();
-  /// Create the mask for potential distance field
-  void createMask(int pow);
   /**
    * @brief Generate distance map
    * @param pos center of the distance map
-   * @param range the range for local distance map, if range is zero, do global generation
    */
-  void updateDistanceMap(const Vecf<Dim>& pos, const Vecf<Dim>& range);
+  void updateMap(const Vecf<Dim>& pos);
 
   /// Compute the optimal path
   bool computePath(const Vecf<Dim>& start, const Vecf<Dim>& goal, const vec_Vecf<Dim>& path);
 protected:
+  /// Create the mask for potential distance field
+  vec_E<std::pair<Veci<Dim>, int8_t>> createMask(int pow);
   /// Need to be specified in Child class, main planning function
   bool plan(const Vecf<Dim> &start, const Vecf<Dim> &goal,
             decimal_t eps = 1, decimal_t cweight = 0.1);
@@ -97,8 +94,6 @@ protected:
   std::shared_ptr<JPS::MapUtil<Dim>> map_util_;
   /// The planner back-end
   std::shared_ptr<DMP::GraphSearch> graph_search_;
-  /// Mask for generating potential field around obstacle
-  vec_E<std::pair<Veci<Dim>, int8_t>> mask_;
   /// tunnel for visualization
   std::vector<bool> search_region_;
   /// 1-D map array

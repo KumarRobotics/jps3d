@@ -6,7 +6,7 @@ int main() {
   // Set start & goal
   std::vector<double> start{0.5, 9.5, 0};
   std::vector<double> goal{19.5, 0.5, 0};
-  // Create a map 
+  // Create a map
   std::vector<double> origin{0, 0, 0}; // set origin at (0, 0, 0)
   std::vector<int> dim{199, 99, 1}; // set the number of cells in each dimension as 20, 10, 1
   double res = 0.1; // set resolution as 1m
@@ -49,18 +49,18 @@ int main() {
   out << YAML::BeginMap;
   out << YAML::Key << "dim" << YAML::Value << YAML::Flow << dim;
   out << YAML::EndMap;
-  // Encode resolution 
+  // Encode resolution
   out << YAML::BeginMap;
   out << YAML::Key << "resolution" << YAML::Value << res;
   out << YAML::EndMap;
-  // Encode occupancy 
+  // Encode occupancy
   out << YAML::BeginMap;
   out << YAML::Key << "data" << YAML::Value << YAML::Flow << data;
   out << YAML::EndMap;
 
   out << YAML::EndSeq;
   std::cout << "Here is the example map:\n" << out.c_str() << std::endl;
-  
+
   std::ofstream file;
   file.open("simple.yaml");
   file << out.c_str();

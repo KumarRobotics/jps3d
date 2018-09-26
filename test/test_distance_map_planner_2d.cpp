@@ -45,10 +45,11 @@ int main(int argc, char ** argv){
 
 
   // Set up DMP planner
-  DMPlanner2D dmp(false);
+  DMPlanner2D dmp(true);
   dmp.setMapUtil(map_util); // Set map util for collision checking
   dmp.setPotentialRadius(Vec2f(1.0, 1.0)); // Set 2D potential field radius
   dmp.setSearchRadius(Vec2f(0.5, 0.5)); // Set the valid search region around given path
+  dmp.updateMap(start); // Must be called before planning
 
   // Run DMP planner
   Timer time_dist(true);

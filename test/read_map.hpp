@@ -19,13 +19,13 @@ class MapReader {
           start_(i) = start[i];
         if(verbose)
           std::cout << "start: " << start_.transpose() << std::endl;
- 
+
         const std::vector<double>& goal = config[1]["goal"].as<std::vector<double>>();
         for(unsigned int i = 0; i < goal.size(); i++)
           goal_(i) = goal[i];
         if(verbose)
           std::cout << "goal: " << goal_.transpose() << std::endl;
-  
+
         const std::vector<double>& origin_vec = config[2]["origin"].as<std::vector<double>>();
         for(unsigned int i = 0; i < origin_vec.size(); i++)
           origin_(i) = origin_vec[i];
@@ -46,7 +46,7 @@ class MapReader {
         data_.resize(data.size());
         for(unsigned int i = 0; i < data.size(); i++)
           data_[i] = data[i] > 0 ? 1 : 0;
-        
+
         exist_ = true;
       } catch (YAML::ParserException& e) {
         //std::cout << e.what() << "\n";
