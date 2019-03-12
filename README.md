@@ -100,7 +100,7 @@ In other words, `JPS` guarantees the optimality but saves a significant amount o
 
 ![Visualization](./data/corridor.png)
 ```bash
-$ ./build/test_planner_2d ../data/corridor.yaml
+$ ./build/test_planner_2d ./data/corridor.yaml
 start: 2.5  -2
 goal:  35 2.5
 origin:  0 -5
@@ -128,7 +128,7 @@ The key feature of this planner is its ability to push the path away from obstac
 
 The code for generating this figure is given in [`test/test_distance_map_2d.cpp`](https://github.com/sikang/jps3d/blob/master/test/test_distance_map_planner_2d.cpp).
 ```bash
-$ ./build/test_distance_map_planner_2d ../data/corridor.yaml
+$ ./build/test_distance_map_planner_2d ./data/corridor.yaml
 start: 2.5  -2
 goal:  35 2.5
 origin:  0 -5
