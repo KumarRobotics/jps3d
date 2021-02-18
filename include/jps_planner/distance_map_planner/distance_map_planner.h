@@ -2,8 +2,8 @@
  * @file distance_map_planner.h
  * @brief distance map planner!
  */
-#ifndef DMPLANNER_H
-#define DMPLANNER_H
+#ifndef DMP_LANNER_H
+#define DMP_LANNER_H
 
 #include "graph_search.h"
 #include <jps_collision/map_util.h>
